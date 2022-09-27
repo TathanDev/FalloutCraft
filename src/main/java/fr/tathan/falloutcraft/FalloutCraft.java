@@ -3,6 +3,7 @@ package fr.tathan.falloutcraft;
 import com.mojang.logging.LogUtils;
 import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
+import fr.tathan.falloutcraft.common.registries.PaintingsRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +32,7 @@ public class FalloutCraft
         ItemsRegistry.ITEMS.register(modEventBus);
         ItemsRegistry.POTIONS.register(modEventBus);
         EffectsRegistry.MOB_EFFECTS.register(modEventBus);
+        PaintingsRegistry.PAINTING_VARIANTS.register(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);
