@@ -1,11 +1,11 @@
 package fr.tathan.falloutcraft;
 
 import com.mojang.logging.LogUtils;
-import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
-import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
-import fr.tathan.falloutcraft.common.registries.PaintingsRegistry;
+import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
+import fr.tathan.falloutcraft.common.registries.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -33,6 +33,9 @@ public class FalloutCraft
         ItemsRegistry.POTIONS.register(modEventBus);
         EffectsRegistry.MOB_EFFECTS.register(modEventBus);
         PaintingsRegistry.PAINTING_VARIANTS.register(modEventBus);
+        BlocksRegistry.BLOCKS.register(modEventBus);
+        FluidsRegistry.FLUIDS.register(modEventBus);
+        ModFluidTypes.FLUID_TYPES.register(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);
