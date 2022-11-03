@@ -1,0 +1,20 @@
+{
+	"variants": {
+	"facing=north": {
+		"model": "falloutcraft:block/papers_on_the_ground"
+	},
+	"facing=south": {
+		"model": "falloutcraft:block/papers_on_the_ground",
+		"y": 180
+	},
+	"facing=west": {
+		"model": "falloutcraft:block/papers_on_the_ground",
+		"y": 270
+	},
+	"facing=east": {
+		"model": "falloutcraft:block/papers_on_the_ground",
+		"y": 90
+	}
+}
+}
+

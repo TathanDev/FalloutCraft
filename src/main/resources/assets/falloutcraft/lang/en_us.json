@@ -1,9 +1,16 @@
 {
 
   "item.falloutcraft.nuka_cola": "Nuka Cola",
+  "item.falloutcraft.paper_on_the_ground": "Paper on the ground",
+  "item.falloutcraft.radiated_water_bucket": "Radiated Water",
+
+
+  "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
 
   "effect.falloutcraft.radiations": "Radiations",
 
-  "itemGroup.falloutcraft_tab": "FalloutCraft"
+  "itemGroup.falloutcraft_tab": "FalloutCraft",
+  "itemGroup.decoration_tab": "Decoration"
+
 
 }

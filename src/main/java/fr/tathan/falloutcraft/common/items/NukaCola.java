@@ -20,7 +20,7 @@ public class NukaCola  extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving) {
         pEntityLiving.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 200, 0));
-        pEntityLiving.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0, false, false, false));
+        pEntityLiving.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0, false, false, true));
 
 
         if (pLevel.isClientSide) {

@@ -2,9 +2,12 @@ package fr.tathan.falloutcraft.common.events;
 
 
 import fr.tathan.falloutcraft.FalloutCraft;
+import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
+import fr.tathan.falloutcraft.common.registries.FluidsRegistry;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import net.minecraft.client.renderer.EffectInstance;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -28,6 +31,13 @@ public class Events {
                     player.removeEffect(EffectsRegistry.RADIATION.get());
                 }
             }
+
+            /**
+            if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get())) {
+
+                player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 10));
+
+            } */
         }
     }
 }
