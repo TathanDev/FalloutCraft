@@ -5,6 +5,8 @@ import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.registries.*;
 import fr.tathan.falloutcraft.common.worldgen.FalloutRegion;
 import fr.tathan.falloutcraft.common.worldgen.FalloutSurfaceRuleData;
+import fr.tathan.falloutcraft.common.worldgen.features.FalloutConfiguredFeatures;
+import fr.tathan.falloutcraft.common.worldgen.features.FalloutPlacedFeatures;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -39,6 +41,10 @@ public class FalloutCraft
         FluidsRegistry.FLUIDS.register(modEventBus);
         ModFluidTypes.FLUID_TYPES.register(modEventBus);
         BiomesRegistry.BIOME_REGISTER.register(modEventBus);
+        FalloutConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
+        FalloutPlacedFeatures.PLACED_FEATURES.register(modEventBus);
+        SoundsRegistry.SOUNDS.register(modEventBus);
+
         BiomesRegistry.registerBiomes();
 
 
@@ -50,9 +56,6 @@ public class FalloutCraft
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        LOGGER.info("HELLO FROM COMMON SETUP");
-        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-
         event.enqueueWork(() ->
         {
             // Given we only add two biomes, we should keep our weight relatively low.

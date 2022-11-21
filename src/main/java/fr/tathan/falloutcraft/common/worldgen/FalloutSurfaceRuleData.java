@@ -22,7 +22,6 @@ public class FalloutSurfaceRuleData {
 
                 // Default to a grass and dirt surface
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, grassSurface)
-
         );
     }
 

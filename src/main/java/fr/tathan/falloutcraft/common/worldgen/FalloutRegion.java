@@ -29,13 +29,24 @@ public class FalloutRegion extends Region {
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
             List<Climate.ParameterPoint> PlainsPoints = new ParameterPointListBuilder()
                     .temperature( Temperature.COOL)
-                    .humidity(Humidity.ARID)
+                    .humidity(Humidity.NEUTRAL)
                     .continentalness(Continentalness.span(Continentalness.MID_INLAND, Continentalness.FAR_INLAND))
-                    .erosion(Erosion.EROSION_0, Erosion.EROSION_1)
-                    .depth(Depth.SURFACE, Depth.FLOOR)
+                    .erosion(Erosion.EROSION_4)
+                    .depth(Depth.SURFACE)
                     .weirdness(Weirdness.HIGH_SLICE_VARIANT_ASCENDING, Weirdness.PEAK_VARIANT, Weirdness.HIGH_SLICE_VARIANT_DESCENDING)
                     .build();
 
+            List<Climate.ParameterPoint> ForestPoints = new ParameterPointListBuilder()
+                    .temperature(Temperature.COOL)
+                    .humidity(Humidity.NEUTRAL)
+                    .continentalness(Continentalness.span(Continentalness.MID_INLAND, Continentalness.FAR_INLAND))
+                    .erosion(Erosion.EROSION_0, Erosion.EROSION_1)
+                    .depth(Depth.SURFACE)
+                    .weirdness(Weirdness.HIGH_SLICE_VARIANT_ASCENDING, Weirdness.PEAK_VARIANT, Weirdness.HIGH_SLICE_VARIANT_DESCENDING)
+                    .build();
+
+
+            ForestPoints.forEach(point ->builder.replaceBiome(Biomes.FOREST, FalloutBiomes.RADIOACTIVE_FOREST));
             PlainsPoints.forEach(point ->builder.replaceBiome(Biomes.PLAINS, FalloutBiomes.RADIOACTIVE_PLAINS));
         });
     }

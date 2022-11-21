@@ -21,6 +21,7 @@ public class BiomesRegistry {
     public static void registerBiomes()
     {
         register(FalloutBiomes.RADIOACTIVE_PLAINS, FalloutOverworldBiomes::radioactivePlains);
+        register(FalloutBiomes.RADIOACTIVE_FOREST, FalloutOverworldBiomes::radioactiveForest);
     }
 
     public static RegistryObject<Biome> register(ResourceKey<Biome> key, Supplier<Biome> biomeSupplier)

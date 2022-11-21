@@ -27,7 +27,11 @@ public class ItemsRegistry {
             () -> new BucketItem(FluidsRegistry.SOURCE_RADIATED_WATER,
                     new Item.Properties().tab(TabsRegistry.TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
 
+    public static final RegistryObject<BlockItem> IRRADIATED_OAK_SAPLING_ITEM = ITEMS.register("irradiated_oak_sapling", () -> new BlockItem(BlocksRegistry.IRRADIATED_OAK_SAPLING.get(), new Item.Properties().tab(TabsRegistry.TAB)));
+
     public static final RegistryObject<BlockItem> PAPERS_ON_THE_GROUND_ITEM = ITEMS.register("papers_on_the_ground", () -> new BlockItem(BlocksRegistry.PAPERS_ON_THE_GROUND.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
+    public static final RegistryObject<BlockItem> NUKA_COLA_MACHINE_ITEM = ITEMS.register("nuka_cola_machine", () -> new BlockItem(BlocksRegistry.NUKA_COLA_MACHINE.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
+
 
 
 

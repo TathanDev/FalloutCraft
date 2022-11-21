@@ -7,6 +7,7 @@ Fallout craft is a small mod which adds a few items from the fallout series to m
 - Fallout themed items (Nuka Cola)
 - Radiations Water
 - Fallout Paintings
+- Radiated Rain
 
 ### TODO
 
@@ -17,6 +18,7 @@ Fallout craft is a small mod which adds a few items from the fallout series to m
 - Decoration Blocks 
 - More Paintings
 - Machines (Custom Crafting)
+- Mobs (RADROACHES, Bloodbugs)
 
 
 

@@ -1,11 +1,14 @@
 package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
+import fr.tathan.falloutcraft.common.blocks.NukaColaMachine;
 import fr.tathan.falloutcraft.common.blocks.PapersOnTheGround;
 import fr.tathan.falloutcraft.common.blocks.RadiatedWaterBlock;
+import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,6 +24,15 @@ public class BlocksRegistry {
             () -> new RadiatedWaterBlock(FluidsRegistry.SOURCE_RADIATED_WATER, BlockBehaviour.Properties.copy(Blocks.WATER).lightLevel((p_50872_) -> {
                 return 12;
             })));
+
+
+    public static final RegistryObject<Block> IRRADIATED_OAK_SAPLING = BLOCKS.register("irradiated_oak_sapling",
+            () -> new SaplingBlock(new IrradiatedOakGrower(),
+                    BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+
+    public static final RegistryObject<Block> NUKA_COLA_MACHINE = BLOCKS.register("nuka_cola_machine",
+            () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
 
 
 

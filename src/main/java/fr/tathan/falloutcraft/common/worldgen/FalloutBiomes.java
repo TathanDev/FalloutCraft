@@ -10,6 +10,7 @@ public class FalloutBiomes {
 
 
     public static final ResourceKey<Biome> RADIOACTIVE_PLAINS = register("radioactive_plains");
+    public static final ResourceKey<Biome> RADIOACTIVE_FOREST = register("radioactive_forest");
 
     private static ResourceKey<Biome> register(String name)
     {

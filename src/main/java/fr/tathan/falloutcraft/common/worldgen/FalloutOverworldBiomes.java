@@ -1,17 +1,23 @@
 package fr.tathan.falloutcraft.common.worldgen;
 
+import fr.tathan.falloutcraft.common.worldgen.features.FalloutPlacedFeatures;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.sounds.Music;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.levelgen.GenerationStep;
 
 import javax.annotation.Nullable;
+
+import static fr.tathan.falloutcraft.common.registries.SoundsRegistry.APOCALYSPE_MUSIC_1;
 
 public class FalloutOverworldBiomes {
 
 
-    @Nullable
-    private static final Music NORMAL_MUSIC = null;
+
+    private static final Music APOCALYPTIC_MUSIC = new Music(APOCALYSPE_MUSIC_1.get(), 6000, 24000, true);
+
 
     protected static int calculateSkyColor(float color)
     {
@@ -43,21 +49,52 @@ public class FalloutOverworldBiomes {
     public static Biome radioactivePlains()
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.desertSpawns(spawnBuilder);
+        BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
 
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
         globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultFlowers(biomeBuilder);
+        //BiomeDefaultFeatures.addDefaultFlowers(biomeBuilder);
         BiomeDefaultFeatures.addDefaultGrass(biomeBuilder);
         BiomeDefaultFeatures.addDesertVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
-        return biome(Biome.Precipitation.NONE, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
+        BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
+        calculateSkyColor(6415715);
+        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
+
+
+    public static Biome radioactiveForest()
+    {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
+
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultGrass(biomeBuilder);
+        BiomeDefaultFeatures.addDesertVegetation(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
+        BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
+        BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
+
+        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
+    }
+
+
+
+
+
+
+
+
 
 
 }
