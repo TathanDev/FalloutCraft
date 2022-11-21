@@ -22,15 +22,6 @@ public class NukaCola  extends Item {
         pEntityLiving.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 200, 0));
         pEntityLiving.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0, false, false, true));
 
-
-        if (pLevel.isClientSide) {
-
-
-        }
-
-
-
-
         return super.finishUsingItem(pStack, pLevel, pEntityLiving);
     }
 

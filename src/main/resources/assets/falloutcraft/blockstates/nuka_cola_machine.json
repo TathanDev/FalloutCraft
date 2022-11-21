@@ -1,0 +1,20 @@
+{
+	"variants": {
+	"facing=north": {
+		"model": "falloutcraft:block/nuka_cola_machine"
+	},
+	"facing=south": {
+		"model": "falloutcraft:block/nuka_cola_machine",
+		"y": 180
+	},
+	"facing=west": {
+		"model": "falloutcraft:block/nuka_cola_machine",
+		"y": 270
+	},
+	"facing=east": {
+		"model": "falloutcraft:block/nuka_cola_machine",
+		"y": 90
+	}
+}
+}
+

@@ -4,6 +4,7 @@ plugins {
      id 'net.minecraftforge.gradle' version '5.1.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 
+
 }
 
 version = 'alpha-1.0'
@@ -14,7 +15,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: 'parchment', version: '2022.08.14-1.19.2'
+    mappings channel: 'parchment', version: '2022.10.16-1.19.2'
     //accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
 
 
@@ -27,9 +28,6 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             property 'forge.enabledGameTestNamespaces', 'falloutcraft'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
 
             mods {
                 falloutcraft {
@@ -47,6 +45,7 @@ minecraft {
 
             property 'forge.enabledGameTestNamespaces', 'falloutcraft'
 
+
             mods {
                 falloutcraft {
                     source sourceSets.main
@@ -62,6 +61,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             property 'forge.enabledGameTestNamespaces', 'falloutcraft'
+
 
             mods {
                 falloutcraft {
@@ -90,11 +90,16 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+
+
+
 repositories {
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.1.27'
+
+
     implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version)
 
 

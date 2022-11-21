@@ -3,6 +3,8 @@
   "item.falloutcraft.nuka_cola": "Nuka Cola",
   "item.falloutcraft.paper_on_the_ground": "Paper on the ground",
   "item.falloutcraft.radiated_water_bucket": "Radiated Water",
+  "item.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
+
 
 
   "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
@@ -10,7 +12,9 @@
   "effect.falloutcraft.radiations": "Radiations",
 
   "itemGroup.falloutcraft_tab": "FalloutCraft",
-  "itemGroup.decoration_tab": "Decoration"
+  "itemGroup.decoration_tab": "Decoration",
 
+  "death.attack.radioactive_rain": "%1$s took a shower of plutonium",
 
+  "tooltip.falloutcraft.radiations": "&cRadiations : %s"
 }
