@@ -16,5 +16,7 @@
 
   "death.attack.radioactive_rain": "%1$s took a shower of plutonium",
 
-  "tooltip.falloutcraft.radiations": "&cRadiations : %s"
+  "tooltip.falloutcraft.radiations": "&cRadiations : %s",
+  "commands.falloutcraft.addRadiation.success": "Radiations set to %s for %s",
+    "commands.falloutcraft.addRadiation.failure": "Radiations can't be add to %s"
 }
