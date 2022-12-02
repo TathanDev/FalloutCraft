@@ -25,8 +25,8 @@ public class PapersOnTheGround extends HorizontalDirectionalBlock implements Sim
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty STAGE = BlockStateProperties.LIT;
 
-    public static final VoxelShape SHAPE_HIGH = Shapes.box(0, 0, 0, 0, 0.2, 1);
-    public static final VoxelShape SHAPE_NORMAL = Shapes.box(0, 0, 0, 0, 0.2, 1);
+    public static final VoxelShape SHAPE_HIGH = Shapes.box(0, 0, 0, 0, 1, 1);
+    public static final VoxelShape SHAPE_NORMAL = Shapes.box(0, 0, 0, 0, 1, 1);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public PapersOnTheGround(Properties pProperties) {
         super(pProperties);

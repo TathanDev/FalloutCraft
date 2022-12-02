@@ -12,10 +12,9 @@ import net.minecraft.world.item.ItemStack;
 public class RadiationTooltip implements TooltipComponent {
 
 
-    public static final int TEXT_HEIGHT = -1;
-    public static final int ICON_WIDTH = 12;
-    public static final int SINGLE_HEIGHT = TEXT_HEIGHT + ICON_WIDTH;
-    public static final int SINGLE_WIDTH = ICON_WIDTH + 4;
+    public static final int SINGLE_HEIGHT = 11;
+    public static final int SINGLE_WIDTH = 70;
+                                        //16
 
 
     private final double radiation;
@@ -42,6 +41,5 @@ public class RadiationTooltip implements TooltipComponent {
 
 
 }
-
 
 

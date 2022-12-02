@@ -5,10 +5,7 @@ import fr.tathan.falloutcraft.common.blocks.NukaColaMachine;
 import fr.tathan.falloutcraft.common.blocks.PapersOnTheGround;
 import fr.tathan.falloutcraft.common.blocks.RadiatedWaterBlock;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -31,14 +28,17 @@ public class BlocksRegistry {
                     BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     public static final RegistryObject<Block> NUKA_COLA_MACHINE = BLOCKS.register("nuka_cola_machine",
-            () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-
+            () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+                                                                                        //May Fix the Cave Block issue
 
 
 
     /** Decorations Blocks */
     public static final RegistryObject<Block>  PAPERS_ON_THE_GROUND = BLOCKS.register("papers_on_the_ground",
             () -> new PapersOnTheGround(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noCollission().instabreak()));
+
+    public static final RegistryObject<Block>  VAULT_TRAPDOOR = BLOCKS.register("vault_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).instabreak()));
 
 
 

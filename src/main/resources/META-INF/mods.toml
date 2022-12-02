@@ -12,7 +12,7 @@ displayName="Fallout Craft"
 credits=""
 authors="TATHAN"
 description='''
-Falloout Craft is a mod that adds in Fallout themed items, blocks,structures and more...
+Fallout Craft is a mod that adds in Fallout themed items, blocks,structures and more...
 Explore a devastated wasteland, fight raiders, and find rare loot!
 '''
 [[dependencies.falloutcraft]]
@@ -28,3 +28,5 @@ Explore a devastated wasteland, fight raiders, and find rare loot!
     versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"
+
+

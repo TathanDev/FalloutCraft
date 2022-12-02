@@ -8,10 +8,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 
 public class ClientRadiationTooltip implements ClientTooltipComponent  {
 
-
-
     private final RadiationTooltip tooltip;
-
 
     public ClientRadiationTooltip(RadiationTooltip tooltip) {
 
@@ -32,13 +29,16 @@ public class ClientRadiationTooltip implements ClientTooltipComponent  {
     @Override
     public void renderText(Font font, int posX, int posY, Matrix4f matrix4f, MultiBufferSource.BufferSource source) {
         int width = 0;
-            final float scale = 1F;
-            matrix4f.multiply(Matrix4f.createScaleMatrix(scale, scale, scale));
-            final String text = "Radiation : " + tooltip.getRadiation();
-            final int textWidth = font.width(text);
-            //10 is too ->>>> very explicit :)))
-            font.drawInBatch(text, posX / scale, (posY + 1) / scale, -1, true, matrix4f, source, false, 130, 15728880);
-            matrix4f.multiply(Matrix4f.createScaleMatrix(1 / scale, 1 / scale, 1 / scale));
+        final float scale = 1F;
+        matrix4f.multiply(Matrix4f.createScaleMatrix(scale, scale, scale));
+
+        final String pText = "Radiation : " + tooltip.getRadiation();
+        final String text = pText;
+
+        final int textWidth = font.width(text);
+
+        font.drawInBatch(text, posX / scale, (posY + 1) / scale, -1, true, matrix4f, source, false, 130, 15728880);
+        matrix4f.multiply(Matrix4f.createScaleMatrix(1 / scale, 1 / scale, 1 / scale));
         }
 
 

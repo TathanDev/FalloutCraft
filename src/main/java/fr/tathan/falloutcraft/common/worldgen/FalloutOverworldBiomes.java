@@ -63,10 +63,13 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
         calculateSkyColor(6415715);
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
 
+
+    //TODO : Make some cool flowers
 
     public static Biome radioactiveForest()
     {
@@ -81,6 +84,7 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDefaultGrass(biomeBuilder);
         BiomeDefaultFeatures.addDesertVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);

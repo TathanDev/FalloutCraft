@@ -13,9 +13,9 @@ public class RadiationsEffect extends MobEffect {
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-            pLivingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 2, 0, false, false, false));
-            pLivingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 2, 0, false, false, false));
-            pLivingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 2, 0, false, false, false));
+            pLivingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 5, 0, false, false, false));
+            pLivingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 5, 0, false, false, false));
+            pLivingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 5, 0, false, false, false));
 
         super.applyEffectTick(pLivingEntity, pAmplifier);
     }

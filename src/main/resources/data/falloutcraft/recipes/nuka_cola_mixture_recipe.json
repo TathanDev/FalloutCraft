@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xyz"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:glass_bottle"
+    },
+    "y": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "z": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "falloutcraft:nuka_cola_mixture",
+    "count": 4
+  }
+}

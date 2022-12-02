@@ -2,7 +2,7 @@ package fr.tathan.falloutcraft.common.events;
 
 
 import fr.tathan.falloutcraft.FalloutCraft;
-import fr.tathan.falloutcraft.common.commands.AddRadiationItemCommand;
+import fr.tathan.falloutcraft.common.commands.RadiationItemCommand;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -41,8 +42,6 @@ public class Events {
             Player player = event.player;
             Level level = player.level;
 
-            ItemStack s = player.getMainHandItem();
-
 
             if (player.getArmorSlots().equals(ItemsRegistry.NUKA_COLA.get())) { //
                 if (player.hasEffect(EffectsRegistry.RADIATION.get())) {
@@ -51,14 +50,46 @@ public class Events {
                 }
             }
 
-
             if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) || player.isInWater()) {
                 player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 10));
             }
 
+                if(event.player.getRandom().nextFloat() < 005f) {
+               // if(event.player.getRandom().nextFloat() < 0.005f) {
+                for (ItemStack itemStack : player.getInventory().items) {
+                    ItemRadiation radiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
 
+                   Double itemRadiation = radiation.getRadiation();
+
+
+                    if (itemRadiation <= 1) {
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 20));
+                    }
+
+                    if (itemRadiation >= 2 && itemRadiation < 3) {
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
+                    }
+
+                    if (itemRadiation >= 3 && itemRadiation < 4) {
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40));
+                    }
+                    if (itemRadiation >= 4 && itemRadiation < 5) {
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 50));
+                    }
+
+                    if (itemRadiation >= 5 && itemRadiation < 6) {
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 60));
+                    }
+
+                    if (itemRadiation >= 7 ) {
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 70));
+                    }
+
+                }
+            }
         }
     }
+
 
     @SubscribeEvent
     public static void livingEntityTick(LivingEvent.LivingTickEvent event) {
@@ -81,7 +112,6 @@ public class Events {
        }
     }
 
-    //TODO: Fix the capability problem >:( and make that when an item is in the inventory of the player with a radiation level, it take damage every X seconds
     @SubscribeEvent
     public static void onAttachCapabilitiesItemStack(AttachCapabilitiesEvent<ItemStack> event) {
             event.addCapability(new ResourceLocation(FalloutCraft.MODID, "item_radiation"), new ItemRadiationProvider());
@@ -94,7 +124,7 @@ public class Events {
 
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
-        new AddRadiationItemCommand(event.getDispatcher());
+        new RadiationItemCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
 

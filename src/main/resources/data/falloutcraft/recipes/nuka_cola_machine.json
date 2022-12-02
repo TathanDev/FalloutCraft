@@ -1,0 +1,15 @@
+{
+  "type": "falloutcraft:nuka_cola_machine",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "fluid": {
+    "FluidName": "minecraft:water",
+    "Amount": 250
+  },
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}

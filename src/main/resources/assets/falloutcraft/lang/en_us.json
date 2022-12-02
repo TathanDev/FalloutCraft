@@ -1,13 +1,13 @@
 {
-
   "item.falloutcraft.nuka_cola": "Nuka Cola",
   "item.falloutcraft.paper_on_the_ground": "Paper on the ground",
   "item.falloutcraft.radiated_water_bucket": "Radiated Water",
   "item.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
 
-
-
   "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
+  "block.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
+  "block.falloutcraft.nuka_cola_machine": "Nuka Cola Machine",
+  "block.falloutcraft.vault_trapdoor": "Vault Trapdoor",
 
   "effect.falloutcraft.radiations": "Radiations",
 
@@ -18,5 +18,13 @@
 
   "tooltip.falloutcraft.radiations": "&cRadiations : %s",
   "commands.falloutcraft.addRadiation.success": "Radiations set to %s for %s",
-    "commands.falloutcraft.addRadiation.failure": "Radiations can't be add to %s"
+  "commands.falloutcraft.addRadiation.failure": "Radiations can't be add to %s",
+
+  "falloutcraft.nuka_cola_machine.tooltip.liquid.amount.capacity": "%s / %s mB",
+  "falloutcraft.nuka_cola_machine.tooltip.liquid.amount": "%s mB",
+
+  "biome.falloutcraft.radioactive_plains": "Radioactive Plains",
+  "biome.falloutcraft.radioactive_forest": "Radioactive Forest"
+
+
 }

@@ -20,7 +20,8 @@ public class FalloutSurfaceRuleData {
         SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
 
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_PLAINS), DIRT),
+
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_PLAINS), COARSE_DIRT),
 
                 // Default to a grass and dirt surface
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, grassSurface)

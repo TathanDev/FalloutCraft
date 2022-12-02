@@ -1,0 +1,10 @@
+{
+  "apocalypse_music_1": {
+    "sounds": [
+      {
+        "name": "falloutcraft:apocalypse_music_1",
+        "stream": false
+      }
+    ]
+  }
+}
