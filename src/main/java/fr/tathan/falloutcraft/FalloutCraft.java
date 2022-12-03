@@ -61,8 +61,7 @@ public class FalloutCraft
     {
         event.enqueueWork(() ->
         {
-            // Given we only add two biomes, we should keep our weight relatively low.
-            Regions.register(new FalloutRegion(new ResourceLocation(MODID, "overworld"), 10));
+            Regions.register(new FalloutRegion(new ResourceLocation(MODID, "overworld"), 2));
 
             ModMessages.register();
 

@@ -15,7 +15,7 @@ import static fr.tathan.falloutcraft.common.registries.SoundsRegistry.APOCALYSPE
 public class FalloutOverworldBiomes {
 
 
-
+    @Nullable
     private static final Music APOCALYPTIC_MUSIC = new Music(APOCALYSPE_MUSIC_1.get(), 6000, 24000, true);
 
 

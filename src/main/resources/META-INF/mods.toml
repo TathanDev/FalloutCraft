@@ -6,14 +6,14 @@ issueTrackerURL="https://github.com/TathanDev/FalloutCraft/issues"
 
 [[mods]]
 modId="falloutcraft"
-version="${file.jarVersion}"
+version="pre-alpha-1.0"
 displayName="Fallout Craft"
-#logoFile="examplemod.png"
+logoFile="falloutcraft.png"
 credits=""
 authors="TATHAN"
 description='''
 Fallout Craft is a mod that adds in Fallout themed items, blocks,structures and more...
-Explore a devastated wasteland, fight raiders, and find rare loot!
+Explore a devastated wasteland, find bunker, and survive!
 '''
 [[dependencies.falloutcraft]]
     modId="forge"

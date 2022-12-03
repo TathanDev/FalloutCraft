@@ -1,15 +1,23 @@
 {
-  "type": "falloutcraft:nuka_cola_machine",
-  "ingredients": [
-    {
-      "item": "minecraft:stick"
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x",
+    "y",
+    "z"
   ],
-  "fluid": {
-    "FluidName": "minecraft:water",
-    "Amount": 250
+  "key": {
+    "x": {
+      "item": "minecraft:iron_block"
+    },
+    "y": {
+      "item": "minecraft:glass_bottle"
+    },
+    "z": {
+      "item": "minecraft:iron_block"
+    }
   },
-  "output": {
-    "item": "minecraft:diamond"
+  "result": {
+    "item": "falloutcraft:nuka_cola_mixture",
+    "count": 4
   }
 }
