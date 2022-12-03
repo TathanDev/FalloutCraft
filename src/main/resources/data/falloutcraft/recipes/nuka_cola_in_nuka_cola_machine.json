@@ -2,7 +2,7 @@
   "type": "falloutcraft:nuka_cola_machine",
   "ingredients": [
     {
-      "item": "minecraft:stick"
+      "item": "falloutcraft:nuka_cola_mixture"
     }
   ],
   "fluid": {
@@ -10,6 +10,6 @@
     "Amount": 250
   },
   "output": {
-    "item": "minecraft:diamond"
+    "item": "falloutcraft:nuka_cola"
   }
 }

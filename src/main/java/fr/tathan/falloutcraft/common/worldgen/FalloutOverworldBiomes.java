@@ -19,6 +19,10 @@ public class FalloutOverworldBiomes {
     private static final Music APOCALYPTIC_MUSIC = new Music(APOCALYSPE_MUSIC_1.get(), 6000, 24000, true);
 
 
+    @Nullable
+    private static final Music music = null;
+
+
     protected static int calculateSkyColor(float color)
     {
         float $$1 = color / 3.0F;
@@ -63,7 +67,6 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
         calculateSkyColor(6415715);
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
@@ -74,7 +77,7 @@ public class FalloutOverworldBiomes {
     public static Biome radioactiveForest()
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
 
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
         BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
@@ -84,7 +87,6 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDefaultGrass(biomeBuilder);
         BiomeDefaultFeatures.addDesertVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
-        BiomeDefaultFeatures.addDefaultCarversAndLakes(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);

@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/TathanDev/FalloutCraft/issues"
 
 [[mods]]
 modId="falloutcraft"
-version="pre-alpha-1.0"
+version="${file.jarVersion}"
 displayName="Fallout Craft"
 logoFile="falloutcraft.png"
 credits=""
