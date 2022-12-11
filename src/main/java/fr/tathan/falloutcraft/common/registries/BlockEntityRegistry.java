@@ -12,6 +12,8 @@ public class BlockEntityRegistry {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, FalloutCraft.MODID);
 
+
+
     public static final RegistryObject<BlockEntityType<NukaColaMachineBlockEntity>> NUKA_COLA_MACHINE =
             BLOCK_ENTITIES.register("gem_infusing_station", () ->
                     BlockEntityType.Builder.of(NukaColaMachineBlockEntity::new,

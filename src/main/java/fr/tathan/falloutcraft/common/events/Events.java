@@ -9,6 +9,8 @@ import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import fr.tathan.falloutcraft.common.registries.TagsRegistry;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
@@ -16,7 +18,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
@@ -25,9 +29,12 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.server.command.ConfigCommand;
+
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = FalloutCraft.MODID)
 public class Events {
@@ -43,12 +50,6 @@ public class Events {
             Level level = player.level;
 
 
-            if (player.getArmorSlots().equals(ItemsRegistry.NUKA_COLA.get())) { //
-                if (player.hasEffect(EffectsRegistry.RADIATION.get())) {
-
-                    player.removeEffect(EffectsRegistry.RADIATION.get());
-                }
-            }
 
             if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) || player.isInWater()) {
                 player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 10));
@@ -61,8 +62,7 @@ public class Events {
 
                    Double itemRadiation = radiation.getRadiation();
 
-
-                    if (itemRadiation <= 1) {
+                    if (itemRadiation <= 1 && itemRadiation > 0) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 20));
                     }
 

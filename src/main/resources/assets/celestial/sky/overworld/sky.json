@@ -1,0 +1,25 @@
+{
+	"sky_objects": [
+		"stars"
+	],
+	"render_type": "normal",
+	"environment": {
+		"fog_color": {
+			"base_color": "inherit"
+		},
+		"sky_color": {
+			"base_color": "inherit"
+		},
+		"twilight_color": "b23333",
+		"twilight_alpha": "1",
+		"clouds": {
+			"height": "128",
+			"color": "4eff00"
+		},
+		"fog": {
+			"has_thick_fog": false,
+			"fog_start": "-1",
+			"fog_end": "-1"
+		}
+	}
+}
