@@ -1,7 +1,9 @@
 package fr.tathan.falloutcraft.common.worldgen.features;
 
 import fr.tathan.falloutcraft.FalloutCraft;
+import fr.tathan.falloutcraft.common.registries.BlocksRegistry;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 
 import java.util.List;
 
@@ -38,5 +41,9 @@ public class FalloutConfiguredFeatures {
                             FalloutPlacedFeatures.IRRADIATED_OAK_CHECKED.getHolder().get(),
                             0.5F)), FalloutPlacedFeatures.IRRADIATED_OAK_CHECKED.getHolder().get())));
 
+    public static final RegistryObject<ConfiguredFeature<?, ?>> RADIOACTIVA = CONFIGURED_FEATURES.register("radioactiva",
+            () -> new ConfiguredFeature<>(Feature.FLOWER,
+                    new RandomPatchConfiguration(32, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                            new SimpleBlockConfiguration(BlockStateProvider.simple(BlocksRegistry.RADIOACTIVA.get()))))));
 
 }

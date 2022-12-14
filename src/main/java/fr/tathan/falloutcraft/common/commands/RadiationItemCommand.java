@@ -63,6 +63,7 @@ public class RadiationItemCommand {
             player.sendSystemMessage(Component.translatable("commands.falloutcraft.addRadiation.failure", item.getDisplayName()));
         } else {
             radiation.subRadiation(1);
+
             player.sendSystemMessage(Component.translatable("commands.falloutcraft.addRadiation.success", item.getDisplayName(), radiation.getRadiation()));
         }
 

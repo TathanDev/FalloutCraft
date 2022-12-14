@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#falloutcraft:is_radioactive",
+  "features": "falloutcraft:radioactiva_placed",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flower_pot_cross",
+  "textures": {
+    "plant": "falloutcraft:blocks/radioactiva"
+  },
+  "render_type": "cutout"
+}

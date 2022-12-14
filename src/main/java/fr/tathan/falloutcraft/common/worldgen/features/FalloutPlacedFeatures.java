@@ -27,6 +27,10 @@ public class FalloutPlacedFeatures {
             () -> new PlacedFeature(FalloutConfiguredFeatures.IRRADIATED_OAK_SPAWN.getHolder().get(), VegetationPlacements.treePlacement(
                     PlacementUtils.countExtra(3, 0.1f, 2))));
 
+    public static final RegistryObject<PlacedFeature> JASMINE_PLACED = PLACED_FEATURES.register("radioactiva_placed",
+            () -> new PlacedFeature(FalloutConfiguredFeatures.RADIOACTIVA.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(16),
+                    InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome())));
+
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());

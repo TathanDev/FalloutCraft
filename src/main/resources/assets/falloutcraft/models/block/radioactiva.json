@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "falloutcraft:blocks/radioactiva"
+  },
+  "render_type": "cutout"
+}

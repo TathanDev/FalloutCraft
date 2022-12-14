@@ -71,9 +71,6 @@ public class FalloutOverworldBiomes {
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
 
-
-    //TODO : Make some cool flowers
-
     public static Biome radioactiveForest()
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();

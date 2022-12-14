@@ -55,6 +55,7 @@ public class Events {
                 player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 10));
             }
 
+            if (!player.isCreative()) {
                 if(event.player.getRandom().nextFloat() < 005f) {
                // if(event.player.getRandom().nextFloat() < 0.005f) {
                 for (ItemStack itemStack : player.getInventory().items) {
@@ -64,27 +65,18 @@ public class Events {
 
                     if (itemRadiation <= 1 && itemRadiation > 0) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 20));
-                    }
-
-                    if (itemRadiation >= 2 && itemRadiation < 3) {
+                    } else if (itemRadiation >= 2 && itemRadiation < 3) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
-                    }
-
-                    if (itemRadiation >= 3 && itemRadiation < 4) {
+                    } else if (itemRadiation >= 3 && itemRadiation < 4) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40));
-                    }
-                    if (itemRadiation >= 4 && itemRadiation < 5) {
+                    } else if (itemRadiation >= 4 && itemRadiation < 5) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 50));
-                    }
-
-                    if (itemRadiation >= 5 && itemRadiation < 6) {
+                    } else if (itemRadiation >= 5 && itemRadiation < 6) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 60));
-                    }
-
-                    if (itemRadiation >= 7 ) {
+                    } else if (itemRadiation >= 7 || itemStack.is(TagsRegistry.VERY_RADIOACTIVE )) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 70));
                     }
-
+                  }
                 }
             }
         }

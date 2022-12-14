@@ -9,7 +9,7 @@
 		"alpha": "(1 - #dayLight) * #rainGradient"
 	},
 	"populate": {
-		"count": 2000,
+		"count": 1500,
 		"rotation": {
 			"min_degrees_x": 0,
 			"max_degrees_x": 360,

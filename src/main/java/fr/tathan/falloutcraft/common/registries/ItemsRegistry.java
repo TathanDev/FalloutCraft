@@ -36,6 +36,8 @@ public class ItemsRegistry {
     public static final RegistryObject<BlockItem> PAPERS_ON_THE_GROUND_ITEM = ITEMS.register("papers_on_the_ground", () -> new BlockItem(BlocksRegistry.PAPERS_ON_THE_GROUND.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
     public static final RegistryObject<BlockItem> NUKA_COLA_MACHINE_ITEM = ITEMS.register("nuka_cola_machine", () -> new BlockItem(BlocksRegistry.NUKA_COLA_MACHINE.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
 
+    public static final RegistryObject<BlockItem> RADIOACTIVA = ITEMS.register("radioactiva", () -> new BlockItem(BlocksRegistry.RADIOACTIVA.get(), new Item.Properties().tab(TabsRegistry.TAB)));
+
     public static final RegistryObject<BlockItem> VAULT_TRAPDOOR_ITEM = ITEMS.register("vault_trapdoor", () -> new BlockItem(BlocksRegistry.VAULT_TRAPDOOR.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
 
 

@@ -4,7 +4,9 @@ import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.blocks.NukaColaMachine;
 import fr.tathan.falloutcraft.common.blocks.PapersOnTheGround;
 import fr.tathan.falloutcraft.common.blocks.RadiatedWaterBlock;
+import fr.tathan.falloutcraft.common.blocks.RadioactivaFlower;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
@@ -30,7 +32,14 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> NUKA_COLA_MACHINE = BLOCKS.register("nuka_cola_machine",
             () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
                                                                                         //May Fix the Cave Block issue
+    public static final RegistryObject<Block> RADIOACTIVA = BLOCKS.register("radioactiva",
+            () -> new RadioactivaFlower(MobEffects.GLOWING,  BlockBehaviour.Properties.copy(Blocks.DANDELION)));
 
+
+
+    public static final RegistryObject<Block> POTTED_RADIOACTIVA = BLOCKS.register("potted_radioactiva",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BlocksRegistry.RADIOACTIVA,
+                    BlockBehaviour.Properties.copy(Blocks.DANDELION)));
 
 
     /** Decorations Blocks */

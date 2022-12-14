@@ -17,6 +17,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -74,6 +76,8 @@ public class FalloutCraft
         {
             Regions.register(new FalloutRegion(new ResourceLocation(MODID, "overworld"), 2));
 
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.RADIOACTIVA.getId(), BlocksRegistry.POTTED_RADIOACTIVA);
+
             ModMessages.register();
 
             // Register our surface rules
@@ -100,7 +104,6 @@ public class FalloutCraft
 
     private void onItemTooltip(ItemTooltipEvent event) {
 
-
         addItemTooltip(event.getItemStack(), event.getFlags(), event.getToolTip());
     }
 
@@ -109,7 +112,7 @@ public class FalloutCraft
         if (!stack.isEmpty()) {
 
             ItemRadiation radiation = stack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
-            tooltip.add(Component.literal("Radiation: " + radiation.getRadiation()).withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.BOLD));
+            tooltip.add(Component.literal("Radiation: " + radiation.getRadiation()).withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.ITALIC));
         }
     }
 
