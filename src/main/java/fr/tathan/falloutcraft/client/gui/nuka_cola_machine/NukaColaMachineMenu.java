@@ -1,4 +1,4 @@
-package fr.tathan.falloutcraft.client.gui.NukaColaMachine;
+package fr.tathan.falloutcraft.client.gui.nuka_cola_machine;
 
 import fr.tathan.falloutcraft.common.blocks.entity.NukaColaMachineBlockEntity;
 import fr.tathan.falloutcraft.common.registries.BlocksRegistry;

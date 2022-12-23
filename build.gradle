@@ -7,7 +7,7 @@ plugins {
 
 }
 
-version = 'prealpha-1.0'
+version = '1.0.2'
 group = 'fr.tathan.falloutcraft' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'falloutcraft'
 
@@ -122,6 +122,7 @@ dependencies {
 
     implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version)
 
+
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     // at runtime, use the full JEI jar for Forge
@@ -137,7 +138,7 @@ jar {
     manifest {
         attributes([
                 "Specification-Title"     : "falloutcraft",
-                "Specification-Vendor"    : "falloutcraft",
+                "Specification-Vendor"    : "TATHAN",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,

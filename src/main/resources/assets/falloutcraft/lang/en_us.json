@@ -4,6 +4,11 @@
   "item.falloutcraft.radiated_water_bucket": "Radiated Water",
   "item.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
   "item.falloutcraft.nuka_cola_mixture": "Nuka Cola Mixture",
+  "item.falloutcraft.hazmat_chestplate": "Hazmat Chestplate",
+  "item.falloutcraft.hazmat_leggings": "Hazmat Leggings",
+  "item.falloutcraft.hazmat_boots": "Hazmat Boots",
+  "item.falloutcraft.hazmat_mask": "Hazmat Mask",
+
 
   "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
   "block.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
@@ -12,6 +17,8 @@
 
   "block.falloutcraft.radioactiva": "Radioactiva",
   "block.falloutcraft.potted_radioactiva": "Potted Radioactiva",
+
+  "container.falloutcraft.nukacola_machine": "Nuka Cola Machine",
 
   "effect.falloutcraft.radiations": "Radiations",
 

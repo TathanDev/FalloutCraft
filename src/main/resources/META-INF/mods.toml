@@ -15,6 +15,7 @@ description='''
 Fallout Craft is a mod that adds in Fallout themed items, blocks,structures and more...
 Explore a devastated wasteland, find bunker, and survive!
 '''
+
 [[dependencies.falloutcraft]]
     modId="forge"
     mandatory=true

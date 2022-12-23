@@ -1,9 +1,9 @@
-package fr.tathan.falloutcraft.client.gui.NukaColaMachine;
+package fr.tathan.falloutcraft.client.gui.nuka_cola_machine;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import fr.tathan.falloutcraft.FalloutCraft;
-import fr.tathan.falloutcraft.client.gui.NukaColaMachine.renderer.FluidTankRenderer;
+import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.renderer.FluidTankRenderer;
 import fr.tathan.falloutcraft.common.util.MouseUtil;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;

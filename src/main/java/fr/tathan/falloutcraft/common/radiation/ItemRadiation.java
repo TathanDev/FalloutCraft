@@ -6,6 +6,7 @@ public class ItemRadiation {
 
 
     private double radiation = 0;
+
     private final double MIN_RADIATION = 0;
     private final double MAX_RADIATION = 10;
 

@@ -1,6 +1,7 @@
 package fr.tathan.falloutcraft.common.network.packet;
 
 import fr.tathan.falloutcraft.common.blocks.entity.NukaColaMachineBlockEntity;
+import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -48,6 +49,10 @@ public class ItemStackSyncS2CPacket {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof NukaColaMachineBlockEntity blockEntity) {
+                blockEntity.setHandler(this.itemStackHandler);
+            }
+
+            if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof RadiationRemoverBlockEntity blockEntity) {
                 blockEntity.setHandler(this.itemStackHandler);
             }
         });

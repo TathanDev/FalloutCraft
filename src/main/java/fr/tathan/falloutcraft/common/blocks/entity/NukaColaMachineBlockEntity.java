@@ -1,14 +1,12 @@
 package fr.tathan.falloutcraft.common.blocks.entity;
 
-import fr.tathan.falloutcraft.client.gui.NukaColaMachine.NukaColaMachineMenu;
+import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineMenu;
 import fr.tathan.falloutcraft.common.blocks.NukaColaMachine;
 import fr.tathan.falloutcraft.common.network.*;
 import fr.tathan.falloutcraft.common.network.packet.FluidSyncS2CPacket;
 import fr.tathan.falloutcraft.common.network.packet.ItemStackSyncS2CPacket;
 import fr.tathan.falloutcraft.common.recipe.NukaColaMachineRecipe;
 import fr.tathan.falloutcraft.common.registries.BlockEntityRegistry;
-import fr.tathan.falloutcraft.common.registries.BlocksRegistry;
-import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -21,7 +19,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -155,7 +152,7 @@ public class NukaColaMachineBlockEntity extends BlockEntity implements MenuProvi
 
     @Override
     public Component getDisplayName() {
-        return Component.literal("Nuka Cola Machine");
+        return Component.translatable("container.falloutcraft.nukacola_machine");
     }
 
     @Nullable

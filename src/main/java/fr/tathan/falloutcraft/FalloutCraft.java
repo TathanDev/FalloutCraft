@@ -1,7 +1,8 @@
 package fr.tathan.falloutcraft;
 
 import com.mojang.logging.LogUtils;
-import fr.tathan.falloutcraft.client.gui.NukaColaMachine.NukaColaMachineScreen;
+import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineScreen;
+import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverScreen;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
@@ -99,7 +100,8 @@ public class FalloutCraft
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            MenuScreens.register(MenuTypes.NUKA_COLA_MACHINE_MENU.get(), NukaColaMachineScreen::new);        }
+            MenuScreens.register(MenuTypes.NUKA_COLA_MACHINE_MENU.get(), NukaColaMachineScreen::new);
+            MenuScreens.register(MenuTypes.RADIATION_REMOVER_MENU.get(), RadiationRemoverScreen::new);        }
     }
 
     private void onItemTooltip(ItemTooltipEvent event) {
