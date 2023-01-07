@@ -7,35 +7,28 @@ import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
+import fr.tathan.falloutcraft.common.registries.GameruleRegistry;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import fr.tathan.falloutcraft.common.registries.TagsRegistry;
 import fr.tathan.falloutcraft.common.util.Methods;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -55,6 +48,8 @@ public class Events {
         if (event.phase == TickEvent.Phase.END) {
             Player player = event.player;
             Level level = player.level;
+            GameRules gamerules = level.getLevelData().getGameRules();
+
 
             if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) || player.isInWater()) {
                 if(!Methods.hasHazmatSuit(player)) {
@@ -62,14 +57,15 @@ public class Events {
                 }
             }
 
-            if (!player.isCreative()) {
+            if (!player.isCreative() && gamerules.getBoolean(GameruleRegistry.ITEMS_RADIATION_DAMAGE)) {
+
                 if(event.player.getRandom().nextFloat() < 0.005f) {
+
                 for (ItemStack itemStack : player.getInventory().items) {
                     ItemRadiation radiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
+                    Double itemRadiation = radiation.getRadiation();
 
-                   Double itemRadiation = radiation.getRadiation();
-
-                    if (itemRadiation <= 1 && itemRadiation > 0) {
+                    if (itemRadiation <= 1 && itemRadiation > 0.1) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 20));
                     } else if (itemRadiation >= 2 && itemRadiation < 3) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
@@ -86,7 +82,6 @@ public class Events {
                 }
             }
 
-
             /**
             if(event.player.getRandom().nextFloat() < 0.005f) {
 
@@ -101,10 +96,8 @@ public class Events {
 
             }
              */
-
         }
     }
-
 
     @SubscribeEvent
     public static void livingEntityTick(LivingEvent.LivingTickEvent event) {
@@ -136,15 +129,21 @@ public class Events {
         if(event.getType() == VillagerProfession.CLERIC) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
-            ItemStack stack = new ItemStack(ItemsRegistry.NUKA_COLA.get(), 1);
+            ItemStack nuka_cola_classic = new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get(), 1);
+
+            ItemStack nuka_cola_berry = new ItemStack(ItemsRegistry.NUKA_COLA_BERRY.get(), 1);
+
 
             trades.get(2).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 2),
-                    stack,1,12,0.09F));
+                    nuka_cola_classic,1,12,0.09F));
+
+            trades.get(2).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 2),
+                    nuka_cola_berry,1,12,0.09F));
         }
 
     }
-
 
     @SubscribeEvent
     public static void onAttachCapabilitiesItemStack(AttachCapabilitiesEvent<ItemStack> event) {
