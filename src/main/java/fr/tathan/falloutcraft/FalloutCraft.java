@@ -3,6 +3,7 @@ package fr.tathan.falloutcraft;
 import com.mojang.logging.LogUtils;
 import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineScreen;
 import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverScreen;
+import fr.tathan.falloutcraft.client.pack.PackLoader;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
@@ -16,14 +17,17 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -65,9 +69,15 @@ public class FalloutCraft
 
 
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::discoverResourcePacks);
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.addListener(this::onItemTooltip);
+
+        PackLoader.loadOnInitialStartup();
+        MinecraftForge.EVENT_BUS.register(new GameruleRegistry());
+
+
 
     }
 
@@ -87,6 +97,13 @@ public class FalloutCraft
 
 
     }
+
+    public void discoverResourcePacks(AddPackFindersEvent event) {
+        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+            event.addRepositorySource(new PackLoader(ModList.get().getModFileById(MODID).getFile()));
+        }
+    }
+
 
 
     @SubscribeEvent

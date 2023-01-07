@@ -1,0 +1,15 @@
+{
+  "type": "falloutcraft:nuka_cola_machine",
+  "ingredients": [
+    {
+      "item": "falloutcraft:nuka_cola_mixture"
+    }
+  ],
+  "fluid": {
+    "FluidName": "minecraft:water",
+    "Amount": 750
+  },
+  "output": {
+    "item": "falloutcraft:nuka_cola_berry"
+  }
+}

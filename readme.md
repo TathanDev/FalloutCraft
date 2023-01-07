@@ -12,19 +12,23 @@ Fallout craft is mod which adds a few items from the fallout series to minecraft
 - Machines (Nuka Cola Machine)
 - Biomes (Need some reworks)
 - Flowers (Radioactiva)
+- Hazmat Suit
+
 
 ### TODO
 
-- Bunkers
-- Villages vaults
-- Hazmat Suit
+- Bunkers 
+- Villages vaults 
 - Biomes (More Biomes)
-- More items
+- More items 
 - Decoration Blocks 
-- More Paintings
-- Machines (DeRadiationier or something like that)
+- More Paintings 
+- Machines (Radiation Remover)
 - Mobs (RADROACHES, Bloodbugs)
+- New Villager
+- Custom Generations
 - Mods compatibility (Celestial, Patchouli, etc...)
+
 
 
 

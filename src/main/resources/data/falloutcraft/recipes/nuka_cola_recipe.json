@@ -7,7 +7,7 @@
   ],
   "fluid": {
     "FluidName": "minecraft:water",
-    "Amount": 250
+    "Amount": 750
   },
   "output": {
     "item": "falloutcraft:nuka_cola"

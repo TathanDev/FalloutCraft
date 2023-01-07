@@ -13,8 +13,8 @@ import java.util.function.Supplier;
 
 public enum  ArmorMaterials implements ArmorMaterial {
 
-    HAZMAT("hazmat", 28, new int[]{2, 5, 8, 3}, 19, SoundEvents.ARMOR_EQUIP_GOLD,
-            2.0F, 0.0F, () -> Ingredient.of(ItemsRegistry.NUKA_COLA.get()));
+    HAZMAT("hazmat", 28, new int[]{2, 4, 5, 3}, 19, SoundEvents.ARMOR_EQUIP_LEATHER,
+            2.0F, 0.0F, () -> Ingredient.of(ItemsRegistry.NUKA_COLA_CLASSIC.get()));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
