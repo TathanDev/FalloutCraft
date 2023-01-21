@@ -24,8 +24,7 @@ public class PapersOnTheGround extends HorizontalDirectionalBlock {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    private static final VoxelShape SHAPE =
-            Block.box(0, 0, 0, 1, 1, 1);
+    protected static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 0.2D, 16.0D);
 
 
     public PapersOnTheGround(Properties pProperties) {

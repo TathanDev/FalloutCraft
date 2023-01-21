@@ -2,7 +2,7 @@
   "type": "falloutcraft:nuka_cola_machine",
   "ingredients": [
     {
-      "item": "falloutcraft:nuka_cola_mixture"
+      "item": "falloutcraft:nuka_cola_berry_mixture"
     }
   ],
   "fluid": {

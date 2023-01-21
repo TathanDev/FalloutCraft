@@ -1,10 +1,8 @@
 package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
-import fr.tathan.falloutcraft.common.blocks.NukaColaMachine;
-import fr.tathan.falloutcraft.common.blocks.PapersOnTheGround;
-import fr.tathan.falloutcraft.common.blocks.RadiatedWaterBlock;
-import fr.tathan.falloutcraft.common.blocks.RadioactivaFlower;
+import fr.tathan.falloutcraft.common.blocks.*;
+import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
@@ -31,7 +29,11 @@ public class BlocksRegistry {
 
     public static final RegistryObject<Block> NUKA_COLA_MACHINE = BLOCKS.register("nuka_cola_machine",
             () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-                                                                                        //May Fix the Cave Block issue
+
+
+    public static final RegistryObject<Block> RADIATION_REMOVER = BLOCKS.register("radiation_remover",
+            () -> new RadiationRemover(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    //May Fix the Cave Block issue
     public static final RegistryObject<Block> RADIOACTIVA = BLOCKS.register("radioactiva",
             () -> new RadioactivaFlower(MobEffects.GLOWING,  BlockBehaviour.Properties.copy(Blocks.DANDELION)));
 
@@ -44,11 +46,12 @@ public class BlocksRegistry {
 
     /** Decorations Blocks */
     public static final RegistryObject<Block>  PAPERS_ON_THE_GROUND = BLOCKS.register("papers_on_the_ground",
-            () -> new PapersOnTheGround(BlockBehaviour.Properties.copy(Blocks.REDSTONE_WIRE).noCollission().instabreak()));
+            () -> new PapersOnTheGround(BlockBehaviour.Properties.copy(Blocks.CYAN_CARPET).instabreak().noOcclusion().noCollission()));
 
+    /**
     public static final RegistryObject<Block>  VAULT_TRAPDOOR = BLOCKS.register("vault_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).instabreak()));
-
+    */
 
 
 

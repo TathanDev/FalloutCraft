@@ -2,6 +2,7 @@ package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.items.NukaCola;
+import fr.tathan.falloutcraft.common.items.PimpBoy;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
@@ -25,6 +26,9 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> NUKA_COLA_MIXTURE = ITEMS.register("nuka_cola_mixture",
             () -> new Item(new Item.Properties().tab(TabsRegistry.TAB)));
 
+    public static final RegistryObject<Item> NUKA_COLA_BERRY_MIXTURE = ITEMS.register("nuka_cola_berry_mixture",
+            () -> new Item(new Item.Properties().tab(TabsRegistry.TAB)));
+
     public static final RegistryObject<Item> RADIATED_WATER_BUCKET = ITEMS.register("radiated_water_bucket",
             () -> new BucketItem(FluidsRegistry.SOURCE_RADIATED_WATER,
                     new Item.Properties().tab(TabsRegistry.TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
@@ -39,6 +43,8 @@ public class ItemsRegistry {
     //public static final RegistryObject<BlockItem> VAULT_TRAPDOOR_ITEM = ITEMS.register("vault_trapdoor", () -> new BlockItem(BlocksRegistry.VAULT_TRAPDOOR.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
 
     public static final RegistryObject<BlockItem> RADIATION_REMOVER_ITEM = ITEMS.register("radiation_remover", () -> new BlockItem(BlocksRegistry.RADIATION_REMOVER.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> PIMP_BOY = ITEMS.register("pimp_boy", () -> new PimpBoy(new Item.Properties().tab(TabsRegistry.TAB).stacksTo(1)));
 
     public static final RegistryObject<Item> HAZMAT_MASK = ITEMS.register("hazmat_mask",
             () -> new ArmorItem(ArmorMaterials.HAZMAT, EquipmentSlot.HEAD,
