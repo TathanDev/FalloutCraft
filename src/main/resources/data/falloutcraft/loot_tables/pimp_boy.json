@@ -1,0 +1,15 @@
+
+{
+  "type": "advancement_reward",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "falloutcraft:pimp_boy"
+        }
+      ]
+    }
+  ]
+}

@@ -3,13 +3,12 @@ package fr.tathan.falloutcraft.common.events;
 
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.commands.RadiationItemCommand;
+import fr.tathan.falloutcraft.common.config.CommonConfig;
+//import fr.tathan.falloutcraft.common.entity.radroaches.RadroachEntity;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
-import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
-import fr.tathan.falloutcraft.common.registries.GameruleRegistry;
-import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
-import fr.tathan.falloutcraft.common.registries.TagsRegistry;
+import fr.tathan.falloutcraft.common.registries.*;
 import fr.tathan.falloutcraft.common.util.Methods;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.resources.ResourceLocation;
@@ -23,12 +22,17 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.client.event.ContainerScreenEvent;
+import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -50,14 +54,13 @@ public class Events {
             Level level = player.level;
             GameRules gamerules = level.getLevelData().getGameRules();
 
-
             if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) || player.isInWater()) {
                 if(!Methods.hasHazmatSuit(player)) {
                 player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 10));
                 }
             }
 
-            if (!player.isCreative() && gamerules.getBoolean(GameruleRegistry.ITEMS_RADIATION_DAMAGE)) {
+            if (!player.isCreative() && CommonConfig.itemRadiationDamage.get()) {
 
                 if(event.player.getRandom().nextFloat() < 0.005f) {
 
@@ -103,6 +106,7 @@ public class Events {
     public static void livingEntityTick(LivingEvent.LivingTickEvent event) {
         LivingEntity livingEntity = event.getEntity();
 
+
         event.getPhase();
 
         radioactiveRain(livingEntity, Level.OVERWORLD);
@@ -123,6 +127,13 @@ public class Events {
     }
 
     @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        if(event.isWasDeath() && !event.getEntity().getInventory().contains(ItemsRegistry.PIMP_BOY.get().getDefaultInstance())) {
+            event.getEntity().addItem(ItemsRegistry.PIMP_BOY.get().getDefaultInstance());
+        }
+    }
+
+    @SubscribeEvent
     public static void addCustomTrades(VillagerTradesEvent event)
     {
 
@@ -130,8 +141,8 @@ public class Events {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
             ItemStack nuka_cola_classic = new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get(), 1);
-
             ItemStack nuka_cola_berry = new ItemStack(ItemsRegistry.NUKA_COLA_BERRY.get(), 1);
+            ItemStack pimp_boy = new ItemStack(ItemsRegistry.PIMP_BOY.get(), 1);
 
 
             trades.get(2).add((trader, rand) -> new MerchantOffer(
@@ -141,6 +152,11 @@ public class Events {
             trades.get(2).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 2),
                     nuka_cola_berry,1,12,0.09F));
+
+            trades.get(1).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 1),
+                    pimp_boy,200,1,0.05f));
+
         }
 
     }
@@ -163,4 +179,14 @@ public class Events {
 
     }
 
+
+/**
+    @Mod.EventBusSubscriber(modid = FalloutCraft.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class ModEventBusEvents {
+        @SubscribeEvent
+        public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
+            event.put(EntityTypes.RADROACH.get(), RadroachEntity.setAttributes());
+        }
+    }
+    */
 }

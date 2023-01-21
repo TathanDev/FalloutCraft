@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "falloutcraft:pimp_boy"
+    },
+    "title": "The Vault Player",
+    "description": "The one who survive !",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/iron_block.png"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "background": "falloutcraft:textures/items/pimp_boy.png",
+  "rewards": {
+    "loot": [
+      "falloutcraft:pimp_boy"
+    ]
+  }
+}

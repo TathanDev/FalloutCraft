@@ -7,7 +7,7 @@ plugins {
 
 }
 
-version = '1.0.2'
+version = "${falloutcraft_version}"
 group = 'fr.tathan.falloutcraft' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'falloutcraft'
 
@@ -118,9 +118,12 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+
 }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.2.0'
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
 
     implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:' + minecraft_version + '-' + terrablender_version)
@@ -132,6 +135,8 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     implementation fg.deobf("curse.maven:celestial-661111:4139936")
+   // implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.19')
+
 
 
 

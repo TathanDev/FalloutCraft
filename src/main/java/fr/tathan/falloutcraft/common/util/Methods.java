@@ -1,5 +1,6 @@
 package fr.tathan.falloutcraft.common.util;
 
+import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
@@ -12,7 +13,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.common.ForgeConfig;
 
+import static fr.tathan.falloutcraft.common.config.CommonConfig.radiationRainDamage;
 
 
 public class Methods {
@@ -43,6 +46,10 @@ public class Methods {
     public static void radioactiveRain(LivingEntity entity, ResourceKey<Level> overworld) {
         if (!isLevel(entity.level, overworld)) {
 
+            return;
+        }
+
+        if(radiationRainDamage.get()) {
             return;
         }
 

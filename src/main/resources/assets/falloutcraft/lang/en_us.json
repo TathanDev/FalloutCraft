@@ -13,6 +13,8 @@
   "item.falloutcraft.hazmat_boots": "Hazmat Boots",
   "item.falloutcraft.hazmat_mask": "Hazmat Mask",
 
+  "item.falloutcraft.pimp_boy": "Pimp Boy 300",
+
 
   "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
   "block.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
@@ -39,7 +41,12 @@
   "falloutcraft.nuka_cola_machine.tooltip.liquid.amount": "%s mB",
 
   "biome.falloutcraft.radioactive_plains": "Radioactive Plains",
-  "biome.falloutcraft.radioactive_forest": "Radioactive Forest"
+  "biome.falloutcraft.radioactive_forest": "Radioactive Forest",
 
+  "effect.falloutcraft.radiation_potion": "Radiation",
+  "item.minecraft.potion.effect.radiation_potion": "Radiation Potion",
+  "item.minecraft.splash_potion.effect.radiation_potion": "Splash Radiation Potion",
+  "item.minecraft.lingering_potion.effect.radiation_potion": "Lingering Radiation Potion",
+  "item.minecraft.tipped_arrow.effect.radiation_potion": "Radiation Arrow"
 
 }
