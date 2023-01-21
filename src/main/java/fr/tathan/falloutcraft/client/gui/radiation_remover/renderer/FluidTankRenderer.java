@@ -1,4 +1,4 @@
-package fr.tathan.falloutcraft.client.gui.NukaColaMachine.renderer;
+package fr.tathan.falloutcraft.client.gui.radiation_remover.renderer;
 
 import com.google.common.base.Preconditions;
 import com.mojang.blaze3d.systems.RenderSystem;
