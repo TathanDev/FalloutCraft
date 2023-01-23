@@ -11,6 +11,7 @@ import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.*;
+import fr.tathan.falloutcraft.common.util.BetterBrewingRecipe;
 import fr.tathan.falloutcraft.common.worldgen.FalloutRegion;
 import fr.tathan.falloutcraft.common.worldgen.FalloutSurfaceRuleData;
 import fr.tathan.falloutcraft.common.worldgen.features.FalloutConfiguredFeatures;
@@ -27,13 +28,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.world.inventory.RecipeBookMenu;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -52,6 +56,8 @@ import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
 import java.util.List;
+
+import static fr.tathan.falloutcraft.common.config.CommonConfig.usePimpBoy;
 
 @Mod(FalloutCraft.MODID)
 public class FalloutCraft
@@ -110,9 +116,13 @@ public class FalloutCraft
 
             ModMessages.register();
 
-            // Register our surface rules
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, FalloutSurfaceRuleData.makeRules());
+
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
+                    ItemsRegistry.NUKA_COLA_CLASSIC.get(), PotionsRegistry.RADIATION_POTION.get()));
+
         });
+
 
 
     }
@@ -167,7 +177,12 @@ public class FalloutCraft
 
     public static void disableInventoryScreen(Screen inventory, ScreenEvent event) {
 
-        if(inventory.getMinecraft() == null) { return;}
+    if (usePimpBoy.get()) {
+
+
+        if (inventory.getMinecraft() == null) {
+            return;
+        }
 
 
         LocalPlayer player = inventory.getMinecraft().player;
@@ -175,24 +190,24 @@ public class FalloutCraft
 
         if (inventory instanceof InventoryScreen && player != null) {
 
-
             ItemStack mainHand = player.getMainHandItem();
             ItemStack offHand = player.getOffhandItem();
 
-            if(player.level.isClientSide) {
+            if (player.level.isClientSide) {
 
-                if(player.isCreative()) { return; }
+                if (player.isCreative()) {
+                    return;
+                }
 
+                if (CommonConfig.pimpBoyUtilisation.get()) {
 
-                if(CommonConfig.pimpBoyUtilisation.get()) {
+                    if (mainHand.getItem() == ItemsRegistry.PIMP_BOY.get() || offHand.getItem() == ItemsRegistry.PIMP_BOY.get()) {
+                        return;
+                    }
 
-                        if(mainHand.getItem() == ItemsRegistry.PIMP_BOY.get() || offHand.getItem() == ItemsRegistry.PIMP_BOY.get()) {
-                            return;
-                        }
-
-                        inventory.onClose();
-                        FalloutCraft.LOGGER.debug("Screen is canceled");
-                    } else if(!CommonConfig.pimpBoyUtilisation.get()) {
+                    inventory.onClose();
+                    FalloutCraft.LOGGER.debug("Screen is canceled");
+                } else if (!CommonConfig.pimpBoyUtilisation.get()) {
 
                     if (!player.getInventory().contains(ItemsRegistry.PIMP_BOY.get().getDefaultInstance())) {
                         inventory.onClose();
@@ -201,6 +216,7 @@ public class FalloutCraft
                 }
             }
         }
+    }
     }
 }
 

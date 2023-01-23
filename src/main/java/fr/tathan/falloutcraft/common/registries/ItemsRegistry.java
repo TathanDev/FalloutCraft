@@ -20,6 +20,7 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> NUKA_COLA_CLASSIC = ITEMS.register("nuka_cola",
             () -> new NukaCola(new Item.Properties().tab(TabsRegistry.TAB).food(new FoodProperties.Builder().fast().nutrition(2).saturationMod(0.2F).build()).stacksTo(16), MobEffects.MOVEMENT_SPEED));
 
+
     public static final RegistryObject<Item> NUKA_COLA_BERRY = ITEMS.register("nuka_cola_berry",
             () -> new NukaCola(new Item.Properties().tab(TabsRegistry.TAB).food(new FoodProperties.Builder().fast().nutrition(2).saturationMod(0.2F).build()).stacksTo(16), MobEffects.REGENERATION ));
 
