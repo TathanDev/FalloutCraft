@@ -110,7 +110,7 @@ public class FalloutCraft
     {
         event.enqueueWork(() ->
         {
-            Regions.register(new FalloutRegion(new ResourceLocation(MODID, "overworld"), 2));
+            Regions.register(new FalloutRegion(new ResourceLocation(MODID, "overworld"), 3));
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.RADIOACTIVA.getId(), BlocksRegistry.POTTED_RADIOACTIVA);
 
@@ -210,13 +210,13 @@ public class FalloutCraft
                 } else if (!CommonConfig.pimpBoyUtilisation.get()) {
 
                     if (!player.getInventory().contains(ItemsRegistry.PIMP_BOY.get().getDefaultInstance())) {
-                        inventory.onClose();
-                        FalloutCraft.LOGGER.debug("Screen is canceled");
+                            inventory.onClose();
+                            FalloutCraft.LOGGER.debug("Screen is canceled");
+                        }
                     }
                 }
             }
         }
-    }
     }
 }
 

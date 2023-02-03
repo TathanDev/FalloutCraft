@@ -48,10 +48,10 @@ public class BlocksRegistry {
     public static final RegistryObject<Block>  PAPERS_ON_THE_GROUND = BLOCKS.register("papers_on_the_ground",
             () -> new PapersOnTheGround(BlockBehaviour.Properties.copy(Blocks.CYAN_CARPET).instabreak().noOcclusion().noCollission()));
 
-    /**
-    public static final RegistryObject<Block>  VAULT_TRAPDOOR = BLOCKS.register("vault_trapdoor",
-            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR).instabreak()));
-    */
+
+    public static final RegistryObject<Block>  VAULT_BUTTONS = BLOCKS.register("vault_buttons",
+            () -> new VaultButtons(true, BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).instabreak()));
+
 
 
 

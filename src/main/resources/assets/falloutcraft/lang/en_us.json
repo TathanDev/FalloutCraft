@@ -13,6 +13,10 @@
   "item.falloutcraft.hazmat_boots": "Hazmat Boots",
   "item.falloutcraft.hazmat_mask": "Hazmat Mask",
 
+  "item.falloutcraft.stimpak": "Stimpak",
+  "item.falloutcraft.radaway": "Radaway",
+
+
   "item.falloutcraft.pimp_boy": "Pimp Boy 300",
 
 
@@ -47,6 +51,9 @@
   "item.minecraft.potion.effect.radiation_potion": "Radiation Potion",
   "item.minecraft.splash_potion.effect.radiation_potion": "Splash Radiation Potion",
   "item.minecraft.lingering_potion.effect.radiation_potion": "Lingering Radiation Potion",
-  "item.minecraft.tipped_arrow.effect.radiation_potion": "Radiation Arrow"
+  "item.minecraft.tipped_arrow.effect.radiation_potion": "Radiation Arrow",
+
+  "message.falloutcraft.radaway.no_item": "You don't have any item in your off hand",
+  "message.falloutcraft.radaway.no_radiation": "%s doesn't have any radiation"
 
 }

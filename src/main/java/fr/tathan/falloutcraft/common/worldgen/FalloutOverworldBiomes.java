@@ -1,12 +1,10 @@
 package fr.tathan.falloutcraft.common.worldgen;
 
-import fr.tathan.falloutcraft.common.worldgen.features.FalloutPlacedFeatures;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.sounds.Music;
+import net.minecraft.sounds.Musics;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.*;
-import net.minecraft.world.level.levelgen.GenerationStep;
 
 import javax.annotation.Nullable;
 
@@ -14,14 +12,7 @@ import static fr.tathan.falloutcraft.common.registries.SoundsRegistry.APOCALYSPE
 
 public class FalloutOverworldBiomes {
 
-
-    @Nullable
-    private static final Music APOCALYPTIC_MUSIC = new Music(APOCALYSPE_MUSIC_1.get(), 6000, 24000, true);
-
-
-    @Nullable
-    private static final Music music = null;
-
+    private static final Music APOCALYPTIC_MUSIC = Musics.createGameMusic(APOCALYSPE_MUSIC_1.get());
 
     protected static int calculateSkyColor(float color)
     {
@@ -91,13 +82,23 @@ public class FalloutOverworldBiomes {
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
 
+    public static Biome radioactiveMountain()
+    {
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.snowySpawns(spawnBuilder);
 
 
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultGrass(biomeBuilder);
+        BiomeDefaultFeatures.addBlueIce(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultUndergroundVariety(biomeBuilder);
 
-
-
-
-
-
+        return biome(Biome.Precipitation.RAIN, -1.0F, 1.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
+    }
 
 }
