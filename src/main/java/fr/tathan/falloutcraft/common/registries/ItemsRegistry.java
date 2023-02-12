@@ -1,10 +1,7 @@
 package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
-import fr.tathan.falloutcraft.common.items.NukaCola;
-import fr.tathan.falloutcraft.common.items.PimpBoy;
-import fr.tathan.falloutcraft.common.items.Radaway;
-import fr.tathan.falloutcraft.common.items.Stimpack;
+import fr.tathan.falloutcraft.common.items.*;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
@@ -41,6 +38,7 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> RADAWAY = ITEMS.register("radaway", () -> new Radaway(new Item.Properties().tab(TabsRegistry.TAB).stacksTo(64)));
 
+    public static final RegistryObject<Item> GEIGER_COUNTER = ITEMS.register("geiger_counter", () -> new GeigerCounter(new Item.Properties().tab(TabsRegistry.TAB)));
     public static final RegistryObject<BlockItem> PAPERS_ON_THE_GROUND_ITEM = ITEMS.register("papers_on_the_ground", () -> new BlockItem(BlocksRegistry.PAPERS_ON_THE_GROUND.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
     public static final RegistryObject<BlockItem> NUKA_COLA_MACHINE_ITEM = ITEMS.register("nuka_cola_machine", () -> new BlockItem(BlocksRegistry.NUKA_COLA_MACHINE.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
 

@@ -7,6 +7,7 @@ import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverScree
 import fr.tathan.falloutcraft.client.pack.PackLoader;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
+import fr.tathan.falloutcraft.common.loot.ModLootModifiers;
 import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
