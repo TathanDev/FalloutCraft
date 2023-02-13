@@ -34,7 +34,7 @@ public class ItemsRegistry {
                     new Item.Properties().tab(TabsRegistry.TAB).craftRemainder(Items.BUCKET).stacksTo(1)));
 
     public static final RegistryObject<BlockItem> IRRADIATED_OAK_SAPLING_ITEM = ITEMS.register("irradiated_oak_sapling", () -> new BlockItem(BlocksRegistry.IRRADIATED_OAK_SAPLING.get(), new Item.Properties().tab(TabsRegistry.TAB)));
-    public static final RegistryObject<Item> STIMPAK = ITEMS.register("stimpak", () -> new Stimpack(new Item.Properties().tab(TabsRegistry.TAB)));
+    public static final RegistryObject<Item> STIMPAK = ITEMS.register("stimpak", () -> new Stimpak(new Item.Properties().tab(TabsRegistry.TAB)));
 
     public static final RegistryObject<Item> RADAWAY = ITEMS.register("radaway", () -> new Radaway(new Item.Properties().tab(TabsRegistry.TAB).stacksTo(64)));
 

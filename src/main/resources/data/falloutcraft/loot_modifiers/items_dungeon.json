@@ -1,0 +1,12 @@
+{
+  "type": "falloutcraft:add_items",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/simple_dungeon"
+    }
+  ],
+  "item": "falloutcraft:radaway",
+  "item2": "falloutcraft:stimpak",
+  "multiplier": 7
+}

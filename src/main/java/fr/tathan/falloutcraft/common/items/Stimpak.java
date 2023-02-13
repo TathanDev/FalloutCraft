@@ -7,8 +7,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class Stimpack extends Item {
-    public Stimpack(Properties properties) {
+public class Stimpak extends Item {
+    public Stimpak(Properties properties) {
         super(properties);
     }
 

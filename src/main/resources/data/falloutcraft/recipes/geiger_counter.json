@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "RiR",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:yellow_terracotta"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "falloutcraft:geiger_counter",
+    "count": 1
+  }
+}

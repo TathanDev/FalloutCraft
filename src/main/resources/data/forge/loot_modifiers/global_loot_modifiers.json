@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "entries": [
+    "falloutcraft:items_dungeon",
+    "falloutcraft:items_village_toolsmith",
+    "falloutcraft:items_village_weaponsmith",
+    "falloutcraft:items_mineshaft"
+
+  ]
+}

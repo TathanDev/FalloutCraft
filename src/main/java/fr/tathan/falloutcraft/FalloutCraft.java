@@ -86,7 +86,8 @@ public class FalloutCraft
         BlockEntityRegistry.BLOCK_ENTITIES.register(modEventBus);
         MenuTypes.MENUS.register(modEventBus);
         RecipeTypeRegistry.SERIALIZERS.register(modEventBus);
-      //  EntityTypes.ENTITY_TYPES.register(modEventBus);
+      //EntityTypes.ENTITY_TYPES.register(modEventBus);
+        ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         PotionsRegistry.POTIONS.register(modEventBus);
 
         BiomesRegistry.registerBiomes();
