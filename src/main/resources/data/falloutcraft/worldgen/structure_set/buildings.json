@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "falloutcraft:buildings",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 4511522376,
+
+    "spacing": 40,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}
