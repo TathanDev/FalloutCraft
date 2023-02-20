@@ -16,7 +16,8 @@ Fallout craft is mod which adds a few items from the fallout series to minecraft
 
 ### Features
 
-- Fallout themed items (Nuka Cola)
+- Fallout themed items (Nuka Cola, Stimpak, Radaway)
+- Pimp Boy 
 - Radiations Water
 - Fallout Paintings
 - Radiated Rain
@@ -40,8 +41,4 @@ Fallout craft is mod which adds a few items from the fallout series to minecraft
 - New Villager
 - Custom Generations
 - Mods compatibility (Celestial, Patchouli, etc...)
-
-
-
-
 
