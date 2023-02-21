@@ -10,12 +10,14 @@ import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import fr.tathan.falloutcraft.common.registries.MenuTypes;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraftforge.client.event.ScreenEvent;
@@ -105,6 +107,9 @@ public class ClientEventHandlers {
 
     }
 
-    
+    public static void openInventory(Player pPlayer) {
+        Minecraft.getInstance().setScreen(new InventoryScreen(pPlayer));
+
+    }
 
 }

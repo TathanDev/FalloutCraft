@@ -78,7 +78,7 @@ public class FalloutCraft
 
         if (FMLEnvironment.dist.isClient())
         {
-            ClientEventHandlers.init(modEventBus);
+            ClientEventHandlers.init(MinecraftForge.EVENT_BUS);
             PackLoader.loadOnInitialStartup();
 
         }
