@@ -134,7 +134,7 @@ dependencies {
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
-    implementation fg.deobf("curse.maven:celestial-661111:4139936")
+    //implementation fg.deobf("curse.maven:celestial-661111:4139936")
    // implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.19')
 
 
