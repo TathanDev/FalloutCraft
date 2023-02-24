@@ -1,5 +1,6 @@
 package fr.tathan.falloutcraft.common.worldgen;
 
+import net.minecraft.data.worldgen.SurfaceRuleData;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.SurfaceRules;
@@ -22,13 +23,11 @@ public class FalloutSurfaceRuleData {
 
         return SurfaceRules.sequence(
 
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_PLAINS), COARSE_DIRT),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_FOREST), COARSE_DIRT),
-
-
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_PLAINS), grassSurface),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_FOREST), grassSurface),
 
                 // Default to a grass and dirt surface
-                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, grassSurface)
+                SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRuleData.overworld())
         );
     }
 

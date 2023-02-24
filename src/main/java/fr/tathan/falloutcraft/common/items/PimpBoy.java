@@ -1,7 +1,6 @@
 package fr.tathan.falloutcraft.common.items;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import fr.tathan.falloutcraft.client.ClientEventHandlers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,7 +22,7 @@ public class PimpBoy extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
 
         if(pLevel.isClientSide) {
-            Minecraft.getInstance().setScreen(new InventoryScreen(pPlayer));
+            ClientEventHandlers.openInventory(pPlayer);
         }
 
         return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));

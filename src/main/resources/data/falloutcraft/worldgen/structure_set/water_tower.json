@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "falloutcraft:water_tower",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 45115479652376,
+
+    "spacing": 40,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}
