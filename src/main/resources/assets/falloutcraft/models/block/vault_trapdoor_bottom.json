@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "falloutcraft:blocks/vault_trapdoor",
-		"particle": "falloutcraft:blocks/vault_trapdoor"
+		"0": "falloutcraft:block/vault_trapdoor",
+		"particle": "falloutcraft:block/vault_trapdoor"
 	},
 	"elements": [
 		{

@@ -2,6 +2,7 @@ package fr.tathan.falloutcraft.common.worldgen;
 
 import fr.tathan.falloutcraft.FalloutCraft;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -16,7 +17,7 @@ public class FalloutBiomes {
 
     private static ResourceKey<Biome> register(String name)
     {
-        return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(FalloutCraft.MODID, name));
+        return ResourceKey.create(Registries.BIOME, new ResourceLocation(FalloutCraft.MODID, name));
     }
 
 }

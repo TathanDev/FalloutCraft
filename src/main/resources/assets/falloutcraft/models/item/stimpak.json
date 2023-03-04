@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "falloutcraft:items/stimpak"
+    "layer0": "falloutcraft:item/stimpak"
   }
 }

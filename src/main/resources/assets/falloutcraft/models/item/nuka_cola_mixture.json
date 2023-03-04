@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "falloutcraft:items/nuka_cola_mixture"
+    "layer0": "falloutcraft:item/nuka_cola_mixture"
   }
 }

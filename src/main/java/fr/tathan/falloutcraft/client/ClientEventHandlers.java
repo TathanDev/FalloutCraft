@@ -1,9 +1,6 @@
 package fr.tathan.falloutcraft.client;
 
 import fr.tathan.falloutcraft.FalloutCraft;
-import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineScreen;
-import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverScreen;
-import fr.tathan.falloutcraft.client.pack.PackLoader;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
@@ -92,16 +89,10 @@ public class ClientEventHandlers {
         }
     }
 
-    public static void discoverResourcePacks(AddPackFindersEvent event) {
-        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-            event.addRepositorySource(new PackLoader(ModList.get().getModFileById(FalloutCraft.MODID).getFile()));
-        }
-    }
 
 
     public static void init(IEventBus modEventBus) {
 
-        modEventBus.addListener(ClientEventHandlers::discoverResourcePacks);
         modEventBus.addListener(ClientEventHandlers::onItemTooltip);
         modEventBus.addListener(ClientEventHandlers::onScreenOpen);
 

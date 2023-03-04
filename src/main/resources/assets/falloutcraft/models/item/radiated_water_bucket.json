@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "falloutcraft:items/radiated_water_bucket"
+    "layer0": "falloutcraft:item/radiated_water_bucket"
   }
 }

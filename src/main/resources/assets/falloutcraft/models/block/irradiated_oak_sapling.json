@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "block/cross",
   "textures": {
-    "cross": "falloutcraft:blocks/irradiated_oak_sapling"
+    "cross": "falloutcraft:block/irradiated_oak_sapling"
   },
   "render_type": "cutout"
 }

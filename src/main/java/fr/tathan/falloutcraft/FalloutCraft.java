@@ -4,7 +4,6 @@ import com.mojang.logging.LogUtils;
 import fr.tathan.falloutcraft.client.ClientEventHandlers;
 import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineScreen;
 import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverScreen;
-import fr.tathan.falloutcraft.client.pack.PackLoader;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.loot.ModLootModifiers;
@@ -20,10 +19,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.levelgen.presets.WorldPresets;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.AddPackFindersEvent;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -64,29 +65,55 @@ public class FalloutCraft
         ModFluidTypes.FLUID_TYPES.register(modEventBus);
         BiomesRegistry.BIOME_REGISTER.register(modEventBus);
         FalloutConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
-        FalloutPlacedFeatures.PLACED_FEATURES.register(modEventBus);
-        SoundsRegistry.SOUNDS.register(modEventBus);
         BlockEntityRegistry.BLOCK_ENTITIES.register(modEventBus);
         MenuTypes.MENUS.register(modEventBus);
         RecipeTypeRegistry.SERIALIZERS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         PotionsRegistry.POTIONS.register(modEventBus);
 
-        BiomesRegistry.registerBiomes();
 
         modEventBus.addListener(this::commonSetup);
 
         if (FMLEnvironment.dist.isClient())
         {
             ClientEventHandlers.init(MinecraftForge.EVENT_BUS);
-            PackLoader.loadOnInitialStartup();
 
         }
 
         MinecraftForge.EVENT_BUS.register(this);
+        modEventBus.addListener(this::addCreative);
 
 
     }
+
+
+    private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        if(event.getTab() == TabsRegistry.FALLOUTCRAFT_TAB) {
+            event.accept(ItemsRegistry.PIMP_BOY);
+            event.accept(ItemsRegistry.GEIGER_COUNTER);
+            event.accept(ItemsRegistry.HAZMAT_BOOTS);
+            event.accept(ItemsRegistry.HAZMAT_LEGGINGS);
+            event.accept(ItemsRegistry.HAZMAT_CHESTPLATE);
+            event.accept(ItemsRegistry.HAZMAT_MASK);
+            event.accept(ItemsRegistry.NUKA_COLA_MACHINE_ITEM);
+            event.accept(ItemsRegistry.NUKA_COLA_CLASSIC);
+            event.accept(ItemsRegistry.NUKA_COLA_MIXTURE);
+            event.accept(ItemsRegistry.NUKA_COLA_BERRY);
+            event.accept(ItemsRegistry.NUKA_COLA_BERRY_MIXTURE);
+            event.accept(ItemsRegistry.IRRADIATED_OAK_SAPLING_ITEM);
+            event.accept(ItemsRegistry.RADAWAY);
+            event.accept(ItemsRegistry.STIMPAK);
+            event.accept(ItemsRegistry.RADIOACTIVA);
+
+        }
+
+
+        if(event.getTab() == TabsRegistry.FALLOUTCRAFT_DECORATIONS_TAB) {
+            event.accept(ItemsRegistry.PAPERS_ON_THE_GROUND_ITEM);
+            event.accept(ItemsRegistry.VAULT_BUTTONS);
+        }
+    }
+
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {

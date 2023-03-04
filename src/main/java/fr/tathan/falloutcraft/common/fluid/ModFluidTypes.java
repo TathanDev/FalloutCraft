@@ -1,6 +1,5 @@
 package fr.tathan.falloutcraft.common.fluid;
 
-import com.mojang.math.Vector3f;
 import fr.tathan.falloutcraft.FalloutCraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -8,6 +7,7 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.joml.Vector3f;
 
 
 public class ModFluidTypes {

@@ -4,35 +4,10 @@
       "type": "minecraft:overworld",
       "generator": {
         "type": "minecraft:noise",
-        "settings": "minecraft:overworld",
+        "settings": "falloutcraft:wastelands",
         "biome_source": {
-          "type": "minecraft:multi_noise",
-          "biomes": [
-            {
-              "biome": "falloutcraft:radioactive_plains",
-              "parameters": {
-                "temperature": 0,
-                "humidity": 0,
-                "continentalness": 0,
-                "erosion": 0,
-                "weirdness": 0,
-                "depth": 0,
-                "offset": 0
-              }
-            },
-            {
-              "biome": "falloutcraft:radioactive_forest",
-              "parameters": {
-                "temperature": 0,
-                "humidity": 0,
-                "continentalness": 0,
-                "erosion": 0,
-                "weirdness": 0,
-                "depth": 0,
-                "offset": 0
-              }
-            }
-          ]
+          "type": "minecraft:fixed",
+          "biome": "falloutcraft:radioactive_plains"
         }
       }
     },

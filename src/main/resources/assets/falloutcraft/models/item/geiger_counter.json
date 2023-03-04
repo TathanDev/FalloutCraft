@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "falloutcraft:items/geiger_counter"
+    "layer0": "falloutcraft:item/geiger_counter"
   }
 }

@@ -15,6 +15,8 @@
 
   "item.falloutcraft.stimpak": "Stimpak",
   "item.falloutcraft.radaway": "Radaway",
+  "item.falloutcraft.geiger_counter": "Geiger Counter",
+
 
 
   "item.falloutcraft.pimp_boy": "Pimp Boy 300",
@@ -24,6 +26,9 @@
   "block.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
   "block.falloutcraft.nuka_cola_machine": "Nuka Cola Machine",
   "block.falloutcraft.vault_trapdoor": "Vault Trapdoor",
+
+  "block.falloutcraft.vault_buttons": "Vault Buttons",
+
 
   "block.falloutcraft.radioactiva": "Radioactiva",
   "block.falloutcraft.potted_radioactiva": "Potted Radioactiva",
@@ -54,6 +59,6 @@
   "item.minecraft.tipped_arrow.effect.radiation_potion": "Radiation Arrow",
 
   "message.falloutcraft.radaway.no_item": "You don't have any item in your off hand",
-  "message.falloutcraft.radaway.no_radiation": "%s doesn't have any radiation"
-
+  "message.falloutcraft.radaway.no_radiation": "%s doesn't have any radiation",
+  "generator.falloutcraft.wastelands_preset": "Wastelands"
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "falloutcraft:blocks/irradiated_oak_sapling"
+    "layer0": "falloutcraft:block/irradiated_oak_sapling"
   }
 }

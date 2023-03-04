@@ -1,7 +1,7 @@
 package fr.tathan.falloutcraft.common.blocks.entity.renderer;
 
+/**
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import fr.tathan.falloutcraft.common.blocks.NukaColaMachine;
 import fr.tathan.falloutcraft.common.blocks.entity.NukaColaMachineBlockEntity;
 import fr.tathan.falloutcraft.common.recipe.NukaColaMachineRecipe;
@@ -55,7 +55,7 @@ public class NukaColaMachineBlockEntityRenderer implements BlockEntityRenderer<N
     }
 
 }
-
+*/
 
 
 

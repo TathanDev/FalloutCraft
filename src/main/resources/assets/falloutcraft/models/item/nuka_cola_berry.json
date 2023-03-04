@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "falloutcraft:drinks/nuka_cola_berry"
+    "layer0": "falloutcraft:item/nuka_cola_berry"
   }
 }

@@ -1,18 +1,22 @@
 package fr.tathan.falloutcraft.common.worldgen;
 
+import net.minecraft.core.HolderGetter;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.Musics;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import javax.annotation.Nullable;
 
-import static fr.tathan.falloutcraft.common.registries.SoundsRegistry.APOCALYSPE_MUSIC_1;
 
 public class FalloutOverworldBiomes {
 
-    private static final Music APOCALYPTIC_MUSIC = Musics.createGameMusic(APOCALYSPE_MUSIC_1.get());
+    @Nullable
+    private static final Music NORMAL_MUSIC = null;
 
     protected static int calculateSkyColor(float color)
     {
@@ -25,6 +29,7 @@ public class FalloutOverworldBiomes {
     {
         return biome(precipitation, temperature, downfall, 4159204, 329011, spawnBuilder, biomeBuilder, music);
     }
+
 
     private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, MobSpawnSettings.Builder spawnBuilder, BiomeGenerationSettings.Builder biomeBuilder, @Nullable Music music)
     {
@@ -41,12 +46,12 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
     }
 
-    public static Biome radioactivePlains()
+    public static Biome radioactivePlains(HolderGetter<PlacedFeature> pPlacedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarverGetter)
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.plainsSpawns(spawnBuilder);
 
-        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(pPlacedFeatureGetter, pConfiguredWorldCarverGetter);
         BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
         globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
@@ -59,15 +64,15 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
         calculateSkyColor(6415715);
-        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
+        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
-    public static Biome radioactiveForest()
+    public static Biome radioactiveForest(HolderGetter<PlacedFeature> pPlacedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarverGetter)
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
 
-        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(pPlacedFeatureGetter, pConfiguredWorldCarverGetter);
         BiomeDefaultFeatures.addFossilDecoration(biomeBuilder);
         globalOverworldGeneration(biomeBuilder);
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
@@ -79,9 +84,13 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
 
-        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
+        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, NORMAL_MUSIC);
     }
 
+
+
+
+    /**
     public static Biome radioactiveMountain()
     {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -100,5 +109,6 @@ public class FalloutOverworldBiomes {
 
         return biome(Biome.Precipitation.RAIN, -1.0F, 1.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
+     */
 
 }
