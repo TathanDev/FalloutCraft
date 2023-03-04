@@ -6,8 +6,11 @@
         "type": "minecraft:noise",
         "settings": "falloutcraft:wastelands",
         "biome_source": {
-          "type": "minecraft:fixed",
-          "biome": "falloutcraft:radioactive_plains"
+          "type": "minecraft:checkerboard",
+          "biomes": [
+            "falloutcraft:radioactive_plains",
+            "falloutcraft:radioactive_forest"
+          ]
         }
       }
     },
