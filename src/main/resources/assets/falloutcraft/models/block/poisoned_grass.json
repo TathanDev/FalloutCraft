@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "falloutcraft:block/poisoned_grass"
+  },
+  "render_type": "cutout"
+}

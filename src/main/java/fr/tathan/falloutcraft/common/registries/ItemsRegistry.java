@@ -49,6 +49,10 @@ public class ItemsRegistry {
     public static final RegistryObject<BlockItem> RADIATION_REMOVER_ITEM = ITEMS.register("radiation_remover", () -> new BlockItem(BlocksRegistry.RADIATION_REMOVER.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> VAULT_BUTTONS = ITEMS.register("vault_buttons", () -> new BlockItem(BlocksRegistry.VAULT_BUTTONS.get(), new Item.Properties()));
 
+    public static final RegistryObject<BlockItem> QUICKSAND = ITEMS.register("quicksand", () -> new BlockItem(BlocksRegistry.QUICKSAND.get(), new Item.Properties()));
+
+    public static final RegistryObject<BlockItem> QUICKDIRT = ITEMS.register("quickdirt", () -> new BlockItem(BlocksRegistry.QUICKDIRT.get(), new Item.Properties()));
+
     public static final RegistryObject<Item> PIMP_BOY = ITEMS.register("pimp_boy", () -> new PimpBoy(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> HAZMAT_MASK = ITEMS.register("hazmat_mask",

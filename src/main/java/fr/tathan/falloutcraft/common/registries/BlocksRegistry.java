@@ -7,6 +7,8 @@ import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -27,6 +29,10 @@ public class BlocksRegistry {
             () -> new SaplingBlock(new IrradiatedOakGrower(),
                     BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
+    public static final RegistryObject<Block> POISONED_JUNGLE_SAPLING = BLOCKS.register("poisoned_jungle_sapling",
+            () -> new SaplingBlock(new IrradiatedOakGrower(),
+                    BlockBehaviour.Properties.copy(Blocks.JUNGLE_SAPLING)));
+
     public static final RegistryObject<Block> NUKA_COLA_MACHINE = BLOCKS.register("nuka_cola_machine",
             () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
@@ -37,11 +43,17 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> RADIOACTIVA = BLOCKS.register("radioactiva",
             () -> new RadioactivaFlower(MobEffects.GLOWING,  BlockBehaviour.Properties.copy(Blocks.DANDELION)));
 
-
+    public static final RegistryObject<Block> POISONED_GRASS = BLOCKS.register("poisoned_grass",
+            () -> new PoisonedVegetation(MobEffects.GLOWING, 40, BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.GRASS).noCollission()));
 
     public static final RegistryObject<Block> POTTED_RADIOACTIVA = BLOCKS.register("potted_radioactiva",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BlocksRegistry.RADIOACTIVA,
                     BlockBehaviour.Properties.copy(Blocks.DANDELION)));
+    public static final RegistryObject<Block> QUICKSAND = BLOCKS.register("quicksand",
+            () -> new QuickBlock(BlockBehaviour.Properties.of(Material.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
+
+    public static final RegistryObject<Block> QUICKDIRT = BLOCKS.register("quickdirt",
+            () -> new QuickBlock(BlockBehaviour.Properties.of(Material.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
 
 
     /** Decorations Blocks */

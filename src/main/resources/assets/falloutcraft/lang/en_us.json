@@ -29,6 +29,11 @@
 
   "block.falloutcraft.vault_buttons": "Vault Buttons",
 
+  "block.falloutcraft.quickdirt": "Quickdirt",
+  "block.falloutcraft.quicksand": "Quicksand",
+
+
+
 
   "block.falloutcraft.radioactiva": "Radioactiva",
   "block.falloutcraft.potted_radioactiva": "Potted Radioactiva",
@@ -51,6 +56,8 @@
 
   "biome.falloutcraft.radioactive_plains": "Radioactive Plains",
   "biome.falloutcraft.radioactive_forest": "Radioactive Forest",
+  "biome.falloutcraft.poisoned_jungle": "Poisoned Jungle",
+
 
   "effect.falloutcraft.radiation_potion": "Radiation",
   "item.minecraft.potion.effect.radiation_potion": "Radiation Potion",

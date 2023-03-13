@@ -12,6 +12,7 @@ import fr.tathan.falloutcraft.common.registries.*;
 import fr.tathan.falloutcraft.common.util.Methods;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
@@ -45,6 +46,7 @@ import static fr.tathan.falloutcraft.common.util.Methods.radioactiveRain;
 @Mod.EventBusSubscriber(modid = FalloutCraft.MODID)
 public class Events {
 
+    public static final DamageSource DAMAGE_SOURCE_RADIOACTIVE_RAIN = new DamageSource("radioactive_rain").bypassArmor();
 
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
@@ -70,35 +72,28 @@ public class Events {
 
                     if (itemRadiation <= 1 && itemRadiation > 0.1) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 20));
+                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 0.1F);
                     } else if (itemRadiation >= 2 && itemRadiation < 3) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
+                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 1);
                     } else if (itemRadiation >= 3 && itemRadiation < 4) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40));
+                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 1.5F);
                     } else if (itemRadiation >= 4 && itemRadiation < 5) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 50));
+                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 2);
                     } else if (itemRadiation >= 5 && itemRadiation < 6) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 60));
+                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 2.5F);
                     } else if (itemRadiation >= 7 || itemStack.is(TagsRegistry.VERY_RADIOACTIVE )) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 70));
+                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 3);
+
                     }
                   }
                 }
             }
 
-            /**
-            if(event.player.getRandom().nextFloat() < 0.005f) {
-
-
-                ItemRadiation offHandItemRadiation = player.getOffhandItem().getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
-                ItemRadiation mainHandItemRadiation = player.getMainHandItem().getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
-
-                offHandItemRadiation.addRadiation(0.1);
-                mainHandItemRadiation.addRadiation(0.1);
-
-                FalloutCraft.LOGGER.debug("Add Radiation");
-
-            }
-             */
         }
     }
 
@@ -108,6 +103,7 @@ public class Events {
 
 
         event.getPhase();
+
 
         radioactiveRain(livingEntity, Level.OVERWORLD);
 

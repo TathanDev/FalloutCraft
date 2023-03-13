@@ -7,9 +7,12 @@
         "settings": "falloutcraft:wastelands",
         "biome_source": {
           "type": "minecraft:checkerboard",
+          "scale": 5,
           "biomes": [
             "falloutcraft:radioactive_plains",
-            "falloutcraft:radioactive_forest"
+            "falloutcraft:radioactive_forest",
+            "falloutcraft:poisoned_jungle"
+
           ]
         }
       }

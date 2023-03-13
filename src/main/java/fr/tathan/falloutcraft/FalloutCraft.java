@@ -13,21 +13,17 @@ import fr.tathan.falloutcraft.common.util.BetterBrewingRecipe;
 import fr.tathan.falloutcraft.common.worldgen.FalloutRegion;
 import fr.tathan.falloutcraft.common.worldgen.FalloutSurfaceRuleData;
 import fr.tathan.falloutcraft.common.worldgen.features.FalloutConfiguredFeatures;
-import fr.tathan.falloutcraft.common.worldgen.features.FalloutPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.levelgen.presets.WorldPresets;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -40,10 +36,6 @@ import org.slf4j.Logger;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 
-import java.util.List;
-
-import static fr.tathan.falloutcraft.common.config.CommonConfig.usePimpBoy;
-
 @Mod(FalloutCraft.MODID)
 public class FalloutCraft
 {
@@ -55,10 +47,9 @@ public class FalloutCraft
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.CONFIG);
 
-
+        EffectsRegistry.MOB_EFFECTS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);
         ItemsRegistry.POTIONS.register(modEventBus);
-        EffectsRegistry.MOB_EFFECTS.register(modEventBus);
         PaintingsRegistry.PAINTING_VARIANTS.register(modEventBus);
         BlocksRegistry.BLOCKS.register(modEventBus);
         FluidsRegistry.FLUIDS.register(modEventBus);
@@ -83,9 +74,7 @@ public class FalloutCraft
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
 
-
     }
-
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if(event.getTab() == TabsRegistry.FALLOUTCRAFT_TAB) {
@@ -104,9 +93,10 @@ public class FalloutCraft
             event.accept(ItemsRegistry.RADAWAY);
             event.accept(ItemsRegistry.STIMPAK);
             event.accept(ItemsRegistry.RADIOACTIVA);
+            event.accept(ItemsRegistry.QUICKDIRT);
+            event.accept(ItemsRegistry.QUICKSAND);
 
         }
-
 
         if(event.getTab() == TabsRegistry.FALLOUTCRAFT_DECORATIONS_TAB) {
             event.accept(ItemsRegistry.PAPERS_ON_THE_GROUND_ITEM);

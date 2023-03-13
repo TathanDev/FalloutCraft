@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "falloutcraft:poisoned_jungle_tree_checked",
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "falloutcraft:poisoned_jungle_tree_checked"
+      }
+    ]
+  }
+}
