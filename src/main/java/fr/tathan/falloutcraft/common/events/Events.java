@@ -15,7 +15,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -23,14 +22,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.event.ContainerScreenEvent;
-import net.minecraftforge.client.event.RenderGuiEvent;
-import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -133,25 +128,41 @@ public class Events {
     public static void addCustomTrades(VillagerTradesEvent event)
     {
 
-        if(event.getType() == VillagerProfession.CLERIC) {
+        if(event.getType() == VillagerRegistry.SURVIVALIST.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
 
-            ItemStack nuka_cola_classic = new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get(), 1);
-            ItemStack nuka_cola_berry = new ItemStack(ItemsRegistry.NUKA_COLA_BERRY.get(), 1);
+            ItemStack nuka_cola_classic = new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get(), 2);
+            ItemStack nuka_cola_berry = new ItemStack(ItemsRegistry.NUKA_COLA_BERRY.get(), 2);
             ItemStack pimp_boy = new ItemStack(ItemsRegistry.PIMP_BOY.get(), 1);
+            ItemStack geiger_counter = new ItemStack(ItemsRegistry.GEIGER_COUNTER.get(), 1);
+            ItemStack radaway = new ItemStack(ItemsRegistry.RADAWAY.get(), 3);
+            ItemStack stimpak = new ItemStack(ItemsRegistry.STIMPAK.get(), 5);
+
+
 
 
             trades.get(2).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 2),
-                    nuka_cola_classic,1,12,0.09F));
+                    nuka_cola_classic,32,12,0.09F));
 
             trades.get(2).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 2),
-                    nuka_cola_berry,1,12,0.09F));
+                    nuka_cola_berry,32,12,0.09F));
+            trades.get(2).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 2),
+                    stimpak,25,12,0.09F));
+
 
             trades.get(1).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 1),
-                    pimp_boy,200,1,0.05f));
+                    pimp_boy,1,32,0.05f));
+            trades.get(1).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 1),
+                    geiger_counter,200,1,0.05f));
+            trades.get(1).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 1),
+                    radaway,200,32,0.05f));
+
 
         }
 

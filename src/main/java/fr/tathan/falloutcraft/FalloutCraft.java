@@ -61,6 +61,7 @@ public class FalloutCraft
         RecipeTypeRegistry.SERIALIZERS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         PotionsRegistry.POTIONS.register(modEventBus);
+        VillagerRegistry.register(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);
@@ -114,6 +115,7 @@ public class FalloutCraft
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.RADIOACTIVA.getId(), BlocksRegistry.POTTED_RADIOACTIVA);
 
             ModMessages.register();
+            VillagerRegistry.registerPOIs();
 
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, FalloutSurfaceRuleData.makeRules());
 
