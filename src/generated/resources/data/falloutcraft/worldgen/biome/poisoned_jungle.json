@@ -24,6 +24,7 @@
     [
       "minecraft:lake_lava_underground",
       "minecraft:lake_lava_surface",
+      "falloutcraft:quickdirt_lake_placed",
       "falloutcraft:quicksand_lake_placed"
     ],
     [

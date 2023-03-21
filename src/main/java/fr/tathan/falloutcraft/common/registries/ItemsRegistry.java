@@ -53,7 +53,9 @@ public class ItemsRegistry {
 
     public static final RegistryObject<BlockItem> QUICKDIRT = ITEMS.register("quickdirt", () -> new BlockItem(BlocksRegistry.QUICKDIRT.get(), new Item.Properties()));
 
-    public static final RegistryObject<Item> PIMP_BOY = ITEMS.register("pimp_boy", () -> new PimpBoy(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> PIP_BOY = ITEMS.register("pip_boy", () -> new PipBoy(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> PIMP_BOY = ITEMS.register("pimp_boy", () -> new PipBoy(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> HAZMAT_MASK = ITEMS.register("hazmat_mask",
             () -> new ArmorItem(ArmorMaterials.HAZMAT, EquipmentSlot.HEAD,

@@ -37,8 +37,6 @@ public class GeigerCounter extends Item {
 
             }
 
-            Component message = Component.literal("Radiation: " + playerRadiation + "/" + maxRadiation);
-
             if(maxRadiation/2 > (int) playerRadiation) {
                 pPlayer.displayClientMessage(Component.literal("Radiation: " + playerRadiation + "/" + maxRadiation).withStyle(ChatFormatting.DARK_GREEN), true);
             } else {

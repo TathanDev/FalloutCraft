@@ -80,6 +80,8 @@ public class FalloutCraft
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if(event.getTab() == TabsRegistry.FALLOUTCRAFT_TAB) {
             event.accept(ItemsRegistry.PIMP_BOY);
+            event.accept(ItemsRegistry.PIP_BOY);
+
             event.accept(ItemsRegistry.GEIGER_COUNTER);
             event.accept(ItemsRegistry.HAZMAT_BOOTS);
             event.accept(ItemsRegistry.HAZMAT_LEGGINGS);

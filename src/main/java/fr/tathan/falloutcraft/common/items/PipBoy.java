@@ -10,10 +10,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class PimpBoy extends Item {
+public class PipBoy extends Item {
 
 
-    public PimpBoy(Properties pProperties) {
+    public PipBoy(Properties pProperties) {
         super(pProperties);
 
     }

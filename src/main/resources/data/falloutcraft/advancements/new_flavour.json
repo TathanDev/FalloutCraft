@@ -1,0 +1,31 @@
+{
+  "parent": "falloutcraft:nuka_cola",
+  "display": {
+    "icon": {
+      "item": "falloutcraft:nuka_cola_berry"
+    },
+    "title": {
+      "translate": "advancements.nuka_cola_berry.title"
+    },
+    "description": {
+      "translate": "advancements.nuka_cola_berry.descr"
+    },
+    "frame": "task",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "falloutcraft:nuka_cola_berry"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

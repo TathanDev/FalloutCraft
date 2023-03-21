@@ -26,6 +26,8 @@ Fallout craft is mod which adds a few items from the fallout series to minecraft
 - Biomes (Need some reworks)
 - Flowers (Radioactiva)
 - Hazmat Suit
+- New Villager
+- Custom Generations
 
 
 ### TODO
@@ -38,7 +40,5 @@ Fallout craft is mod which adds a few items from the fallout series to minecraft
 - More Paintings 
 - Machines (Radiation Remover)
 - Mobs (RADROACHES, Bloodbugs)
-- New Villager
-- Custom Generations
 - Mods compatibility (Celestial, Patchouli, etc...)
 

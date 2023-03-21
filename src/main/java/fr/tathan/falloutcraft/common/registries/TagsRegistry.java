@@ -12,6 +12,8 @@ public class TagsRegistry {
 
     public static final TagKey<EntityType<?>> RADIATION_IMMUNISED;
     public static final TagKey<Item> VERY_RADIOACTIVE;
+    public static final TagKey<Item> IS_PIP_BOY;
+
 
 
     public TagsRegistry() {
@@ -20,6 +22,7 @@ public class TagsRegistry {
 
     static {
         VERY_RADIOACTIVE = TagKey.create(Registries.ITEM, new ResourceLocation(FalloutCraft.MODID, "very_radioactive"));
+        IS_PIP_BOY  = TagKey.create(Registries.ITEM, new ResourceLocation(FalloutCraft.MODID, "pip_boy"));
 
         RADIATION_IMMUNISED = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(FalloutCraft.MODID, "radiation_immunised"));
     }

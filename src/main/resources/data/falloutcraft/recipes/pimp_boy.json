@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ggg",
+    "gpg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:gold_block"
+    },
+    "p": {
+      "item": "falloutcraft:pip_boy"
+    }
+  },
+  "result": {
+    "item": "falloutcraft:pimp_boy",
+    "count": 1
+  }
+}

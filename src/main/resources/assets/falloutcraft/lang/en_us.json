@@ -19,7 +19,8 @@
 
 
 
-  "item.falloutcraft.pimp_boy": "Pimp Boy 300",
+  "item.falloutcraft.pimp_boy": "Pimp Boy",
+  "item.falloutcraft.pip_boy": "Pip Boy",
 
 
   "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
@@ -68,6 +69,20 @@
   "message.falloutcraft.radaway.no_item": "You don't have any item in your off hand",
   "message.falloutcraft.radaway.no_radiation": "%s doesn't have any radiation",
   "generator.falloutcraft.wastelands_preset": "Wastelands",
-  "entity.minecraft.villager.falloutcraft.survivalist": "Survivalist"
+  "entity.minecraft.villager.falloutcraft.survivalist": "Survivalist",
 
+  "advancements.falloutcraft.title": "The Vault Player ",
+  "advancements.falloutcraft.descr": "The one who survive",
+
+  "advancements.pimp_boy.title": "Pimp my Pip Boy",
+  "advancements.pimp_boy.descr": "Craft a shiny Pimp Boy",
+
+  "advancements.nuka_cola_machine.title": "The old machine",
+  "advancements.nuka_cola_machine.descr": "Craft the nuka cola machine",
+
+  "advancements.nuka_cola.title": "Damn that's good !",
+  "advancements.nuka_cola.descr": "Drink a delicious drink",
+
+  "advancements.nuka_cola_berry.title": "A new flavour !",
+  "advancements.nuka_cola_berry.descr": "Very good but not better that the original"
 }

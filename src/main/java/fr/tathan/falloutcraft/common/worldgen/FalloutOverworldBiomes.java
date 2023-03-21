@@ -99,6 +99,7 @@ public class FalloutOverworldBiomes {
         MobSpawnSettings.Builder mobspawnsetting = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.baseJungleSpawns(mobspawnsetting);
 
+
         BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder(pPlacedFeatureGetter, pConfiguredWorldCarverGetter);
         globalOverworldGeneration(biomegenerationsettings$builder);
         BiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
@@ -123,6 +124,8 @@ public class FalloutOverworldBiomes {
     }
 
     public static void addQuickDirtLake(BiomeGenerationSettings.Builder pBuilder) {
+
+        pBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKDIRT_LAKE);
     }
     public static void poisonedJungleDefault(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.POISONED_JUNGLE_TREE_PLACED_KEY);

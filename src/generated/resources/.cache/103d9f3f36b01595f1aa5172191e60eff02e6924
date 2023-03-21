@@ -1,7 +1,7 @@
-// 1.19.3	2023-03-13T19:18:53.8896805	Registries
-7677cc07c469e339bda4df6da228092c5cf79ce4 data/falloutcraft/worldgen/biome/poisoned_jungle.json
-4a00a0f2a1132454f92c3bfa654ac9ac1591ef3c data/falloutcraft/worldgen/biome/radioactive_forest.json
-36915636f5e0268828c3830da13a9c4647187e8b data/falloutcraft/worldgen/biome/radioactive_plains.json
+// 1.19.3	2023-03-21T11:41:14.5682289	Registries
+88e9b856f10329d3b046a916a1ae0fe2ac6ed43c data/falloutcraft/worldgen/biome/poisoned_jungle.json
+cf2ee77888af9bb325aa0cb7b337b631b3666ccd data/falloutcraft/worldgen/biome/radioactive_forest.json
+c3945d45dff01f24ec6bd3532f07e41b509b0c90 data/falloutcraft/worldgen/biome/radioactive_plains.json
 cee5ddd26749c22643c8aeba364ca88d05627aaf data/falloutcraft/worldgen/configured_feature/irradiated_oak.json
 800d334bca8a7e1f3b4c513a13d4581474456ec6 data/falloutcraft/worldgen/configured_feature/irradiated_oak_spawn.json
 33ec48e7ddda228a0327fc82f810463b8d43fef7 data/falloutcraft/worldgen/configured_feature/patch_poisoned_grass_jungle.json

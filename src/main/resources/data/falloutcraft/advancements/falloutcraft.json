@@ -1,13 +1,18 @@
 {
   "display": {
     "icon": {
-      "item": "falloutcraft:pimp_boy"
+      "item": "falloutcraft:pip_boy"
     },
-    "title": "The Vault Player",
-    "description": "The one who survive !",
-    "frame": "task",
+    "title": {
+      "translate": "advancements.falloutcraft.title"
+    },
+    "description": {
+      "translate": "advancements.falloutcraft.descr"
+    },
+    "frame": "goal",
     "show_toast": true,
-    "announce_to_chat": false,
+    "announce_to_chat": true,
+    "hidden": false,
     "background": "minecraft:textures/block/iron_block.png"
   },
   "criteria": {
@@ -18,7 +23,7 @@
   "background": "falloutcraft:textures/items/pimp_boy.png",
   "rewards": {
     "loot": [
-      "falloutcraft:pimp_boy"
+      "falloutcraft:pip_boy"
     ]
   }
 }

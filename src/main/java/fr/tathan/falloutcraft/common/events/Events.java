@@ -133,18 +133,22 @@ public class Events {
 
             ItemStack nuka_cola_classic = new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get(), 2);
             ItemStack nuka_cola_berry = new ItemStack(ItemsRegistry.NUKA_COLA_BERRY.get(), 2);
+            ItemStack pip_boy = new ItemStack(ItemsRegistry.PIP_BOY.get(), 1);
             ItemStack pimp_boy = new ItemStack(ItemsRegistry.PIMP_BOY.get(), 1);
+
             ItemStack geiger_counter = new ItemStack(ItemsRegistry.GEIGER_COUNTER.get(), 1);
             ItemStack radaway = new ItemStack(ItemsRegistry.RADAWAY.get(), 3);
             ItemStack stimpak = new ItemStack(ItemsRegistry.STIMPAK.get(), 5);
 
 
 
+            trades.get(3).add((trader, rand) -> new MerchantOffer(
+                    new ItemStack(Items.EMERALD, 20),
+                    pimp_boy,32,12,0.09F));
 
             trades.get(2).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 2),
                     nuka_cola_classic,32,12,0.09F));
-
             trades.get(2).add((trader, rand) -> new MerchantOffer(
                     new ItemStack(Items.EMERALD, 2),
                     nuka_cola_berry,32,12,0.09F));
@@ -154,13 +158,13 @@ public class Events {
 
 
             trades.get(1).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 1),
-                    pimp_boy,1,32,0.05f));
+                    new ItemStack(Items.EMERALD, 5),
+                    pip_boy,1,32,0.05f));
             trades.get(1).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 1),
+                    new ItemStack(Items.EMERALD, 3),
                     geiger_counter,200,1,0.05f));
             trades.get(1).add((trader, rand) -> new MerchantOffer(
-                    new ItemStack(Items.EMERALD, 1),
+                    new ItemStack(Items.EMERALD, 2),
                     radaway,200,32,0.05f));
 
 
