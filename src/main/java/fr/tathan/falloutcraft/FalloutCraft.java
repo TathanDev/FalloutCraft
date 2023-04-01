@@ -18,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.material.WaterFluid;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
@@ -107,7 +108,6 @@ public class FalloutCraft
         }
     }
 
-
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(() ->
@@ -127,8 +127,6 @@ public class FalloutCraft
         });
 
     }
-
-
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)

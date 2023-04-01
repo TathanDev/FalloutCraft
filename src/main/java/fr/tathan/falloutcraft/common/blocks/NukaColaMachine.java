@@ -40,7 +40,7 @@ public class NukaColaMachine extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     private static final VoxelShape SHAPE =
-            Block.box(0, 0, 0, 16, 20, 16);
+            Block.box(2, 0, 3, 14, 24, 13);
 
 
     public NukaColaMachine(Properties pProperties) {
