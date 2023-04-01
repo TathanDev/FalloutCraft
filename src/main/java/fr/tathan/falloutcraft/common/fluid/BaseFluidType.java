@@ -31,13 +31,14 @@ public class BaseFluidType extends FluidType {
     private final Vector3f fogColor;
 
     public BaseFluidType(final ResourceLocation stillTexture, final ResourceLocation flowingTexture, final ResourceLocation overlayTexture,
-                         final int tintColor, final Vector3f fogColor, final Properties properties) {
+                         final int tintColor, final Vector3f fogColor,  final Properties properties) {
         super(properties);
         this.stillTexture = stillTexture;
         this.flowingTexture = flowingTexture;
         this.overlayTexture = overlayTexture;
         this.tintColor = tintColor;
         this.fogColor = fogColor;
+
     }
 
     public ResourceLocation getStillTexture() {
@@ -59,6 +60,7 @@ public class BaseFluidType extends FluidType {
     public Vector3f getFogColor() {
         return fogColor;
     }
+
 
     @Override
     public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
@@ -82,6 +84,8 @@ public class BaseFluidType extends FluidType {
             public int getTintColor() {
                 return tintColor;
             }
+
+
 
             @Override
             public @NotNull Vector3f modifyFogColor(Camera camera, float partialTick, ClientLevel level,

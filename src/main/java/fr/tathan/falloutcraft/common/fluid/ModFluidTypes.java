@@ -20,7 +20,7 @@ public class ModFluidTypes {
             DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, FalloutCraft.MODID);
 
     public static final RegistryObject<FluidType> RADIATED_WATER_FLUID_TYPE = register("radiated_water_fluid",
-            FluidType.Properties.create().lightLevel(2).density(15).viscosity(5).lightLevel(12).supportsBoating(true));
+            FluidType.Properties.create().density(15).viscosity(5).lightLevel(12).supportsBoating(true));
 
     private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
         return FLUID_TYPES.register(name, () -> new BaseFluidType(WATER_STILL_RL, WATER_FLOWING_RL, RADIATED_WATER_OVERLAY_RL,
