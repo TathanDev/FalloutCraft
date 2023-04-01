@@ -4,25 +4,20 @@ import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
-import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
-import fr.tathan.falloutcraft.common.registries.MenuTypes;
 import fr.tathan.falloutcraft.common.registries.TagsRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraftforge.client.event.ScreenEvent;
-import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 
 import java.util.List;
 
@@ -45,6 +40,10 @@ public class ClientEventHandlers {
         if (!stack.isEmpty()) {
 
             ItemRadiation radiation = stack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
+            radiation.loadNBTData(stack.getOrCreateTagElement("radiation"));
+
+
+
             tooltip.add(Component.literal("Radiation: " + radiation.getRadiation()).withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.ITALIC));
         }
     }

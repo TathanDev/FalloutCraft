@@ -23,6 +23,11 @@ public class ItemRadiation {
         this.radiation = Math.max(radiation - sub, MIN_RADIATION);
     }
 
+    public void setRadiation(double set) {
+        this.radiation = Math.max(set, MAX_RADIATION);
+    }
+
+
     public void copyFrom(ItemRadiation source) {
         this.radiation = source.radiation;
     }

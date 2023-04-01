@@ -15,15 +15,16 @@ public class RadiationItemCommand {
 
         public RadiationItemCommand(CommandDispatcher<CommandSourceStack> dispatcher) {
 
-            dispatcher.register(Commands.literal("falloutcraft").then(Commands.literal("addRadiation").requires(c -> c.hasPermission(2)).executes((Command) -> {
+            dispatcher.register(Commands.literal("falloutcraft")
+                    .then(Commands.literal("addRadiation").requires(c -> c.hasPermission(2)).executes((Command) -> {
 
                 return addRadiation(Command.getSource());
-            })));
+            }))
+                    .then(Commands.literal("subRadiation").requires(c -> c.hasPermission(2)).executes((Command) -> {
 
-            dispatcher.register(Commands.literal("falloutcraft").then(Commands.literal("subRadiation").requires(c -> c.hasPermission(2)).executes((Command) -> {
+                        return subRadiation(Command.getSource());
+                    })));
 
-                return subRadiation(Command.getSource());
-            })));
 
 
         }
@@ -43,6 +44,7 @@ public class RadiationItemCommand {
             player.sendSystemMessage(Component.translatable("commands.falloutcraft.addRadiation.failure", item.getDisplayName()));
         } else {
             radiation.addRadiation(1);
+            radiation.saveNBTData(item.getOrCreateTagElement("radiation"));
             player.sendSystemMessage(Component.translatable("commands.falloutcraft.addRadiation.success", item.getDisplayName(), radiation.getRadiation()));
         }
 
@@ -63,6 +65,8 @@ public class RadiationItemCommand {
             player.sendSystemMessage(Component.translatable("commands.falloutcraft.addRadiation.failure", item.getDisplayName()));
         } else {
             radiation.subRadiation(1);
+            radiation.saveNBTData(item.getOrCreateTagElement("radiation"));
+
 
             player.sendSystemMessage(Component.translatable("commands.falloutcraft.addRadiation.success", item.getDisplayName(), radiation.getRadiation()));
         }

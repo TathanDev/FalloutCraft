@@ -26,6 +26,7 @@ public class VillagerRegistry {
             () -> new VillagerProfession("survivalist", x -> x.get() == NUKA_COLA_MACHINE_POI.get(),
                     x -> x.get() == NUKA_COLA_MACHINE_POI.get(), ImmutableSet.of(), ImmutableSet.of(),
                     SoundEvents.VILLAGER_WORK_ARMORER));
+    //TODO FIX VILLAGER ZOMBIE
 
 
     public static void registerPOIs() {

@@ -6,12 +6,14 @@ import fr.tathan.falloutcraft.common.commands.RadiationItemCommand;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
 //import fr.tathan.falloutcraft.common.entity.radroaches.RadroachEntity;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
+import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.*;
 import fr.tathan.falloutcraft.common.util.Methods;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -72,16 +74,16 @@ public class Events {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
                         player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 1);
                     } else if (itemRadiation >= 3 && itemRadiation < 4) {
-                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40));
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40, 1));
                         player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 1.5F);
                     } else if (itemRadiation >= 4 && itemRadiation < 5) {
-                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 50));
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 50, 1));
                         player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 2);
                     } else if (itemRadiation >= 5 && itemRadiation < 6) {
-                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 60));
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 60, 2));
                         player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 2.5F);
                     } else if (itemRadiation >= 7 || itemStack.is(TagsRegistry.VERY_RADIOACTIVE )) {
-                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 70));
+                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 70, 2));
                         player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 3);
 
                     }
@@ -107,14 +109,19 @@ public class Events {
     @SubscribeEvent
     public static void itemPickupEvent(EntityItemPickupEvent event) {
 
-       ItemStack itemStack = event.getItem().getItem();
-       ItemRadiation itemRadiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
+        ItemStack itemStack = event.getItem().getItem();
+        ItemRadiation itemRadiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
 
-       //When a play will pick up an item, the item will have one more radiation point
-       if (itemRadiation.getRadiation() < 7) {
-           itemRadiation.addRadiation(0.5);
+        //When a play will pick up an item, the item will have one more radiation point
+        if (itemRadiation.getRadiation() < 7) {
 
-       }
+            itemRadiation.addRadiation( 0.5);
+            itemRadiation.saveNBTData(itemStack.getOrCreateTagElement("radiation"));
+
+
+        }
+
+        FalloutCraft.LOGGER.info("Radiation of the item : " + itemRadiation.getRadiation());
     }
 
     @SubscribeEvent

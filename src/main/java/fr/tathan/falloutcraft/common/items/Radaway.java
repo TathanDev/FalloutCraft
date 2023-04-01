@@ -31,6 +31,8 @@ public class Radaway extends Item {
             } else {
                 radaway.shrink(1);
                 radiation.subRadiation(1.0);
+                radiation.saveNBTData(itemStack.getOrCreateTagElement("radiation"));
+
                 FalloutCraft.LOGGER.debug(itemStack.getDisplayName() + "now has" + radiation.getRadiation() + "radiation");
                 return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
 

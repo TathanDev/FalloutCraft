@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[43,)"
+loaderVersion="[44,)"
 license="All rights reserved"
 issueTrackerURL="https://github.com/TathanDev/FalloutCraft/issues"
 
@@ -13,20 +13,20 @@ credits=""
 authors="TATHAN"
 description='''
 Fallout Craft is a mod that adds in Fallout themed items, blocks,structures and more...
-Explore a devastated wasteland, find bunker, and survive!
+Explore a devastated wasteland, find structures from an other life, and survive!
 '''
 
 [[dependencies.falloutcraft]]
     modId="forge"
     mandatory=true
-    versionRange="[43,)"
+    versionRange="[44,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.falloutcraft]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.19.3,1.20)"
     ordering="NONE"
     side="BOTH"
 
