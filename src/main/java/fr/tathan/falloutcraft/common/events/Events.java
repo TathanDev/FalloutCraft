@@ -104,6 +104,13 @@ public class Events {
 
         radioactiveRain(livingEntity, Level.OVERWORLD);
 
+        if (livingEntity.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get())) {
+            if(livingEntity instanceof Player player && Methods.hasHazmatSuit(player)) {
+                return;
+            }
+            livingEntity.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 10, 1));
+        }
+
     }
 
     @SubscribeEvent
