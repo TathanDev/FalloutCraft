@@ -39,6 +39,19 @@ public class ModMessages {
                 .encoder(ItemStackSyncS2CPacket::toBytes)
                 .consumerMainThread(ItemStackSyncS2CPacket::handle)
                 .add();
+
+        net.messageBuilder(FluidsSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(FluidsSyncS2CPacket::new)
+                .encoder(FluidsSyncS2CPacket::toBytes)
+                .consumerMainThread(FluidsSyncS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(RadiatedFluidSyncS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(RadiatedFluidSyncS2CPacket::new)
+                .encoder(RadiatedFluidSyncS2CPacket::toBytes)
+                .consumerMainThread(RadiatedFluidSyncS2CPacket::handle)
+                .add();
+
     }
 
     public static <MSG> void sendToServer(MSG message) {

@@ -34,7 +34,7 @@ public class RadioactivaFlower extends WitherRoseBlock {
             if (pEntity instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity)pEntity;
                 if (!livingentity.getType().is(TagsRegistry.RADIATION_IMMUNISED)) {
-                    livingentity.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40));
+                    livingentity.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40, 1));
                 }
             }
 

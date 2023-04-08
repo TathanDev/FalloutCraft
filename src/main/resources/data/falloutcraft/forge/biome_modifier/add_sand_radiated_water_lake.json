@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:desert",
+  "features": "falloutcraft:sand_radiated_water_lake",
+  "step": "lakes"
+}

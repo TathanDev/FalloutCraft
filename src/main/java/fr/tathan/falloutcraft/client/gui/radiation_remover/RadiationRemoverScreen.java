@@ -60,7 +60,7 @@ public class RadiationRemoverScreen extends AbstractContainerScreen<RadiationRem
     private void renderRadiatedWaterAreaTooltips(PoseStack pPoseStack, int pMouseX, int pMouseY, int x, int y) {
         if(isMouseAboveArea(pMouseX, pMouseY, x, y, 100, 15)) {
 
-            renderTooltip(pPoseStack, renderer.getTooltip(menu.getRadiatedWaterStack(), TooltipFlag.Default.NORMAL),
+            renderTooltip(pPoseStack, renderer2.getTooltip(menu.getRadiatedWaterStack(), TooltipFlag.Default.NORMAL),
                     Optional.empty(), pMouseX - x, pMouseY - y);
         }
     }

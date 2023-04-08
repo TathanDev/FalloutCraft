@@ -4,7 +4,9 @@ import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverMenu;
 import fr.tathan.falloutcraft.common.blocks.RadiationRemover;
 import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.network.packet.FluidSyncS2CPacket;
+import fr.tathan.falloutcraft.common.network.packet.FluidsSyncS2CPacket;
 import fr.tathan.falloutcraft.common.network.packet.ItemStackSyncS2CPacket;
+import fr.tathan.falloutcraft.common.network.packet.RadiatedFluidSyncS2CPacket;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.BlockEntityRegistry;
@@ -21,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -31,6 +34,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -55,7 +59,8 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
             return switch (slot) {
                 case 0 -> stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent();
                 case 1 -> true;
-                case 2 -> false;
+                case 2 -> stack.is(Items.BUCKET);
+                case 3 -> false;
                 default -> super.isItemValid(slot, stack);
             };
         }
@@ -92,7 +97,7 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
         protected void onContentsChanged() {
             setChanged();
             if(!level.isClientSide()) {
-                ModMessages.sendToClients(new FluidSyncS2CPacket(this.fluid, worldPosition));
+                ModMessages.sendToClients(new RadiatedFluidSyncS2CPacket(this.fluid, worldPosition));
             }
         }
 
@@ -111,17 +116,6 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
     }
 
 
-    public ItemStack getRenderStack() {
-        ItemStack stack;
-
-        if(!itemHandler.getStackInSlot(2).isEmpty()) {
-            stack = itemHandler.getStackInSlot(2);
-        } else {
-            stack = itemHandler.getStackInSlot(1);
-        }
-
-        return stack;
-    }
 
     public void setHandler(ItemStackHandler itemStackHandler) {
         for (int i = 0; i < itemStackHandler.getSlots(); i++) {
@@ -182,9 +176,8 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+        ModMessages.sendToClients(new RadiatedFluidSyncS2CPacket(this.getRadiatedWaterStack(), worldPosition));
         ModMessages.sendToClients(new FluidSyncS2CPacket(this.getWaterStack(), worldPosition));
-        ModMessages.sendToClients(new FluidSyncS2CPacket(this.getRadiatedWaterStack(), worldPosition));
-
 
         return new RadiationRemoverMenu(id, inventory, this, this.data);
     }
@@ -346,17 +339,25 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
         if(hasRecipe(pEntity)) {
             pEntity.WATER_TANK.drain(250, IFluidHandler.FluidAction.EXECUTE);
             pEntity.RADIATED_WATER_TANK.fill(new FluidStack(FluidsRegistry.FLOWING_RADIATED_WATER.get(), 250), IFluidHandler.FluidAction.EXECUTE);
+            ItemStack output = pEntity.itemHandler.getStackInSlot(1);
+
 
             pEntity.itemHandler.extractItem(1, 1, false);
 
-            ItemStack output = pEntity.itemHandler.getStackInSlot(1);
             ItemRadiation itemRadiation = output.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
+            itemRadiation.loadNBTData(output.getOrCreateTagElement("radiation"));
+
+                    //Remove radiaiton
 
 
-            itemRadiation.subRadiation(0.5);
 
-            pEntity.itemHandler.setStackInSlot(2, new ItemStack(output.getItem(),
-                    pEntity.itemHandler.getStackInSlot(2).getCount() + 1));
+
+            ItemStack stack = new ItemStack(output.getItem(),
+                    pEntity.itemHandler.getStackInSlot(1).getCount() + 1);
+
+
+
+            pEntity.itemHandler.setStackInSlot(3, stack);
 
             pEntity.resetProgress();
         }
@@ -371,13 +372,20 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
         boolean hasItemInFirstSlot = entity.itemHandler.getStackInSlot(1).getItem() != null;
 
 
-        return hasItemInFirstSlot && hasCorrectFluidAmountInTank(entity, 250) && canInsertAmountIntoOutputSlot(inventory) &&
+        return hasItemInFirstSlot && hasCorrectFluidAmountInTank(entity, 250) && hasPlaceInTank(entity, 64000) && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, new ItemStack(entity.itemHandler.getStackInSlot(1).getItem(), 1));
     }
 
     private static boolean hasCorrectFluidAmountInTank(RadiationRemoverBlockEntity entity,int amount) {
-        return entity.WATER_TANK.getFluidAmount() >= amount;
+        return entity.WATER_TANK.getFluidAmount() >= amount && entity.RADIATED_WATER_TANK.getFluidAmount() <= amount;
     }
+
+    private static boolean hasPlaceInTank(RadiationRemoverBlockEntity entity, int amount) {
+        return entity.RADIATED_WATER_TANK.getFluidAmount() <= amount;
+    }
+
+
+
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
         return inventory.getItem(2).getItem() == stack.getItem() || inventory.getItem(2).isEmpty();

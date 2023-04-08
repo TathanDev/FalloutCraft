@@ -3,6 +3,8 @@ package fr.tathan.falloutcraft.common.registries;
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.blocks.entity.NukaColaMachineBlockEntity;
 import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CauldronBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

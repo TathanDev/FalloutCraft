@@ -48,7 +48,7 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultSprings(builder);
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
-        addQuickDirtLake(builder);
+        addDefaultLake(builder);
 
     }
 
@@ -123,9 +123,10 @@ public class FalloutOverworldBiomes {
         pBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKSAND_LAKE);
     }
 
-    public static void addQuickDirtLake(BiomeGenerationSettings.Builder pBuilder) {
+    public static void addDefaultLake(BiomeGenerationSettings.Builder pBuilder) {
 
         pBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKDIRT_LAKE);
+        pBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.RADIATED_WATER_LAKE);
     }
     public static void poisonedJungleDefault(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.POISONED_JUNGLE_TREE_PLACED_KEY);

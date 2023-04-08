@@ -11,17 +11,18 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
-public class FluidSyncS2CPacket {
+
+public class RadiatedFluidSyncS2CPacket {
 
     private final FluidStack fluidStack;
     private final BlockPos pos;
 
-    public FluidSyncS2CPacket(FluidStack fluidStack, BlockPos pos) {
+    public RadiatedFluidSyncS2CPacket(FluidStack fluidStack, BlockPos pos) {
         this.fluidStack = fluidStack;
         this.pos = pos;
     }
 
-    public FluidSyncS2CPacket(FriendlyByteBuf buf) {
+    public RadiatedFluidSyncS2CPacket(FriendlyByteBuf buf) {
         this.fluidStack = buf.readFluidStack();
         this.pos = buf.readBlockPos();
     }
@@ -34,21 +35,14 @@ public class FluidSyncS2CPacket {
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof NukaColaMachineBlockEntity blockEntity) {
-                blockEntity.setFluid(this.fluidStack);
 
-                if(Minecraft.getInstance().player.containerMenu instanceof NukaColaMachineMenu menu &&
-                        menu.getBlockEntity().getBlockPos().equals(pos)) {
-                    menu.setFluid(this.fluidStack);
-                }
-            }
 
             if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof RadiationRemoverBlockEntity blockEntity) {
-                blockEntity.setWater(this.fluidStack);
+                blockEntity.setRadiatedWater(this.fluidStack);
 
                 if(Minecraft.getInstance().player.containerMenu instanceof RadiationRemoverMenu menu &&
                         menu.getBlockEntity().getBlockPos().equals(pos)) {
-                    menu.setWater(this.fluidStack);
+                    menu.setRadiatedWater(this.fluidStack);
                 }
             }
         });

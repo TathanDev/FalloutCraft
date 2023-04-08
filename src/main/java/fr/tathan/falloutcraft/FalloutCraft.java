@@ -100,6 +100,7 @@ public class FalloutCraft
             event.accept(ItemsRegistry.RADIOACTIVA);
             event.accept(ItemsRegistry.QUICKDIRT);
             event.accept(ItemsRegistry.QUICKSAND);
+            event.accept(ItemsRegistry.RADIATED_WATER_BUCKET);
 
         }
 

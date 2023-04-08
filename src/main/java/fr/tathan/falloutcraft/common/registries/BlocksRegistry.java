@@ -4,6 +4,7 @@ import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.blocks.*;
 import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;

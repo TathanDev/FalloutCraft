@@ -134,7 +134,7 @@ public class Events {
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
         if(event.isWasDeath() && !event.getEntity().getInventory().contains(ItemsRegistry.PIMP_BOY.get().getDefaultInstance())) {
-            event.getEntity().addItem(ItemsRegistry.PIMP_BOY.get().getDefaultInstance());
+            event.getEntity().addItem(ItemsRegistry.PIP_BOY.get().getDefaultInstance());
         }
     }
 

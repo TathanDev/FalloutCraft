@@ -5,16 +5,13 @@ import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.registries.BlocksRegistry;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -35,7 +32,6 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.FancyTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 
 import java.util.List;
@@ -57,6 +53,11 @@ public class FalloutConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUICKSAND_LAKE = registerKey("quicksand_lake");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUICKDIRT_LAKE = registerKey("quickdirt_lake");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> RADIATED_WATER_LAKE = registerKey("radiated_water_lake");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SAND_RADIATED_WATER_LAKE = registerKey("sand_radiated_water_lake");
+
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_POISONED_GRASS_JUNGLE = registerKey("patch_poisoned_grass_jungle");
 
@@ -101,6 +102,9 @@ public class FalloutConfiguredFeatures {
         register(context, QUICKSAND_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.QUICKSAND.get().defaultBlockState()), BlockStateProvider.simple(Blocks.COARSE_DIRT.defaultBlockState())));
 
         register(context, QUICKDIRT_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.QUICKDIRT.get().defaultBlockState()), BlockStateProvider.simple(Blocks.COARSE_DIRT.defaultBlockState())));
+
+        register(context, RADIATED_WATER_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.RADIATED_WATER_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(Blocks.COARSE_DIRT.defaultBlockState())));
+        register(context, SAND_RADIATED_WATER_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.RADIATED_WATER_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(Blocks.SAND.defaultBlockState())));
 
         register(context, PATCH_POISONED_GRASS_JUNGLE, Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 7, 3, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(BlocksRegistry.POISONED_GRASS.get().defaultBlockState(), 5))),
