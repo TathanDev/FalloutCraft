@@ -6,32 +6,14 @@
         "type": "minecraft:noise",
         "settings": "falloutcraft:wastelands",
         "biome_source": {
-          "type": "minecraft:multi_noise",
+          "type": "minecraft:checkerboard",
+          "scale": 5,
           "biomes": [
-            {
-              "biome": "falloutcraft:radioactive_plains",
-              "parameters": {
-                "temperature": 0,
-                "humidity": 0,
-                "continentalness": 0,
-                "erosion": 0,
-                "weirdness": 0,
-                "depth": 0,
-                "offset": 0
-              }
-            },
-            {
-              "biome": "falloutcraft:radioactive_forest",
-              "parameters": {
-                "temperature": 0,
-                "humidity": 0,
-                "continentalness": 0,
-                "erosion": 0,
-                "weirdness": 0,
-                "depth": 0,
-                "offset": 0
-              }
-            }
+            "falloutcraft:radioactive_plains",
+            "falloutcraft:radioactive_forest",
+            "minecraft:desert",
+            "minecraft:badlands"
+
           ]
         }
       }
