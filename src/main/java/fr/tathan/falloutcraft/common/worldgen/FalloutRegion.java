@@ -45,11 +45,20 @@ public class FalloutRegion extends Region {
                     .weirdness(Weirdness.HIGH_SLICE_VARIANT_ASCENDING, Weirdness.PEAK_VARIANT, Weirdness.HIGH_SLICE_VARIANT_DESCENDING)
                     .build();
 
-
+            List<Climate.ParameterPoint> JunglePoints = new ParameterPointListBuilder()
+                    .temperature(Temperature.COOL)
+                    .humidity(Humidity.HUMID)
+                    .continentalness(Continentalness.span(Continentalness.MID_INLAND, Continentalness.FAR_INLAND))
+                    .erosion(Erosion.EROSION_0, Erosion.EROSION_1)
+                    .depth(Depth.SURFACE)
+                    .weirdness(Weirdness.HIGH_SLICE_VARIANT_ASCENDING, Weirdness.PEAK_VARIANT, Weirdness.HIGH_SLICE_VARIANT_DESCENDING)
+                    .build();
 
 
             ForestPoints.forEach(point ->builder.replaceBiome(Biomes.FOREST, FalloutBiomes.RADIOACTIVE_FOREST));
             PlainsPoints.forEach(point ->builder.replaceBiome(Biomes.PLAINS, FalloutBiomes.RADIOACTIVE_PLAINS));
+            JunglePoints.forEach(point ->builder.replaceBiome(Biomes.JUNGLE, FalloutBiomes.POISONED_JUNGLE));
+
         });
     }
 

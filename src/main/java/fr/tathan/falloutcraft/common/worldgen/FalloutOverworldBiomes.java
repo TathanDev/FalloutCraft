@@ -7,6 +7,8 @@ import net.minecraft.sounds.Musics;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import javax.annotation.Nullable;
 
@@ -85,11 +87,43 @@ public class FalloutOverworldBiomes {
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
 
-   public static void addLakes(BiomeGenerationSettings.Builder biomeBuilder) {
+    public static Biome poisonedJungle()
+    {
+
+        MobSpawnSettings.Builder mobspawnsetting = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.baseJungleSpawns(mobspawnsetting);
+
+
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
+
+
+        //BiomeDefaultFeatures.addJungleGrass(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addJungleVines(biomegenerationsettings$builder);
+        jungleFeatures(biomegenerationsettings$builder);
+
+
+
+
+
+        return biome(Biome.Precipitation.NONE, 2.0F, 0.0F, 6415715, 6415715, mobspawnsetting, biomegenerationsettings$builder, APOCALYPTIC_MUSIC);
+    }
+
+
+    public static void addLakes(BiomeGenerationSettings.Builder biomeBuilder) {
         biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKSAND_LAKE.getHolder().get());
        biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKDIRT_LAKE.getHolder().get());
        biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.RADIATED_WATER_LAKE.getHolder().get());
 
+   }
+
+   public static void jungleFeatures(BiomeGenerationSettings.Builder biomeBuilder) {
+       biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.POISONED_JUNGLE_TREE_PLACED_KEY.getHolder().get());
+       biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.POISONED_GRASS_PATCH.getHolder().get());
    }
 
 }

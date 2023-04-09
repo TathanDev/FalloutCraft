@@ -25,6 +25,8 @@ public class FalloutSurfaceRuleData {
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_PLAINS), grassSurface),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.RADIOACTIVE_FOREST), grassSurface),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(FalloutBiomes.POISONED_JUNGLE), SurfaceRuleData.overworld()),
+
 
                 // Default to a grass and dirt surface
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, SurfaceRuleData.overworld())
