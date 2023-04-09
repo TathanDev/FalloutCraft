@@ -65,12 +65,11 @@ public class Events {
 
                 for (ItemStack itemStack : player.getInventory().items) {
                     ItemRadiation radiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
+                    radiation.loadNBTData(itemStack.getOrCreateTagElement("radiation"));
                     Double itemRadiation = radiation.getRadiation();
 
-                    if (itemRadiation <= 1 && itemRadiation > 0.1) {
-                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 20));
-                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 0.1F);
-                    } else if (itemRadiation >= 2 && itemRadiation < 3) {
+
+                    if (itemRadiation >= 2 && itemRadiation < 3) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
                         player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 1);
                     } else if (itemRadiation >= 3 && itemRadiation < 4) {

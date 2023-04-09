@@ -38,7 +38,7 @@ public class RadiationItemCommand {
            ItemStack item = player.getItemInHand(InteractionHand.MAIN_HAND);
 
         ItemRadiation radiation = item.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
-
+        radiation.loadNBTData(item.getOrCreateTagElement("radiation"));
 
         if (radiation.getRadiation() == 10) {
             player.sendSystemMessage(Component.translatable("commands.falloutcraft.addRadiation.failure", item.getDisplayName()));
@@ -59,6 +59,7 @@ public class RadiationItemCommand {
         ItemStack item = player.getItemInHand(InteractionHand.MAIN_HAND);
 
         ItemRadiation radiation = item.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
+        radiation.loadNBTData(item.getOrCreateTagElement("radiation"));
 
 
         if (radiation.getRadiation() == 0) {

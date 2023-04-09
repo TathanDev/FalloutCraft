@@ -22,6 +22,7 @@ public class Radaway extends Item {
         ItemStack itemStack = pPlayer.getOffhandItem();
         ItemStack radaway = pPlayer.getItemInHand(pUsedHand);
         ItemRadiation radiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
+        radiation.loadNBTData(itemStack.getOrCreateTagElement("radiation"));
 
 
             if (itemStack == ItemStack.EMPTY || itemStack.getItem() == Items.AIR) {

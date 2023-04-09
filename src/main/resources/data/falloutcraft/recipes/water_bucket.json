@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#f"
+  ],
+  "key": {
+    "#": {
+      "item": "falloutcraft:radiated_water_bucket"
+    },
+    "f": {
+      "item": "minecraft:flint"
+    }
+  },
+  "result": {
+    "item": "minecraft:water_bucket"
+  }
+}
