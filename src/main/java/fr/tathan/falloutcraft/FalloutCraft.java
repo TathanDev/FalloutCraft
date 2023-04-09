@@ -71,6 +71,8 @@ public class FalloutCraft
         RecipeTypeRegistry.SERIALIZERS.register(modEventBus);
         ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         PotionsRegistry.POTIONS.register(modEventBus);
+        VillagerRegistry.register(modEventBus);
+
 
         BiomesRegistry.registerBiomes();
 

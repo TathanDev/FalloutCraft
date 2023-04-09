@@ -31,6 +31,19 @@ public class FalloutPlacedFeatures {
             () -> new PlacedFeature(FalloutConfiguredFeatures.RADIOACTIVA.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(16),
                     InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome())));
 
+    public static final RegistryObject<PlacedFeature> RADIATED_WATER_LAKE = PLACED_FEATURES.register("radiated_water_lake",
+            () -> new PlacedFeature(FalloutConfiguredFeatures.RADIATED_WATER_LAKE.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(70),
+                    InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome())));
+    public static final RegistryObject<PlacedFeature> QUICKSAND_LAKE = PLACED_FEATURES.register("quicksand_lake",
+            () -> new PlacedFeature(FalloutConfiguredFeatures.RADIATED_WATER_LAKE.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(70),
+                    InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome())));
+    public static final RegistryObject<PlacedFeature> QUICKDIRT_LAKE = PLACED_FEATURES.register("quickdirt_lake",
+            () -> new PlacedFeature(FalloutConfiguredFeatures.RADIATED_WATER_LAKE.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(70),
+                    InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome())));
+
+
+
+
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());

@@ -22,15 +22,18 @@ public class Radaway extends Item {
         ItemStack itemStack = pPlayer.getOffhandItem();
         ItemStack radaway = pPlayer.getItemInHand(pUsedHand);
         ItemRadiation radiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
+        radiation.loadNBTData(itemStack.getOrCreateTagElement("radiation"));
 
 
-            if (itemStack == ItemStack.EMPTY || itemStack.getItem() == Items.AIR) {
+
+        if (itemStack == ItemStack.EMPTY || itemStack.getItem() == Items.AIR) {
                 pPlayer.sendSystemMessage(Component.translatable("message.falloutcraft.radaway.no_item"));
             } else if( radiation.getRadiation() == 0) {
                 pPlayer.sendSystemMessage(Component.translatable("message.falloutcraft.radaway.no_radiation", itemStack.getDisplayName()));
             } else {
                 radaway.shrink(1);
                 radiation.subRadiation(1.0);
+                radiation.saveNBTData(itemStack.getOrCreateTagElement("radiation"));
                 FalloutCraft.LOGGER.debug(itemStack.getDisplayName() + "now has" + radiation.getRadiation() + "radiation");
                 return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
 

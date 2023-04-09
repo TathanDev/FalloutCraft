@@ -8,6 +8,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.LakeFeature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -45,5 +46,15 @@ public class FalloutConfiguredFeatures {
             () -> new ConfiguredFeature<>(Feature.FLOWER,
                     new RandomPatchConfiguration(32, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
                             new SimpleBlockConfiguration(BlockStateProvider.simple(BlocksRegistry.RADIOACTIVA.get()))))));
+
+    public static final RegistryObject<ConfiguredFeature<?, ?>> RADIATED_WATER_LAKE = CONFIGURED_FEATURES.register("radiared_water_lake",
+            () -> new ConfiguredFeature<>(Feature.LAKE,
+                    new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.RADIATED_WATER_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(Blocks.COARSE_DIRT.defaultBlockState()))));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> QUICKSAND_LAKE = CONFIGURED_FEATURES.register("quicksand_lake",
+            () -> new ConfiguredFeature<>(Feature.LAKE,
+                    new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.QUICKSAND.get().defaultBlockState()), BlockStateProvider.simple(Blocks.COARSE_DIRT.defaultBlockState()))));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> QUICKDIRT_LAKE = CONFIGURED_FEATURES.register("quickdirt_lake",
+            () -> new ConfiguredFeature<>(Feature.LAKE,
+                    new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.QUICKDIRT.get().defaultBlockState()), BlockStateProvider.simple(Blocks.COARSE_DIRT.defaultBlockState()))));
 
 }

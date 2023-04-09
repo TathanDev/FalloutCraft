@@ -27,6 +27,7 @@ public class GeigerCounter extends Item {
 
             for (ItemStack itemStack : inventory.items) {
                 ItemRadiation radiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
+                radiation.loadNBTData(itemStack.getOrCreateTagElement("radiation"));
                 Double itemRadiation = radiation.getRadiation();
 
                 playerRadiation += itemRadiation;

@@ -47,6 +47,8 @@ public class ClientEventHandlers {
         if (!stack.isEmpty()) {
 
             ItemRadiation radiation = stack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElseThrow(() -> new IllegalStateException("Damn! An Error ?! This is Spooky !!"));
+            radiation.loadNBTData(stack.getOrCreateTagElement("radiation"));
+
             tooltip.add(Component.literal("Radiation: " + radiation.getRadiation()).withStyle(ChatFormatting.DARK_GREEN).withStyle(ChatFormatting.ITALIC));
         }
     }

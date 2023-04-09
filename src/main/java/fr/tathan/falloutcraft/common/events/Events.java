@@ -66,11 +66,10 @@ public class Events {
 
                 for (ItemStack itemStack : player.getInventory().items) {
                     ItemRadiation radiation = itemStack.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
+                    radiation.loadNBTData(itemStack.getOrCreateTagElement("radiation"));
                     Double itemRadiation = radiation.getRadiation();
 
-                    if (itemRadiation <= 1 && itemRadiation > 0.1) {
-                        player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 20));
-                    } else if (itemRadiation >= 2 && itemRadiation < 3) {
+                    if (itemRadiation >= 2 && itemRadiation < 3) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
                     } else if (itemRadiation >= 3 && itemRadiation < 4) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40));
@@ -85,20 +84,6 @@ public class Events {
                 }
             }
 
-            /**
-            if(event.player.getRandom().nextFloat() < 0.005f) {
-
-
-                ItemRadiation offHandItemRadiation = player.getOffhandItem().getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
-                ItemRadiation mainHandItemRadiation = player.getMainHandItem().getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
-
-                offHandItemRadiation.addRadiation(0.1);
-                mainHandItemRadiation.addRadiation(0.1);
-
-                FalloutCraft.LOGGER.debug("Add Radiation");
-
-            }
-             */
         }
     }
 
@@ -122,6 +107,8 @@ public class Events {
        //When a play will pick up an item, the item will have one more radiation point
        if (itemRadiation.getRadiation() < 7) {
            itemRadiation.addRadiation(0.5);
+           itemRadiation.saveNBTData(itemStack.getOrCreateTagElement("radiation"));
+
 
        }
     }

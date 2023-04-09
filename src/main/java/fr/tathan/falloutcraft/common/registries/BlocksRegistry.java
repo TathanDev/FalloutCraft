@@ -7,6 +7,7 @@ import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -42,6 +43,12 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> POTTED_RADIOACTIVA = BLOCKS.register("potted_radioactiva",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BlocksRegistry.RADIOACTIVA,
                     BlockBehaviour.Properties.copy(Blocks.DANDELION)));
+
+    public static final RegistryObject<Block> QUICKSAND = BLOCKS.register("quicksand",
+            () -> new QuickBlock(BlockBehaviour.Properties.of(Material.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
+
+    public static final RegistryObject<Block> QUICKDIRT = BLOCKS.register("quickdirt",
+            () -> new QuickBlock(BlockBehaviour.Properties.of(Material.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
 
 
     /** Decorations Blocks */
