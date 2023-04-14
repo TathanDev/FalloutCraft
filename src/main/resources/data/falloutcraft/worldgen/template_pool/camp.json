@@ -1,0 +1,17 @@
+{
+  "name": "falloutcraft:camp",
+
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "falloutcraft:camp",
+        "processors": "falloutcraft:randomize_wool",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}
