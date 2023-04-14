@@ -9,7 +9,7 @@ modId="falloutcraft"
 version="${file.jarVersion}"
 displayName="Fallout Craft"
 logoFile="falloutcraft.png"
-credits=""
+credits="Mixer555 for somes structures"
 authors="TATHAN"
 description='''
 Fallout Craft is a mod that adds in Fallout themed items, blocks,structures and more...
