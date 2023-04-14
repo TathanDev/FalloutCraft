@@ -28,7 +28,6 @@ public class VillagerRegistry {
                     SoundEvents.VILLAGER_WORK_ARMORER));
     //TODO FIX VILLAGER ZOMBIE
 
-
     public static void registerPOIs() {
         try {
             ObfuscationReflectionHelper.findMethod(PoiType.class,

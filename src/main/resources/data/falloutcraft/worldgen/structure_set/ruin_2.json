@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "falloutcraft:ruin_2",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 45115469659376,
+
+    "spacing": 40,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}

@@ -50,8 +50,8 @@ public class ItemsRegistry {
     public static final RegistryObject<BlockItem> VAULT_BUTTONS = ITEMS.register("vault_buttons", () -> new BlockItem(BlocksRegistry.VAULT_BUTTONS.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockItem> QUICKSAND = ITEMS.register("quicksand", () -> new BlockItem(BlocksRegistry.QUICKSAND.get(), new Item.Properties()));
-
     public static final RegistryObject<BlockItem> QUICKDIRT = ITEMS.register("quickdirt", () -> new BlockItem(BlocksRegistry.QUICKDIRT.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> POISONED_GRASS = ITEMS.register("poisoned_grass", () -> new BlockItem(BlocksRegistry.POISONED_GRASS.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> PIP_BOY = ITEMS.register("pip_boy", () -> new PipBoy(new Item.Properties().stacksTo(1)));
 

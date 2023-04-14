@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "falloutcraft:gas_station",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 45115499652376,
+
+    "spacing": 40,
+
+    "separation": 10,
+
+    "type": "minecraft:random_spread"
+  }
+}
