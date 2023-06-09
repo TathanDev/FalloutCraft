@@ -1,0 +1,8 @@
+{
+  "feature": "falloutcraft:ash_top_layer",
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
