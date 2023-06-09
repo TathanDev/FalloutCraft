@@ -3,6 +3,7 @@ package fr.tathan.falloutcraft.common.registries;
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.blocks.*;
 import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
+import fr.tathan.falloutcraft.common.worldgen.features.tree.BurntOakTreeGrower;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.effect.MobEffects;
@@ -55,6 +56,21 @@ public class BlocksRegistry {
 
     public static final RegistryObject<Block> QUICKDIRT = BLOCKS.register("quickdirt",
             () -> new QuickBlock(BlockBehaviour.Properties.of(Material.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
+    public static final RegistryObject<Block> ASH = BLOCKS.register("ash",
+            () -> new SnowLayerBlock(BlockBehaviour.Properties.of(Material.TOP_SNOW).randomTicks().strength(0.1F).requiresCorrectToolForDrops().sound(SoundType.SNOW).isViewBlocking((p_187417_, p_187418_, p_187419_) -> {
+                return p_187417_.getValue(SnowLayerBlock.LAYERS) >= 8;
+            }).lightLevel((p_50872_) -> {
+                return 3;
+            })));
+    public static final RegistryObject<Block> ASH_BLOCK = BLOCKS.register("ash_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.SNOW).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW).lightLevel((p_50872_) -> {
+                return 3;
+            })));
+    public static final RegistryObject<Block> BURNT_OAK_LOG = BLOCKS.register("burnt_oak_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    public static final RegistryObject<Block> BURNT_OAK_SAPLING = BLOCKS.register("burnt_oak_sapling",
+            () -> new SaplingBlock(new BurntOakTreeGrower(),
+                    BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 
     /** Decorations Blocks */

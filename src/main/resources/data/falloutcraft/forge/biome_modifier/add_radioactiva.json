@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#falloutcraft:wastedlands_biomes",
+  "biomes": "#falloutcraft:radioactiva_biomes",
   "features": "falloutcraft:radioactiva_placed",
   "step": "vegetal_decoration"
 }

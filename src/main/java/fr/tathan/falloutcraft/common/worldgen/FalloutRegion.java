@@ -60,6 +60,7 @@ public class FalloutRegion extends Region {
             ForestPoints.forEach(point ->builder.replaceBiome(Biomes.FOREST, FalloutBiomes.RADIOACTIVE_FOREST));
             PlainsPoints.forEach(point ->builder.replaceBiome(Biomes.PLAINS, FalloutBiomes.RADIOACTIVE_PLAINS));
             JunglePoints.forEach(point ->builder.replaceBiome(Biomes.JUNGLE, FalloutBiomes.POISONED_JUNGLE));
+            PlainsPoints.forEach(point ->builder.replaceBiome(Biomes.DESERT, FalloutBiomes.ASH_LAND));
 
         });
     }

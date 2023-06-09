@@ -3,6 +3,7 @@ package fr.tathan.falloutcraft.common.worldgen.features;
 import com.google.common.collect.ImmutableList;
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.registries.BlocksRegistry;
+import fr.tathan.falloutcraft.common.registries.FeatureRegistry;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -33,6 +34,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.MegaJungleTrunkPl
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
@@ -47,6 +49,8 @@ public class FalloutConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> POISONED_JUNGLE_TREE_KEY = registerKey("poisoned_jungle_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> POISONED_JUNGLE_TREE_SPAWN_KEY = registerKey("poisoned_jungle_tree_spawn");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>>BURNT_OAK_KEY = registerKey("burnt_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> BURNT_OAK_SPAWN_KEY = registerKey("burnt_oak_spawn");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> RADIOACTIVA_KEY = registerKey("radioactiva");
 
@@ -57,15 +61,18 @@ public class FalloutConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> RADIATED_WATER_LAKE = registerKey("radiated_water_lake");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAND_RADIATED_WATER_LAKE = registerKey("sand_radiated_water_lake");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_RADIATED_WATER_LAKE = registerKey("ash_radiated_water_lake");
 
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_POISONED_GRASS_JUNGLE = registerKey("patch_poisoned_grass_jungle");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ASH_TOP_LAYER = registerKey("ash_top_layer");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 
 
+        /** Irradiated Oak tree */
 
         register(context, IRRADIATED_OAK_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(Blocks.OAK_WOOD),
@@ -78,6 +85,8 @@ public class FalloutConfiguredFeatures {
                 new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
                         placedFeatures.getOrThrow(FalloutPlacedFeatures.IRRADIATED_OAK_CHECKED_KEY),
                         0.5F)), placedFeatures.getOrThrow(FalloutPlacedFeatures.IRRADIATED_OAK_CHECKED_KEY)));
+
+        /** Poisoned Jungle Tree */
 
         register(context, POISONED_JUNGLE_TREE_KEY, Feature.TREE,
                 (new TreeConfiguration.TreeConfigurationBuilder(
@@ -94,6 +103,22 @@ public class FalloutConfiguredFeatures {
                         placedFeatures.getOrThrow(FalloutPlacedFeatures.POISONED_JUNGLE_TREE_CHECKED_KEY),
                         0.5F)), placedFeatures.getOrThrow(FalloutPlacedFeatures.POISONED_JUNGLE_TREE_CHECKED_KEY)));
 
+        /** Burnt oak */
+
+        register(context, BURNT_OAK_KEY, Feature.TREE,
+                (new TreeConfiguration.TreeConfigurationBuilder(
+                        BlockStateProvider.simple(BlocksRegistry.BURNT_OAK_LOG.get()),
+                        new FancyTrunkPlacer(4, 7, 3),
+                        BlockStateProvider.simple(Blocks.AIR),
+                        new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 4),
+                        new TwoLayersFeatureSize(1, 0, 2)).build()));
+
+
+        register(context, BURNT_OAK_SPAWN_KEY, Feature.RANDOM_SELECTOR,
+                new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(
+                        placedFeatures.getOrThrow(FalloutPlacedFeatures.BURNT_OAK_CHECKED_KEY),
+                        0.5F)), placedFeatures.getOrThrow(FalloutPlacedFeatures.BURNT_OAK_CHECKED_KEY)));
+
 
         register(context, RADIOACTIVA_KEY, Feature.FLOWER,
                 new RandomPatchConfiguration(32, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
@@ -105,12 +130,14 @@ public class FalloutConfiguredFeatures {
 
         register(context, RADIATED_WATER_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.RADIATED_WATER_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(Blocks.COARSE_DIRT.defaultBlockState())));
         register(context, SAND_RADIATED_WATER_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.RADIATED_WATER_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(Blocks.SAND.defaultBlockState())));
+        register(context, ASH_RADIATED_WATER_LAKE, Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(BlocksRegistry.RADIATED_WATER_BLOCK.get().defaultBlockState()), BlockStateProvider.simple(BlocksRegistry.ASH_BLOCK.get().defaultBlockState())));
 
         register(context, PATCH_POISONED_GRASS_JUNGLE, Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 7, 3, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder()
                 .add(BlocksRegistry.POISONED_GRASS.get().defaultBlockState(), 5))),
                 BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE,
                         BlockPredicate.not(BlockPredicate.matchesBlocks(Direction.DOWN.getNormal(), Blocks.PODZOL))))));
 
+        register(context, ASH_TOP_LAYER, FeatureRegistry.ASH_TOP_LAYER.get(), FeatureConfiguration.NONE);
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

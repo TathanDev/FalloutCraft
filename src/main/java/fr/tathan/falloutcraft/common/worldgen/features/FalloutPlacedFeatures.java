@@ -32,14 +32,20 @@ public class FalloutPlacedFeatures {
     public static final ResourceKey<PlacedFeature> POISONED_JUNGLE_TREE_CHECKED_KEY = createKey("poisoned_jungle_tree_checked");
     public static final ResourceKey<PlacedFeature> POISONED_JUNGLE_TREE_PLACED_KEY = createKey("poisoned_jungle_tree_placed");
 
+    public static final ResourceKey<PlacedFeature> BURNT_OAK_CHECKED_KEY = createKey("burnt_oak_checked");
+    public static final ResourceKey<PlacedFeature> BURNT_OAK_PLACED_KEY = createKey("burnt_oak_placed");
+
     public static final ResourceKey<PlacedFeature> RADIOACTIVA_PLACED_KEY = createKey("radioactiva_placed");
     public static final ResourceKey<PlacedFeature> QUICKSAND_LAKE = createKey("quicksand_lake_placed");
     public static final ResourceKey<PlacedFeature> QUICKDIRT_LAKE = createKey("quickdirt_lake_placed");
     public static final ResourceKey<PlacedFeature> RADIATED_WATER_LAKE = createKey("radiated_water_lake");
+    public static final ResourceKey<PlacedFeature> ASH_RADIATED_WATER_LAKE = createKey("ash_radiated_water_lake");
+
     public static final ResourceKey<PlacedFeature> SAND_RADIATED_WATER_LAKE = createKey("sand_radiated_water_lake");
 
 
     public static final ResourceKey<PlacedFeature> PATCH_POISONED_GRASS_JUNGLE = createKey("patch_poisoned_grass_jungle");
+    public static final ResourceKey<PlacedFeature> ASH_TOP_LAYER = createKey("ash_top_layer");
 
 
 
@@ -60,6 +66,11 @@ public class FalloutPlacedFeatures {
         register(context, POISONED_JUNGLE_TREE_PLACED_KEY, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.POISONED_JUNGLE_TREE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2)));
 
+        register(context, BURNT_OAK_CHECKED_KEY, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.BURNT_OAK_KEY),
+                        List.of(PlacementUtils.filteredByBlockSurvival(BlocksRegistry.BURNT_OAK_SAPLING.get())));
+
+        register(context, BURNT_OAK_PLACED_KEY, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.BURNT_OAK_SPAWN_KEY)
+        , VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2)));
 
 
         register(context, RADIOACTIVA_PLACED_KEY, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.RADIOACTIVA_KEY),
@@ -73,8 +84,10 @@ public class FalloutPlacedFeatures {
         register(context, RADIATED_WATER_LAKE, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.RADIATED_WATER_LAKE), RarityFilter.onAverageOnceEvery(89), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
         register(context, SAND_RADIATED_WATER_LAKE, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.SAND_RADIATED_WATER_LAKE), RarityFilter.onAverageOnceEvery(89), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
+        register(context, ASH_RADIATED_WATER_LAKE, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.ASH_RADIATED_WATER_LAKE), RarityFilter.onAverageOnceEvery(89), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
         register(context, PATCH_POISONED_GRASS_JUNGLE, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.PATCH_POISONED_GRASS_JUNGLE), worldSurfaceSquaredWithCount(25));
+        register(context, ASH_TOP_LAYER, configuredFeatures.getOrThrow(FalloutConfiguredFeatures.ASH_TOP_LAYER), List.of(BiomeFilter.biome()));
 
 
     }

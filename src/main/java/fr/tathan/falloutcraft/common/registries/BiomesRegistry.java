@@ -30,6 +30,8 @@ public class BiomesRegistry {
         pContext.register(FalloutBiomes.RADIOACTIVE_PLAINS, FalloutOverworldBiomes.radioactiveForest(holdergetter, holdergetter1));
         pContext.register(FalloutBiomes.RADIOACTIVE_FOREST, FalloutOverworldBiomes.radioactivePlains(holdergetter, holdergetter1));
         pContext.register(FalloutBiomes.POISONED_JUNGLE, FalloutOverworldBiomes.poisonedJungle(holdergetter, holdergetter1));
+        pContext.register(FalloutBiomes.ASH_LAND, FalloutOverworldBiomes.ashLand(holdergetter, holdergetter1));
+
     }
 
 

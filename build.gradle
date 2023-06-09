@@ -8,7 +8,7 @@ plugins {
 }
 
 version = "${falloutcraft_version}"
-group = 'fr.tathan.falloutcraft' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = 'fr.tathan.falloutcraft'
 archivesBaseName = 'falloutcraft'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)

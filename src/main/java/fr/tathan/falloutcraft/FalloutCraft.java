@@ -64,7 +64,7 @@ public class FalloutCraft
         ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         PotionsRegistry.POTIONS.register(modEventBus);
         VillagerRegistry.register(modEventBus);
-
+        FeatureRegistry.FEATURES.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -101,6 +101,9 @@ public class FalloutCraft
             event.accept(ItemsRegistry.QUICKDIRT);
             event.accept(ItemsRegistry.QUICKSAND);
             event.accept(ItemsRegistry.RADIATED_WATER_BUCKET);
+            event.accept(ItemsRegistry.ASH);
+            event.accept(ItemsRegistry.ASH_BLOCK);
+            event.accept(ItemsRegistry.BURNT_OAK_LOG);
 
         }
 

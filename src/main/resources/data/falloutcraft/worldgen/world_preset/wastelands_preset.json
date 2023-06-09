@@ -13,7 +13,8 @@
             "falloutcraft:radioactive_forest",
             "falloutcraft:poisoned_jungle",
             "minecraft:desert",
-            "minecraft:badlands"
+            "minecraft:badlands",
+            "falloutcraft:ash_land"
 
           ]
         }

@@ -119,6 +119,24 @@ public class FalloutOverworldBiomes {
         return biome(Biome.Precipitation.NONE, 2.0F, 0.0F, 6415715, 6415715, mobspawnsetting, biomegenerationsettings$builder, NORMAL_MUSIC);
     }
 
+    public static Biome ashLand(HolderGetter<PlacedFeature> pPlacedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarverGetter)
+    {
+
+        MobSpawnSettings.Builder mobspawnsetting = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.baseJungleSpawns(mobspawnsetting);
+
+
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder(pPlacedFeatureGetter, pConfiguredWorldCarverGetter);
+        globalOverworldGeneration(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.BURNT_OAK_PLACED_KEY);
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.ASH_RADIATED_WATER_LAKE);
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, FalloutPlacedFeatures.ASH_TOP_LAYER);
+
+
+        return biome(Biome.Precipitation.NONE, 2.0F, 0.0F, 6415715, 6415715, mobspawnsetting, biomegenerationsettings$builder, NORMAL_MUSIC);
+    }
+
     public static void addQuickSandLake(BiomeGenerationSettings.Builder pBuilder) {
         pBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKSAND_LAKE);
     }
