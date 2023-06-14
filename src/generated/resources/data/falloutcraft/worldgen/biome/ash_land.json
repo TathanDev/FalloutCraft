@@ -78,7 +78,7 @@
       "falloutcraft:ash_top_layer"
     ]
   ],
-  "precipitation": "none",
+  "has_precipitation": true,
   "spawn_costs": {},
   "spawners": {
     "ambient": [

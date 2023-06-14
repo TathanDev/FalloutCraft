@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.util.FluidJSONUtil;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -39,6 +40,11 @@ public class NukaColaMachineRecipe implements Recipe<SimpleContainer> {
         return recipeItems.get(0).test(pContainer.getItem(1));
     }
 
+    @Override
+    public ItemStack assemble(SimpleContainer pContainer, RegistryAccess p_267165_) {
+        return output;
+    }
+
     public FluidStack getFluid() {
         return fluidStack;
     }
@@ -48,10 +54,7 @@ public class NukaColaMachineRecipe implements Recipe<SimpleContainer> {
         return recipeItems;
     }
 
-    @Override
-    public ItemStack assemble(SimpleContainer pContainer) {
-        return output;
-    }
+
 
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
@@ -59,8 +62,11 @@ public class NukaColaMachineRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack getResultItem() {
-        return output.copy();
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
+        return getResult();
+    }
+    public ItemStack getResult() {
+        return this.output.copy();
     }
 
     @Override
@@ -126,6 +132,6 @@ public class NukaColaMachineRecipe implements Recipe<SimpleContainer> {
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
-            buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeItemStack(recipe.getResult(), false);
         }
     }}

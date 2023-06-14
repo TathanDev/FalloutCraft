@@ -1,6 +1,7 @@
 package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -45,6 +46,17 @@ public enum  ArmorMaterials implements ArmorMaterial {
     public int getDefenseForSlot(EquipmentSlot pSlot) {
         return this.slotProtections[pSlot.getIndex()];
     }
+
+    @Override
+    public int m_266425_(ArmorItem.Type type) {
+        return HEALTH_PER_SLOT[type.ordinal()] * 37;
+    }
+
+    @Override
+    public int getDurabilityForSlot(ArmorItem.Type p_267168_) {
+        return 0;
+    }
+
 
     public int getEnchantmentValue() {
         return this.enchantmentValue;

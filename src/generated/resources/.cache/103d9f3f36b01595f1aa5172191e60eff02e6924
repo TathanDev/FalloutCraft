@@ -1,8 +1,8 @@
-// 1.19.3	2023-06-08T18:53:25.9951367	Registries
-fa16726610b1315679b1dfa28e769865879670cc data/falloutcraft/worldgen/biome/ash_land.json
-96ab80e2c42f2ecf43ae2e698eab1e9f3351d9fc data/falloutcraft/worldgen/biome/poisoned_jungle.json
-bc43e1a65b00a1fec0a6c6f41eab2b6f98e0e796 data/falloutcraft/worldgen/biome/radioactive_forest.json
-501dca0222516ca2bb34cbe04e34f75ac2d53570 data/falloutcraft/worldgen/biome/radioactive_plains.json
+// 1.19.4	2023-06-14T13:31:49.3135129	Registries
+7fff0b454a46f894050c40aaf899c6e27ac45abf data/falloutcraft/worldgen/biome/ash_land.json
+248d60670ad5c0fb054b44c368c1bb5fbc53c0b1 data/falloutcraft/worldgen/biome/poisoned_jungle.json
+deb0614ca17aa3837c79b32ae2f4386b59b958a8 data/falloutcraft/worldgen/biome/radioactive_forest.json
+6e9f1b5d07cdc832ae3c15d9093ee39e21101d69 data/falloutcraft/worldgen/biome/radioactive_plains.json
 98e57a87a2a1168c94f2888d6b2aae56bc06fbc7 data/falloutcraft/worldgen/configured_feature/ash_radiated_water_lake.json
 e07b41b3278f8a037b1f03b90922d6306cb34e9f data/falloutcraft/worldgen/configured_feature/ash_top_layer.json
 b16b3b86e5bafd106e009f2463700d228bc4b168 data/falloutcraft/worldgen/configured_feature/burnt_oak.json

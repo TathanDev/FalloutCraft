@@ -61,16 +61,16 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> PIMP_BOY = ITEMS.register("pimp_boy", () -> new PipBoy(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> HAZMAT_MASK = ITEMS.register("hazmat_mask",
-            () -> new ArmorItem(ArmorMaterials.HAZMAT, EquipmentSlot.HEAD,
+            () -> new ArmorItem(ArmorMaterials.HAZMAT, ArmorItem.Type.HELMET,
                     new Item.Properties()));
     public static final RegistryObject<Item> HAZMAT_CHESTPLATE = ITEMS.register("hazmat_chestplate",
-            () -> new ArmorItem(ArmorMaterials.HAZMAT, EquipmentSlot.CHEST,
+            () -> new ArmorItem(ArmorMaterials.HAZMAT, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()));
     public static final RegistryObject<Item> HAZMAT_LEGGINGS = ITEMS.register("hazmat_leggings",
-            () -> new ArmorItem(ArmorMaterials.HAZMAT, EquipmentSlot.LEGS,
+            () -> new ArmorItem(ArmorMaterials.HAZMAT, ArmorItem.Type.LEGGINGS,
                     new Item.Properties()));
     public static final RegistryObject<Item> HAZMAT_BOOTS = ITEMS.register("hazmat_boots",
-            () -> new ArmorItem(ArmorMaterials.HAZMAT, EquipmentSlot.FEET,
+            () -> new ArmorItem(ArmorMaterials.HAZMAT, ArmorItem.Type.BOOTS,
                     new Item.Properties()));
 
 }

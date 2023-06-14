@@ -300,7 +300,7 @@ public class NukaColaMachineBlockEntity extends BlockEntity implements MenuProvi
         if(hasRecipe(pEntity)) {
             pEntity.FLUID_TANK.drain(recipe.get().getFluid().getAmount(), IFluidHandler.FluidAction.EXECUTE);
             pEntity.itemHandler.extractItem(1, 1, false);
-            pEntity.itemHandler.setStackInSlot(2, new ItemStack(recipe.get().getResultItem().getItem(),
+            pEntity.itemHandler.setStackInSlot(2, new ItemStack(recipe.get().getResult().getItem(),
                     pEntity.itemHandler.getStackInSlot(2).getCount() + 1));
 
             pEntity.resetProgress();
@@ -319,7 +319,7 @@ public class NukaColaMachineBlockEntity extends BlockEntity implements MenuProvi
 
 
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem())
+                canInsertItemIntoOutputSlot(inventory, recipe.get().getResult())
                 && hasCorrectFluidInTank(entity, recipe) && hasCorrectFluidAmountInTank(entity, recipe);
     }
 

@@ -3,6 +3,7 @@ package fr.tathan.falloutcraft.common.util;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
+import fr.tathan.falloutcraft.common.registries.DamageTypeRegistry;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import fr.tathan.falloutcraft.common.registries.TagsRegistry;
 import net.minecraft.resources.ResourceKey;
@@ -20,7 +21,7 @@ import static fr.tathan.falloutcraft.common.config.CommonConfig.radiationRainDam
 
 public class Methods {
 
-    public static final DamageSource DAMAGE_SOURCE_RADIOACTIVE_RAIN = new DamageSource("radioactive_rain").bypassArmor();
+    //public static final DamageSource DAMAGE_SOURCE_RADIOACTIVE_RAIN = new DamageSource("radioactive_rain").bypassArmor();
 
 
     public static void addRadiation(ItemStack stack, float count) {
@@ -49,7 +50,7 @@ public class Methods {
             return;
         }
 
-        if(radiationRainDamage.get()) {
+        if(!radiationRainDamage.get()) {
             return;
         }
 
@@ -71,7 +72,7 @@ public class Methods {
 
         if (entity.level.getLevelData().isRaining() && entity.level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (int) Math.floor(entity.getX()), (int) Math.floor(entity.getZ())) <= Math.floor(entity.getY()) + 1) {
             if (!entity.level.isClientSide) {
-                entity.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 0.5F);
+                entity.hurt(DamageTypeRegistry.of(entity.level, DamageTypeRegistry.RADIOACTIVE_RAIN), 0.5f);
             }
         }
     }

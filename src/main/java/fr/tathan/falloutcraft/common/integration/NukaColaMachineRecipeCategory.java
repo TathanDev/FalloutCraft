@@ -55,14 +55,12 @@ public class NukaColaMachineRecipeCategory implements IRecipeCategory<NukaColaMa
     public void setRecipe(IRecipeLayoutBuilder builder, NukaColaMachineRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 86, 15).addIngredients(recipe.getIngredients().get(0));
 
-
-
         builder.addSlot(RecipeIngredientRole.INPUT, 55, 15)
                 .addIngredients(ForgeTypes.FLUID_STACK, List.of(recipe.getFluid()))
                 .setFluidRenderer(64000, false, 16, 61);
 
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 86, 60).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 86, 60).addItemStack(recipe.getResult());
     }
 
 

@@ -15,6 +15,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -43,7 +44,6 @@ import static fr.tathan.falloutcraft.common.util.Methods.radioactiveRain;
 @Mod.EventBusSubscriber(modid = FalloutCraft.MODID)
 public class Events {
 
-    public static final DamageSource DAMAGE_SOURCE_RADIOACTIVE_RAIN = new DamageSource("radioactive_rain").bypassArmor();
 
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
@@ -71,19 +71,19 @@ public class Events {
 
                     if (itemRadiation >= 2 && itemRadiation < 3) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 30));
-                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 1);
+                        player.hurt(DamageTypeRegistry.of(level, DamageTypeRegistry.RADIOACTIVE_RAIN), 1);
                     } else if (itemRadiation >= 3 && itemRadiation < 4) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 40, 1));
-                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 1.5F);
+                        player.hurt(DamageTypeRegistry.of(level, DamageTypeRegistry.RADIOACTIVE_RAIN), 1.5F);
                     } else if (itemRadiation >= 4 && itemRadiation < 5) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 50, 1));
-                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 2);
+                        player.hurt(DamageTypeRegistry.of(level, DamageTypeRegistry.RADIOACTIVE_RAIN), 2);
                     } else if (itemRadiation >= 5 && itemRadiation < 6) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 60, 2));
-                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 2.5F);
+                        player.hurt(DamageTypeRegistry.of(level, DamageTypeRegistry.RADIOACTIVE_RAIN), 2.5F);
                     } else if (itemRadiation >= 7 || itemStack.is(TagsRegistry.VERY_RADIOACTIVE )) {
                         player.addEffect(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 70, 2));
-                        player.hurt(DAMAGE_SOURCE_RADIOACTIVE_RAIN, 3);
+                        player.hurt(DamageTypeRegistry.of(level, DamageTypeRegistry.RADIOACTIVE_RAIN), 3);
 
                     }
                   }
