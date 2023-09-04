@@ -50,7 +50,7 @@ public class Events {
 
         if (event.phase == TickEvent.Phase.END) {
             Player player = event.player;
-            Level level = player.level;
+            Level level = player.level();
             GameRules gamerules = level.getLevelData().getGameRules();
 
             if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) || player.isInWater()) {

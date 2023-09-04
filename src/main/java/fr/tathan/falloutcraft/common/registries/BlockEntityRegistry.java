@@ -2,7 +2,6 @@ package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.blocks.entity.NukaColaMachineBlockEntity;
-import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CauldronBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -22,11 +21,11 @@ public class BlockEntityRegistry {
                     BlockEntityType.Builder.of(NukaColaMachineBlockEntity::new,
                             BlocksRegistry.NUKA_COLA_MACHINE.get()).build(null));
 
-
+    /**
     public static final RegistryObject<BlockEntityType<RadiationRemoverBlockEntity>> RADIATION_REMOVER =
             BLOCK_ENTITIES.register("radiation_remover", () ->
                     BlockEntityType.Builder.of(RadiationRemoverBlockEntity::new,
                             BlocksRegistry.RADIATION_REMOVER.get()).build(null));
-
+    */
 
 }

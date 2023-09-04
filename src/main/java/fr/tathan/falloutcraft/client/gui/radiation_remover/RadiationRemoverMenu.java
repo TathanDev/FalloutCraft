@@ -1,5 +1,5 @@
 package fr.tathan.falloutcraft.client.gui.radiation_remover;
-
+/**
 import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import fr.tathan.falloutcraft.common.registries.BlocksRegistry;
 import fr.tathan.falloutcraft.common.registries.MenuTypes;
@@ -10,8 +10,8 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.capabilities.CapabilityProvider;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class RadiationRemoverMenu extends AbstractContainerMenu {
@@ -24,14 +24,14 @@ public class RadiationRemoverMenu extends AbstractContainerMenu {
 
 
     public RadiationRemoverMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-        this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(id, inv, inv.player.getLevel().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
     public RadiationRemoverMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
         super(MenuTypes.RADIATION_REMOVER_MENU.get(), id);
         checkContainerSize(inv, 4);
         blockEntity = (RadiationRemoverBlockEntity) entity;
-        this.level = inv.player.level;
+        this.level = inv.player.getLevel();
         this.data = data;
 
         this.waterStack = blockEntity.getWaterStack();
@@ -39,6 +39,7 @@ public class RadiationRemoverMenu extends AbstractContainerMenu {
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
+
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 17, 17));
@@ -160,3 +161,4 @@ public class RadiationRemoverMenu extends AbstractContainerMenu {
     }
 
 }
+ */

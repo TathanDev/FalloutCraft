@@ -31,6 +31,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -150,6 +151,10 @@ public class NukaColaMachineBlockEntity extends BlockEntity implements MenuProvi
         };
     }
 
+    ContainerData getData() {
+        return data;
+    }
+
     @Override
     public Component getDisplayName() {
         return Component.translatable("container.falloutcraft.nukacola_machine");
@@ -160,7 +165,7 @@ public class NukaColaMachineBlockEntity extends BlockEntity implements MenuProvi
     public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
         ModMessages.sendToClients(new FluidSyncS2CPacket(this.getFluidStack(), worldPosition));
 
-        return new NukaColaMachineMenu(id, inventory, this, this.data);
+        return new NukaColaMachineMenu.GuiContainer(id, inventory, this);
     }
 
 
@@ -338,6 +343,11 @@ public class NukaColaMachineBlockEntity extends BlockEntity implements MenuProvi
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
         return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
     }
+    public IItemHandlerModifiable getItemHandler() {
+        return (IItemHandlerModifiable) this.getCapability(ForgeCapabilities.ITEM_HANDLER, null).resolve().get();
+    }
+
+
 
 
 

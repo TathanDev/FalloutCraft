@@ -1,6 +1,6 @@
 package fr.tathan.falloutcraft.common.blocks.entity;
 
-import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverMenu;
+/**
 import fr.tathan.falloutcraft.common.blocks.RadiationRemover;
 import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.network.packet.FluidSyncS2CPacket;
@@ -179,7 +179,7 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
         ModMessages.sendToClients(new RadiatedFluidSyncS2CPacket(this.getRadiatedWaterStack(), worldPosition));
         ModMessages.sendToClients(new FluidSyncS2CPacket(this.getWaterStack(), worldPosition));
 
-        return new RadiationRemoverMenu(id, inventory, this, this.data);
+        return new RadiationRemoverMenu2(id, inventory, this, this.data);
     }
 
 
@@ -398,9 +398,5 @@ public class RadiationRemoverBlockEntity extends BlockEntity implements MenuProv
 
 
 }
-
-
-
-
-
+*/
 

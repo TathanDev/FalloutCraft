@@ -12,7 +12,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 
-public enum  ArmorMaterials implements ArmorMaterial {
+public enum ArmorMaterials implements ArmorMaterial {
 
     HAZMAT("hazmat", 28, new int[]{2, 4, 5, 3}, 19, SoundEvents.ARMOR_EQUIP_LEATHER,
             2.0F, 0.0F, () -> Ingredient.of(ItemsRegistry.NUKA_COLA_CLASSIC.get()));
@@ -47,16 +47,17 @@ public enum  ArmorMaterials implements ArmorMaterial {
         return this.slotProtections[pSlot.getIndex()];
     }
 
+
+
     @Override
-    public int m_266425_(ArmorItem.Type type) {
-        return HEALTH_PER_SLOT[type.ordinal()] * 37;
+    public int getDurabilityForType(ArmorItem.Type type) {
+        return HEALTH_PER_SLOT[type.ordinal()];
     }
 
     @Override
-    public int getDurabilityForSlot(ArmorItem.Type p_267168_) {
+    public int getDefenseForType(ArmorItem.Type type) {
         return 0;
     }
-
 
     public int getEnchantmentValue() {
         return this.enchantmentValue;

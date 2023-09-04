@@ -170,7 +170,7 @@ public class FluidTankRenderer {
         tessellator.end();
     }
 
-    public List<Component> getTooltip(FluidStack fluidStack, TooltipFlag tooltipFlag) {
+    public List<Component> getTooltip(FluidStack fluidStack) {
         List<Component> tooltip = new ArrayList<>();
 
         Fluid fluidType = fluidStack.getFluid();

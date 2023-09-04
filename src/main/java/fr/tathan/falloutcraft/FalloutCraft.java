@@ -3,7 +3,6 @@ package fr.tathan.falloutcraft;
 import com.mojang.logging.LogUtils;
 import fr.tathan.falloutcraft.client.ClientEventHandlers;
 import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineScreen;
-import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverScreen;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.loot.ModLootModifiers;
@@ -18,12 +17,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraft.world.level.material.LavaFluid;
-import net.minecraft.world.level.material.WaterFluid;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -31,7 +29,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
@@ -52,6 +49,7 @@ public class FalloutCraft
         EffectsRegistry.MOB_EFFECTS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);
         ItemsRegistry.POTIONS.register(modEventBus);
+        TabsRegistry.CREATIVE_MODE_TABS.register(modEventBus);
         PaintingsRegistry.PAINTING_VARIANTS.register(modEventBus);
         BlocksRegistry.BLOCKS.register(modEventBus);
         FluidsRegistry.FLUIDS.register(modEventBus);
@@ -79,8 +77,8 @@ public class FalloutCraft
 
     }
 
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == TabsRegistry.FALLOUTCRAFT_TAB) {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTab() == TabsRegistry.FALLOUTCRAFT_TAB.get()) {
             event.accept(ItemsRegistry.PIMP_BOY);
             event.accept(ItemsRegistry.PIP_BOY);
 
@@ -107,7 +105,7 @@ public class FalloutCraft
 
         }
 
-        if(event.getTab() == TabsRegistry.FALLOUTCRAFT_DECORATIONS_TAB) {
+        if(event.getTab() == TabsRegistry.FALLOUTCRAFT_DECORATIONS_TAB.get()) {
             event.accept(ItemsRegistry.PAPERS_ON_THE_GROUND_ITEM);
             event.accept(ItemsRegistry.VAULT_BUTTONS);
         }
@@ -122,7 +120,7 @@ public class FalloutCraft
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.RADIOACTIVA.getId(), BlocksRegistry.POTTED_RADIOACTIVA);
 
             ModMessages.register();
-            VillagerRegistry.registerPOIs();
+            //VillagerRegistry.registerPOIs();
 
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, FalloutSurfaceRuleData.makeRules());
 
@@ -145,8 +143,6 @@ public class FalloutCraft
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             MenuScreens.register(MenuTypes.NUKA_COLA_MACHINE_MENU.get(), NukaColaMachineScreen::new);
-            MenuScreens.register(MenuTypes.RADIATION_REMOVER_MENU.get(), RadiationRemoverScreen::new);
-
         }
     }
 

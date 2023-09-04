@@ -1,9 +1,7 @@
 package fr.tathan.falloutcraft.common.network.packet;
 
 import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineMenu;
-import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverMenu;
 import fr.tathan.falloutcraft.common.blocks.entity.NukaColaMachineBlockEntity;
-import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -37,11 +35,13 @@ public class FluidSyncS2CPacket {
             if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof NukaColaMachineBlockEntity blockEntity) {
                 blockEntity.setFluid(this.fluidStack);
 
-                if(Minecraft.getInstance().player.containerMenu instanceof NukaColaMachineMenu menu &&
+                if(Minecraft.getInstance().player.containerMenu instanceof NukaColaMachineMenu.GuiContainer menu &&
                         menu.getBlockEntity().getBlockPos().equals(pos)) {
                     menu.setFluid(this.fluidStack);
                 }
             }
+
+            /**
 
             if(Minecraft.getInstance().level.getBlockEntity(pos) instanceof RadiationRemoverBlockEntity blockEntity) {
                 blockEntity.setWater(this.fluidStack);
@@ -51,6 +51,7 @@ public class FluidSyncS2CPacket {
                     menu.setWater(this.fluidStack);
                 }
             }
+            */
         });
         return true;
     }

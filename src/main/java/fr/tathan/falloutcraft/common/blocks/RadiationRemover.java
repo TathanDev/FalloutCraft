@@ -1,5 +1,5 @@
 package fr.tathan.falloutcraft.common.blocks;
-
+/**
 import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import fr.tathan.falloutcraft.common.registries.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -112,3 +112,4 @@ public class RadiationRemover extends BaseEntityBlock {
 
 
 }
+*/

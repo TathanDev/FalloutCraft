@@ -1,10 +1,11 @@
 package fr.tathan.falloutcraft.client.gui.radiation_remover;
-
+/**
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.client.gui.radiation_remover.renderer.FluidTankRenderer;
 import fr.tathan.falloutcraft.common.util.MouseUtil;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -31,6 +32,7 @@ public class RadiationRemoverScreen extends AbstractContainerScreen<RadiationRem
         super.init();
         assignFluidRenderer();
     }
+
 
     @Override
     protected void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
@@ -68,7 +70,7 @@ public class RadiationRemoverScreen extends AbstractContainerScreen<RadiationRem
 
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
+    protected void renderBg(GuiGraphics graphics, float pPartialTick, int pMouseX, int pMouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
@@ -100,3 +102,4 @@ public class RadiationRemoverScreen extends AbstractContainerScreen<RadiationRem
         return MouseUtil.isMouseOver(pMouseX, pMouseY, x + offsetX, y + offsetY, width, height);
     }
 }
+*/

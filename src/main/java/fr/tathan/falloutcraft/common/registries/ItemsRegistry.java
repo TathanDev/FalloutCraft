@@ -46,7 +46,7 @@ public class ItemsRegistry {
 
     //public static final RegistryObject<BlockItem> VAULT_TRAPDOOR_ITEM = ITEMS.register("vault_trapdoor", () -> new BlockItem(BlocksRegistry.VAULT_TRAPDOOR.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
 
-    public static final RegistryObject<BlockItem> RADIATION_REMOVER_ITEM = ITEMS.register("radiation_remover", () -> new BlockItem(BlocksRegistry.RADIATION_REMOVER.get(), new Item.Properties()));
+    //public static final RegistryObject<BlockItem> RADIATION_REMOVER_ITEM = ITEMS.register("radiation_remover", () -> new BlockItem(BlocksRegistry.RADIATION_REMOVER.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> VAULT_BUTTONS = ITEMS.register("vault_buttons", () -> new BlockItem(BlocksRegistry.VAULT_BUTTONS.get(), new Item.Properties()));
 
     public static final RegistryObject<BlockItem> QUICKSAND = ITEMS.register("quicksand", () -> new BlockItem(BlocksRegistry.QUICKSAND.get(), new Item.Properties()));

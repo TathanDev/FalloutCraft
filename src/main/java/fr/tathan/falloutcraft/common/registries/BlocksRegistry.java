@@ -2,15 +2,12 @@ package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.blocks.*;
-import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.BurntOakTreeGrower;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -38,32 +35,33 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> NUKA_COLA_MACHINE = BLOCKS.register("nuka_cola_machine",
             () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
-
+    /**
     public static final RegistryObject<Block> RADIATION_REMOVER = BLOCKS.register("radiation_remover",
             () -> new RadiationRemover(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+     */
     //May Fix the Cave Block issue
     public static final RegistryObject<Block> RADIOACTIVA = BLOCKS.register("radioactiva",
             () -> new RadioactivaFlower(MobEffects.GLOWING,  BlockBehaviour.Properties.copy(Blocks.DANDELION)));
 
     public static final RegistryObject<Block> POISONED_GRASS = BLOCKS.register("poisoned_grass",
-            () -> new PoisonedVegetation(MobEffects.GLOWING, 40, BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.GRASS).noCollission()));
+            () -> new PoisonedVegetation(MobEffects.GLOWING, 40, BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).noCollission()));
 
     public static final RegistryObject<Block> POTTED_RADIOACTIVA = BLOCKS.register("potted_radioactiva",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BlocksRegistry.RADIOACTIVA,
                     BlockBehaviour.Properties.copy(Blocks.DANDELION)));
     public static final RegistryObject<Block> QUICKSAND = BLOCKS.register("quicksand",
-            () -> new QuickBlock(BlockBehaviour.Properties.of(Material.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
+            () -> new QuickBlock(BlockBehaviour.Properties.copy(Blocks.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
 
     public static final RegistryObject<Block> QUICKDIRT = BLOCKS.register("quickdirt",
-            () -> new QuickBlock(BlockBehaviour.Properties.of(Material.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
+            () -> new QuickBlock(BlockBehaviour.Properties.copy(Blocks.SAND).noCollission().requiresCorrectToolForDrops().strength(0.5F)));
     public static final RegistryObject<Block> ASH = BLOCKS.register("ash",
-            () -> new SnowLayerBlock(BlockBehaviour.Properties.of(Material.TOP_SNOW).randomTicks().strength(0.1F).requiresCorrectToolForDrops().sound(SoundType.SNOW).isViewBlocking((p_187417_, p_187418_, p_187419_) -> {
+            () -> new SnowLayerBlock(BlockBehaviour.Properties.copy(Blocks.SNOW).randomTicks().strength(0.1F).requiresCorrectToolForDrops().sound(SoundType.SNOW).isViewBlocking((p_187417_, p_187418_, p_187419_) -> {
                 return p_187417_.getValue(SnowLayerBlock.LAYERS) >= 8;
             }).lightLevel((p_50872_) -> {
                 return 3;
             })));
     public static final RegistryObject<Block> ASH_BLOCK = BLOCKS.register("ash_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.SNOW).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW).lightLevel((p_50872_) -> {
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW).lightLevel((p_50872_) -> {
                 return 3;
             })));
     public static final RegistryObject<Block> BURNT_OAK_LOG = BLOCKS.register("burnt_oak_log",

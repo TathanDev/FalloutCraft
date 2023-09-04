@@ -1,9 +1,5 @@
 package fr.tathan.falloutcraft.common.network.packet;
-
-import fr.tathan.falloutcraft.client.gui.nuka_cola_machine.NukaColaMachineMenu;
-import fr.tathan.falloutcraft.client.gui.radiation_remover.RadiationRemoverMenu;
-import fr.tathan.falloutcraft.common.blocks.entity.NukaColaMachineBlockEntity;
-import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
+/**
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -57,3 +53,4 @@ public class FluidsSyncS2CPacket {
     }
 
 }
+*/

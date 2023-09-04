@@ -63,7 +63,7 @@ public class ClientEventHandlers {
                 ItemStack mainHand = player.getMainHandItem();
                 ItemStack offHand = player.getOffhandItem();
 
-                if (player.level.isClientSide) {
+                if (player.level().isClientSide) {
 
                     if (player.isCreative()) {
                         return;

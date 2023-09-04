@@ -1,31 +1,22 @@
 package fr.tathan.falloutcraft.common.registries;
 
 import fr.tathan.falloutcraft.FalloutCraft;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
-@Mod.EventBusSubscriber(modid = FalloutCraft.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TabsRegistry {
 
-    public static CreativeModeTab FALLOUTCRAFT_TAB;
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FalloutCraft.MODID);
 
-    public static CreativeModeTab FALLOUTCRAFT_DECORATIONS_TAB;
-
-
-    @SubscribeEvent
-    public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
-        FALLOUTCRAFT_TAB = event.registerCreativeModeTab(new ResourceLocation(FalloutCraft.MODID, "falloutcraft_tab"),
-                builder -> builder.icon(() -> new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get()))
-                        .title(Component.literal("Falloutcraft"))
-                        .build());
-
-        FALLOUTCRAFT_DECORATIONS_TAB = event.registerCreativeModeTab(new ResourceLocation(FalloutCraft.MODID, "falloutcraft_deco_tab"),
-                builder -> builder.icon(() -> new ItemStack(ItemsRegistry.PAPERS_ON_THE_GROUND_ITEM.get())).title(Component.literal("Falloutcraft Deco")).build());
-    }
+    public static final RegistryObject<CreativeModeTab> FALLOUTCRAFT_TAB = CREATIVE_MODE_TABS.register("falloutcraft_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get()))
+                    .title(Component.literal("Falloutcraft")).build());
+    public static final RegistryObject<CreativeModeTab> FALLOUTCRAFT_DECORATIONS_TAB = CREATIVE_MODE_TABS.register("falloutcraft_deco_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get()))
+                    .title(Component.literal("Falloutcraft Deco")).build());
 
 }

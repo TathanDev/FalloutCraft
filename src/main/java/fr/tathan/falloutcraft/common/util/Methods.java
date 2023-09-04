@@ -45,7 +45,7 @@ public class Methods {
     }
 
     public static void radioactiveRain(LivingEntity entity, ResourceKey<Level> overworld) {
-        if (!isLevel(entity.level, overworld)) {
+        if (!isLevel(entity.level(), overworld)) {
 
             return;
         }
@@ -70,9 +70,9 @@ public class Methods {
             return;
         }
 
-        if (entity.level.getLevelData().isRaining() && entity.level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (int) Math.floor(entity.getX()), (int) Math.floor(entity.getZ())) <= Math.floor(entity.getY()) + 1) {
-            if (!entity.level.isClientSide) {
-                entity.hurt(DamageTypeRegistry.of(entity.level, DamageTypeRegistry.RADIOACTIVE_RAIN), 0.5f);
+        if (entity.level().getLevelData().isRaining() && entity.level().getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (int) Math.floor(entity.getX()), (int) Math.floor(entity.getZ())) <= Math.floor(entity.getY()) + 1) {
+            if (!entity.level().isClientSide) {
+                entity.hurt(DamageTypeRegistry.of(entity.level(), DamageTypeRegistry.RADIOACTIVE_RAIN), 0.5f);
             }
         }
     }
