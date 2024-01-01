@@ -1,8 +1,9 @@
 plugins {
     id 'eclipse'
     id 'maven-publish'
-     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '5.1.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id "com.modrinth.minotaur" version "2.+"
 
 
 }
@@ -135,7 +136,7 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     // at runtime, use the full JEI jar for Forge
-    //runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     //implementation fg.deobf("curse.maven:celestial-661111:4139936")
    // implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.19')
@@ -176,4 +177,16 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN") // Remember to have the MODRINTH_TOKEN environment variable set or else this will fail - just make sure it stays private!
+    projectId = "falloutcraft" // This can be the project ID or the slug. Either will work!
+    versionNumber = "${falloutcraft_version}" // You don't need to set this manually. Will fail if Modrinth has this version already
+    versionType = "beta" // This is the default -- can also be `beta` or `alpha`
+    uploadFile = jar // With Loom, this MUST be set to `remapJar` instead of `jar`!
+    gameVersions = ["${minecraft_version}"] // Must be an array, even with only one version
+    loaders = ["forge"] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
+    changelog = "1.20.1 Port\n This version may have some features that are not in the full version like villagers" // Optional
+
 }
