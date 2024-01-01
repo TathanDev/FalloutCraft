@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "falloutcraft:wastedlands_preset"
+    "falloutcraft:wastedlands_preset",
+    "falloutcraft:test"
   ]
 }

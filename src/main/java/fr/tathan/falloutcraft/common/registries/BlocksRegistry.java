@@ -3,6 +3,7 @@ package fr.tathan.falloutcraft.common.registries;
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.blocks.*;
 import fr.tathan.falloutcraft.common.blocks.entity.RadiationRemoverBlockEntity;
+import fr.tathan.falloutcraft.common.worldgen.features.tree.BurntOakTreeGrower;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.IrradiatedOakGrower;
 import fr.tathan.falloutcraft.common.worldgen.features.tree.PoisonedJungleTreeGrower;
 import net.minecraft.world.effect.MobEffects;
@@ -25,6 +26,8 @@ public class BlocksRegistry {
                 return 12;
             })));
 
+    public static final RegistryObject<Block>  PAPERS_ON_THE_GROUND = BLOCKS.register("papers_on_the_ground",
+            () -> new PapersOnTheGround(BlockBehaviour.Properties.copy(Blocks.CYAN_CARPET).instabreak().noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> IRRADIATED_OAK_SAPLING = BLOCKS.register("irradiated_oak_sapling",
             () -> new SaplingBlock(new IrradiatedOakGrower(),
@@ -33,7 +36,6 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> POISONED_JUNGLE_SAPLING = BLOCKS.register("poisoned_jungle_sapling",
             () -> new SaplingBlock(new PoisonedJungleTreeGrower(),
                     BlockBehaviour.Properties.copy(Blocks.JUNGLE_SAPLING)));
-
 
     public static final RegistryObject<Block> NUKA_COLA_MACHINE = BLOCKS.register("nuka_cola_machine",
             () -> new NukaColaMachine(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
@@ -44,8 +46,6 @@ public class BlocksRegistry {
     //May Fix the Cave Block issue
     public static final RegistryObject<Block> RADIOACTIVA = BLOCKS.register("radioactiva",
             () -> new RadioactivaFlower(MobEffects.GLOWING,  BlockBehaviour.Properties.copy(Blocks.DANDELION)));
-
-
 
     public static final RegistryObject<Block> POTTED_RADIOACTIVA = BLOCKS.register("potted_radioactiva",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BlocksRegistry.RADIOACTIVA,
@@ -60,12 +60,24 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> POISONED_GRASS = BLOCKS.register("poisoned_grass",
             () -> new PoisonedVegetation(MobEffects.GLOWING, 40, BlockBehaviour.Properties.of(Material.GRASS, MaterialColor.GRASS).noCollission()));
 
+    public static final RegistryObject<Block> ASH = BLOCKS.register("ash",
+            () -> new SnowLayerBlock(BlockBehaviour.Properties.of(Material.TOP_SNOW).randomTicks().strength(0.1F).requiresCorrectToolForDrops().sound(SoundType.SNOW).isViewBlocking((p_187417_, p_187418_, p_187419_) -> {
+        return p_187417_.getValue(SnowLayerBlock.LAYERS) >= 8;
+    }).lightLevel((p_50872_) -> {
+        return 3;
+    })));
+    public static final RegistryObject<Block> ASH_BLOCK = BLOCKS.register("ash_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.SNOW).requiresCorrectToolForDrops().strength(0.2F).sound(SoundType.SNOW).lightLevel((p_50872_) -> {
+                return 3;
+            })));
 
 
     /** Decorations Blocks */
-    public static final RegistryObject<Block>  PAPERS_ON_THE_GROUND = BLOCKS.register("papers_on_the_ground",
-            () -> new PapersOnTheGround(BlockBehaviour.Properties.copy(Blocks.CYAN_CARPET).instabreak().noOcclusion().noCollission()));
-
+    public static final RegistryObject<Block> BURNT_OAK_LOG = BLOCKS.register("burnt_oak_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    public static final RegistryObject<Block> BURNT_OAK_SAPLING = BLOCKS.register("burnt_oak_sapling",
+            () -> new SaplingBlock(new BurntOakTreeGrower(),
+                    BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
     public static final RegistryObject<Block>  VAULT_BUTTONS = BLOCKS.register("vault_buttons",
             () -> new VaultButtons(true, BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).instabreak()));

@@ -1,0 +1,31 @@
+{
+  "parent": "falloutcraft:falloutcraft",
+  "display": {
+    "icon": {
+      "item": "falloutcraft:nuka_cola_machine"
+    },
+    "title": {
+      "translate": "advancements.nuka_cola_machine.title"
+    },
+    "description": {
+      "translate": "advancements.nuka_cola_machine.descr"
+    },
+    "frame": "task",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "falloutcraft:nuka_cola_machine"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

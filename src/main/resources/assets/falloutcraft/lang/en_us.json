@@ -15,18 +15,25 @@
 
   "item.falloutcraft.stimpak": "Stimpak",
   "item.falloutcraft.radaway": "Radaway",
+  "item.falloutcraft.geiger_counter": "Geiger Counter",
 
-
-  "item.falloutcraft.pimp_boy": "Pimp Boy 300",
+  "item.falloutcraft.pimp_boy": "Pimp Boy 3000",
+  "item.falloutcraft.pip_boy": "Pip Boy 3000",
 
 
   "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
   "block.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
   "block.falloutcraft.nuka_cola_machine": "Nuka Cola Machine",
   "block.falloutcraft.vault_trapdoor": "Vault Trapdoor",
+  "block.falloutcraft.ash": "Ash",
+  "block.falloutcraft.ash_block": "Ash Block",
+  "block.falloutcraft.poisoned_grass": "Ash Block",
+  "block.falloutcraft.bunrt_oak_log": "Burnt Oak Wood",
 
   "block.falloutcraft.radioactiva": "Radioactiva",
   "block.falloutcraft.potted_radioactiva": "Potted Radioactiva",
+  "block.falloutcraft.quickdirt": "Quickdirt",
+  "block.falloutcraft.quicksand": "Quicksand",
 
   "container.falloutcraft.nukacola_machine": "Nuka Cola Machine",
 
@@ -55,6 +62,21 @@
 
   "message.falloutcraft.radaway.no_item": "You don't have any item in your off hand",
   "message.falloutcraft.radaway.no_radiation": "%s doesn't have any radiation",
-  "generator.falloutcraft.wastelands_preset": "Wastelands"
+  "generator.falloutcraft.wastelands_preset": "Wastelands",
+
+  "advancements.falloutcraft.title": "The Vault Player ",
+  "advancements.falloutcraft.descr": "The one who survive",
+
+  "advancements.pimp_boy.title": "Pimp my Pip Boy",
+  "advancements.pimp_boy.descr": "Craft a shiny Pimp Boy",
+
+  "advancements.nuka_cola_machine.title": "The old machine",
+  "advancements.nuka_cola_machine.descr": "Craft the nuka cola machine",
+
+  "advancements.nuka_cola.title": "Damn that's good !",
+  "advancements.nuka_cola.descr": "Drink a delicious drink",
+
+  "advancements.nuka_cola_berry.title": "A new flavour !",
+  "advancements.nuka_cola_berry.descr": "Very good but not better that the original"
 
 }

@@ -9,6 +9,7 @@ import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import fr.tathan.falloutcraft.common.registries.MenuTypes;
+import fr.tathan.falloutcraft.common.registries.TagsRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -76,7 +77,7 @@ public class ClientEventHandlers {
 
                     if (CommonConfig.pimpBoyUtilisation.get()) {
 
-                        if (mainHand.getItem() == ItemsRegistry.PIMP_BOY.get() || offHand.getItem() == ItemsRegistry.PIMP_BOY.get()) {
+                        if (mainHand.is(TagsRegistry.IS_PIP_BOY) || offHand.is(TagsRegistry.IS_PIP_BOY)) {
                             return;
                         }
 

@@ -1,0 +1,31 @@
+{
+  "parent": "falloutcraft:falloutcraft",
+  "display": {
+    "icon": {
+      "item": "falloutcraft:pimp_boy"
+    },
+    "title": {
+      "translate": "advancements.pimp_boy.title"
+    },
+    "description": {
+      "translate": "advancements.pimp_boy.descr"
+    },
+    "frame": "task",
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "falloutcraft:pimp_boy"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

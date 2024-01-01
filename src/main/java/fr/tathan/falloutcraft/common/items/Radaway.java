@@ -39,7 +39,6 @@ public class Radaway extends Item {
 
             }
 
-
         return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
 
     }

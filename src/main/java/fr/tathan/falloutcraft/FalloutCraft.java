@@ -54,12 +54,12 @@ public class FalloutCraft
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.CONFIG);
 
-
+        BlocksRegistry.BLOCKS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);
         ItemsRegistry.POTIONS.register(modEventBus);
+        FeatureRegistry.FEATURES.register(modEventBus);
         EffectsRegistry.MOB_EFFECTS.register(modEventBus);
         PaintingsRegistry.PAINTING_VARIANTS.register(modEventBus);
-        BlocksRegistry.BLOCKS.register(modEventBus);
         FluidsRegistry.FLUIDS.register(modEventBus);
         ModFluidTypes.FLUID_TYPES.register(modEventBus);
         BiomesRegistry.BIOME_REGISTER.register(modEventBus);
@@ -72,7 +72,6 @@ public class FalloutCraft
         ModLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
         PotionsRegistry.POTIONS.register(modEventBus);
         VillagerRegistry.register(modEventBus);
-
 
         BiomesRegistry.registerBiomes();
 

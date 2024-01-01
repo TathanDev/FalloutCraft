@@ -7,6 +7,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -48,11 +49,16 @@ public class ItemsRegistry {
 
     public static final RegistryObject<BlockItem> RADIATION_REMOVER_ITEM = ITEMS.register("radiation_remover", () -> new BlockItem(BlocksRegistry.RADIATION_REMOVER.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> VAULT_BUTTONS = ITEMS.register("vault_buttons", () -> new BlockItem(BlocksRegistry.VAULT_BUTTONS.get(), new Item.Properties()));
-    public static final RegistryObject<BlockItem> QUICKSAND = ITEMS.register("quicksand", () -> new BlockItem(BlocksRegistry.QUICKSAND.get(), new Item.Properties()));
-    public static final RegistryObject<BlockItem> QUICKDIRT = ITEMS.register("quickdirt", () -> new BlockItem(BlocksRegistry.QUICKDIRT.get(), new Item.Properties()));
-    public static final RegistryObject<BlockItem> POISONED_GRASS = ITEMS.register("poisoned_grass", () -> new BlockItem(BlocksRegistry.POISONED_GRASS.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> QUICKSAND = ITEMS.register("quicksand", () -> new BlockItem(BlocksRegistry.QUICKSAND.get(), new Item.Properties().tab(TabsRegistry.TAB)));
+    public static final RegistryObject<BlockItem> QUICKDIRT = ITEMS.register("quickdirt", () -> new BlockItem(BlocksRegistry.QUICKDIRT.get(), new Item.Properties().tab(TabsRegistry.TAB)));
+    public static final RegistryObject<BlockItem> POISONED_GRASS = ITEMS.register("poisoned_grass", () -> new BlockItem(BlocksRegistry.POISONED_GRASS.get(), new Item.Properties().tab(TabsRegistry.TAB)));
+    public static final RegistryObject<BlockItem> ASH = ITEMS.register("ash", () -> new BlockItem(BlocksRegistry.ASH.get(), new Item.Properties().tab(TabsRegistry.TAB)));
+    public static final RegistryObject<BlockItem> ASH_BLOCK = ITEMS.register("ash_block", () -> new BlockItem(BlocksRegistry.ASH_BLOCK.get(), new Item.Properties().tab(TabsRegistry.TAB)));
+    public static final RegistryObject<BlockItem> BURNT_OAK_LOG = ITEMS.register("burnt_oak_log", () -> new BlockItem(BlocksRegistry.BURNT_OAK_LOG.get(), new Item.Properties()));
 
-    public static final RegistryObject<Item> PIMP_BOY = ITEMS.register("pimp_boy", () -> new PimpBoy(new Item.Properties().tab(TabsRegistry.TAB).stacksTo(1)));
+    public static final RegistryObject<Item> PIP_BOY = ITEMS.register("pip_boy", () -> new PipBoy(new Item.Properties().stacksTo(1).tab(TabsRegistry.TAB)));
+
+    public static final RegistryObject<Item> PIMP_BOY = ITEMS.register("pimp_boy", () -> new PipBoy(new Item.Properties().stacksTo(1).tab(TabsRegistry.TAB)));
 
     public static final RegistryObject<Item> HAZMAT_MASK = ITEMS.register("hazmat_mask",
             () -> new ArmorItem(ArmorMaterials.HAZMAT, EquipmentSlot.HEAD,

@@ -2,6 +2,8 @@ package fr.tathan.falloutcraft.common.worldgen;
 
 import fr.tathan.falloutcraft.common.worldgen.features.FalloutPlacedFeatures;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
+import net.minecraft.data.worldgen.biome.OverworldBiomes;
+import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.Musics;
 import net.minecraft.util.Mth;
@@ -43,7 +45,6 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDefaultUndergroundVariety(builder);
         BiomeDefaultFeatures.addDefaultSprings(builder);
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
-        addLakes(builder);
     }
 
     public static Biome radioactivePlains()
@@ -63,6 +64,8 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
+        addLakes(biomeBuilder);
+
         calculateSkyColor(6415715);
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
@@ -83,6 +86,8 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDesertExtraVegetation(biomeBuilder);
         BiomeDefaultFeatures.addDesertExtraDecoration(biomeBuilder);
         BiomeDefaultFeatures.addAncientDebris(biomeBuilder);
+        addLakes(biomeBuilder);
+
 
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 6415715, 6415715, spawnBuilder, biomeBuilder, APOCALYPTIC_MUSIC);
     }
@@ -94,36 +99,55 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.baseJungleSpawns(mobspawnsetting);
 
 
-        BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder();
-        globalOverworldGeneration(biomegenerationsettings$builder);
-        BiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
-        BiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
 
 
         //BiomeDefaultFeatures.addJungleGrass(biomegenerationsettings$builder);
-        BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
-        BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
-        BiomeDefaultFeatures.addJungleVines(biomegenerationsettings$builder);
-        jungleFeatures(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(biomeBuilder);
+        BiomeDefaultFeatures.addJungleVines(biomeBuilder);
+        jungleFeatures(biomeBuilder);
+        addLakes(biomeBuilder);
 
 
 
+
+
+
+        return biome(Biome.Precipitation.NONE, 2.0F, 0.0F, 6415715, 6415715, mobspawnsetting, biomeBuilder, APOCALYPTIC_MUSIC);
+    }
+    public static Biome ashLand()
+    {
+
+        MobSpawnSettings.Builder mobspawnsetting = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.baseJungleSpawns(mobspawnsetting);
+
+
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
+        //biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.BURNT_OAK_PLACED.getHolder().get());
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.RADIATED_WATER_LAKE_ASH.getHolder().get());
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, FalloutPlacedFeatures.ASH_TOP_LAYER.getHolder().get());
 
 
         return biome(Biome.Precipitation.NONE, 2.0F, 0.0F, 6415715, 6415715, mobspawnsetting, biomegenerationsettings$builder, APOCALYPTIC_MUSIC);
     }
 
-
     public static void addLakes(BiomeGenerationSettings.Builder biomeBuilder) {
         biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKSAND_LAKE.getHolder().get());
-       biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKDIRT_LAKE.getHolder().get());
-       biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.RADIATED_WATER_LAKE.getHolder().get());
+        biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.QUICKDIRT_LAKE.getHolder().get());
+        biomeBuilder.addFeature(GenerationStep.Decoration.LAKES, FalloutPlacedFeatures.RADIATED_WATER_LAKE.getHolder().get());
 
    }
 
    public static void jungleFeatures(BiomeGenerationSettings.Builder biomeBuilder) {
        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.POISONED_JUNGLE_TREE_PLACED_KEY.getHolder().get());
        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, FalloutPlacedFeatures.POISONED_GRASS_PATCH.getHolder().get());
+       biomeBuilder.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, FalloutPlacedFeatures.ASH_TOP_LAYER.getHolder().get());
    }
 
 }

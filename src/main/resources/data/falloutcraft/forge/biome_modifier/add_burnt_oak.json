@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "falloutcraft:ash_land",
+  "features": "falloutcraft:burnt_oak_placed",
+  "step": "vegetal_decoration"
+}

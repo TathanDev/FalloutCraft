@@ -1,0 +1,109 @@
+{
+  "dimensions": {
+    "minecraft:overworld": {
+      "type": "minecraft:overworld",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "falloutcraft:wastelands",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "biomes": [
+            {
+              "biome": "falloutcraft:radioactive_plains",
+              "parameters": {
+                "temperature": 1,
+                "humidity": 0,
+                "continentalness": 1,
+                "erosion": 0,
+                "weirdness": 0.1,
+                "depth": 0,
+                "offset": 0
+              }
+            },
+            {
+              "biome": "falloutcraft:radioactive_forest",
+              "parameters": {
+                "temperature": 1,
+                "humidity": 0.5,
+                "continentalness": 0.5,
+                "erosion": 0,
+                "weirdness": 0,
+                "depth": 0,
+                "offset": 0
+              }
+            },
+            {
+              "biome": "falloutcraft:poisoned_jungle",
+              "parameters": {
+                "temperature": 1.5,
+                "humidity": 1,
+                "continentalness": -1,
+                "erosion": 0,
+                "weirdness": 0,
+                "depth": 0,
+                "offset": 0
+              }
+            },
+            {
+              "biome": "falloutcraft:ash_land",
+              "parameters": {
+                "temperature": 2,
+                "humidity": -1,
+                "continentalness": 0,
+                "erosion": 0,
+                "weirdness": 0,
+                "depth": 0,
+                "offset": 0
+              }
+            },
+            {
+              "biome": "minecraft:badlands",
+              "parameters": {
+                "temperature": 1,
+                "humidity": -1,
+                "continentalness": 0,
+                "erosion": 0,
+                "weirdness": 0,
+                "depth": 0,
+                "offset": 0
+              }
+            },
+            {
+              "biome": "minecraft:desert",
+              "parameters": {
+                "temperature": 1,
+                "humidity": -1,
+                "continentalness": 0,
+                "erosion": 0,
+                "weirdness": 0,
+                "depth": 0,
+                "offset": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:the_nether": {
+      "type": "minecraft:the_nether",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "minecraft:nether",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "preset": "minecraft:nether"
+        }
+      }
+    },
+    "minecraft:the_end": {
+      "type": "minecraft:the_end",
+      "generator": {
+        "type": "minecraft:noise",
+        "settings": "minecraft:end",
+        "biome_source": {
+          "type": "minecraft:the_end"
+        }
+      }
+    }
+  }
+}

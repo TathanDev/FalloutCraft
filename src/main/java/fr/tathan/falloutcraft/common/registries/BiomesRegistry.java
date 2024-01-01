@@ -21,6 +21,7 @@ public class BiomesRegistry {
         register(FalloutBiomes.RADIOACTIVE_PLAINS, FalloutOverworldBiomes::radioactivePlains);
         register(FalloutBiomes.RADIOACTIVE_FOREST, FalloutOverworldBiomes::radioactiveForest);
         register(FalloutBiomes.POISONED_JUNGLE, FalloutOverworldBiomes::poisonedJungle);
+        register(FalloutBiomes.ASH_LAND, FalloutOverworldBiomes::ashLand);
 
     }
 
