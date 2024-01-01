@@ -63,6 +63,7 @@ public class FalloutCraft
         PotionsRegistry.POTIONS.register(modEventBus);
         VillagerRegistry.register(modEventBus);
         FeatureRegistry.FEATURES.register(modEventBus);
+        EnchantmentRegistry.ENCHANTMENT.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
