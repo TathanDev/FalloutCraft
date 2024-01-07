@@ -4,9 +4,11 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id "com.modrinth.minotaur" version "2.+"
-
-
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
+
+apply plugin: 'org.spongepowered.mixin'
+
 
 version = "${falloutcraft_version}"
 group = 'fr.tathan.falloutcraft'
@@ -30,8 +32,8 @@ minecraft {
 
             property 'forge.enabledGameTestNamespaces', 'falloutcraft'
 
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            //property 'mixin.env.remapRefMap', 'true'
+            //property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
 
             mods {
@@ -49,8 +51,8 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             property 'forge.enabledGameTestNamespaces', 'falloutcraft'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            //property 'mixin.env.remapRefMap', 'true'
+            //property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
 
 
@@ -84,8 +86,8 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            //property 'mixin.env.remapRefMap', 'true'
+            //property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
 
             args '--mod', 'falloutcraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
@@ -97,6 +99,13 @@ minecraft {
             }
         }
     }
+}
+
+
+mixin {
+    add(sourceSets.main, "falloutcraft.refmap.json")
+
+    config("falloutcraft.mixins.json")
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -140,11 +149,9 @@ dependencies {
 
     //implementation fg.deobf("curse.maven:celestial-661111:4139936")
    // implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.19')
-
-
-
-
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
+
 
 jar {
     manifest {

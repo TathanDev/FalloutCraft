@@ -15,11 +15,13 @@ public class RadiationsEffect extends MobEffect {
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
 
         if (pAmplifier == 0) {
+
             pLivingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 0, false, false, false));
             pLivingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 10, 0, false, false, false));
 
             super.applyEffectTick(pLivingEntity, pAmplifier);
         } else if (pAmplifier == 1) {
+
             pLivingEntity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 10, 1, false, false, false));
             pLivingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 10, 1, false, false, false));
             pLivingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 10, 1, false, false, false));
