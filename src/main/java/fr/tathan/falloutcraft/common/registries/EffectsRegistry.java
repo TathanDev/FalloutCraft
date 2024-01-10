@@ -15,7 +15,7 @@ public class EffectsRegistry {
             = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, FalloutCraft.MODID);
 
     public static final RegistryObject<MobEffect> RADIATION = MOB_EFFECTS.register("radiations",
-            () -> new RadiationsEffect(MobEffectCategory.HARMFUL, 3124687));
+            () -> new RadiationsEffect(MobEffectCategory.HARMFUL, 5882118));
 
 
 }

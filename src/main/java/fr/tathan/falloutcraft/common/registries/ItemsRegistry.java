@@ -14,7 +14,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class ItemsRegistry {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, FalloutCraft.MODID);
-    public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, FalloutCraft.MODID);
 
     public static final RegistryObject<Item> NUKA_COLA_CLASSIC = ITEMS.register("nuka_cola",
             () -> new NukaCola(new Item.Properties().food(new FoodProperties.Builder().fast().nutrition(2).saturationMod(0.2F).build()).stacksTo(16), MobEffects.MOVEMENT_SPEED));

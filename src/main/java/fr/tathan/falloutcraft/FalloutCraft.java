@@ -48,7 +48,6 @@ public class FalloutCraft
 
         EffectsRegistry.MOB_EFFECTS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);
-        ItemsRegistry.POTIONS.register(modEventBus);
         TabsRegistry.CREATIVE_MODE_TABS.register(modEventBus);
         PaintingsRegistry.PAINTING_VARIANTS.register(modEventBus);
         BlocksRegistry.BLOCKS.register(modEventBus);
@@ -126,7 +125,7 @@ public class FalloutCraft
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MODID, FalloutSurfaceRuleData.makeRules());
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD,
-                    ItemsRegistry.NUKA_COLA_CLASSIC.get(), PotionsRegistry.RADIATION_POTION.get()));
+                    ItemsRegistry.RADIOACTIVA.get(), PotionsRegistry.RADIATION_POTION.get()));
 
         });
 

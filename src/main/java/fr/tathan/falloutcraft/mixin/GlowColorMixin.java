@@ -3,12 +3,12 @@ package fr.tathan.falloutcraft.mixin;
 import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.extensions.IForgeLivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.Inject;
 
 @Mixin (LivingEntity.class)
 public abstract class GlowColorMixin extends Entity implements Attackable, IForgeLivingEntity {

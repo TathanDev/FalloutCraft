@@ -14,7 +14,7 @@ public class PotionsRegistry {
             = DeferredRegister.create(ForgeRegistries.POTIONS, FalloutCraft.MODID);
 
     public static final RegistryObject<Potion> RADIATION_POTION = POTIONS.register("radiation_potion",
-            () -> new Potion(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 200, 0)));
+            () -> new Potion(new MobEffectInstance(EffectsRegistry.RADIATION.get(), 1000, 0)));
 
 
 
