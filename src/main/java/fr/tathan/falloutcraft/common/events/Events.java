@@ -4,18 +4,13 @@ package fr.tathan.falloutcraft.common.events;
 import fr.tathan.falloutcraft.FalloutCraft;
 import fr.tathan.falloutcraft.common.commands.RadiationItemCommand;
 import fr.tathan.falloutcraft.common.config.CommonConfig;
-//import fr.tathan.falloutcraft.common.entity.radroaches.RadroachEntity;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
-import fr.tathan.falloutcraft.common.network.ModMessages;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
 import fr.tathan.falloutcraft.common.registries.*;
 import fr.tathan.falloutcraft.common.util.Methods;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -27,9 +22,9 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.ItemStackedOnOtherEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -48,7 +43,6 @@ public class Events {
 
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
-
         if (event.phase == TickEvent.Phase.END) {
             Player player = event.player;
             Level level = player.level();
@@ -204,13 +198,11 @@ public class Events {
 
     }
 
-/**
-    @Mod.EventBusSubscriber(modid = FalloutCraft.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class ModEventBusEvents {
-        @SubscribeEvent
-        public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
-            event.put(EntityTypes.RADROACH.get(), RadroachEntity.setAttributes());
+    @SubscribeEvent
+    public static void onItemStack(ItemStackedOnOtherEvent event) {
+
+        if (Methods.canStacksCanStack(event.getStackedOnItem(), event.getCarriedItem())) {
+            event.setCanceled(Methods.setRadiationFromStack(event.getStackedOnItem(), event.getCarriedItem()));
         }
     }
-    */
 }

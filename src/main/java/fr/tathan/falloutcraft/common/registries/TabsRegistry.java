@@ -15,8 +15,5 @@ public class TabsRegistry {
     public static final RegistryObject<CreativeModeTab> FALLOUTCRAFT_TAB = CREATIVE_MODE_TABS.register("falloutcraft_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get()))
                     .title(Component.literal("Falloutcraft")).build());
-    public static final RegistryObject<CreativeModeTab> FALLOUTCRAFT_DECORATIONS_TAB = CREATIVE_MODE_TABS.register("falloutcraft_deco_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemsRegistry.NUKA_COLA_CLASSIC.get()))
-                    .title(Component.literal("Falloutcraft Deco")).build());
 
 }

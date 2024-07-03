@@ -31,5 +31,4 @@ public class ModFluidTypes {
     public static void register(IEventBus eventBus) {
         FLUID_TYPES.register(eventBus);
     }
-
 }
