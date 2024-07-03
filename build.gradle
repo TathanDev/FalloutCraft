@@ -187,13 +187,21 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 modrinth {
-    token = System.getenv("MODRINTH_TOKEN") // Remember to have the MODRINTH_TOKEN environment variable set or else this will fail - just make sure it stays private!
-    projectId = "falloutcraft" // This can be the project ID or the slug. Either will work!
-    versionNumber = "${falloutcraft_version}" // You don't need to set this manually. Will fail if Modrinth has this version already
-    versionType = "beta" // This is the default -- can also be `beta` or `alpha`
-    uploadFile = jar // With Loom, this MUST be set to `remapJar` instead of `jar`!
-    gameVersions = ["${minecraft_version}"] // Must be an array, even with only one version
-    loaders = ["forge"] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
-    changelog = "1.20.1 Port\n This version may have some features that are not in the full version like villagers" // Optional
-
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "falloutcraft"
+    versionNumber = "${falloutcraft_version}"
+    versionType = "beta"
+    uploadFile = jar
+    gameVersions = ["${minecraft_version}"]
+    loaders = ["forge"]
+    changelog = """
+                - A Retexturing of items !
+                 - Nuka Cola
+                 - Hazmat Suit
+                 - Bottle Caps
+                 - Ash Blocks
+                - When throwing in radiated water, an item will have 10 of radioactivity
+                - When stacking an item with less radioactivity than an other, they can merge but they will have the radioactivty level of the item with the highest rad level
+                - A new music disc
+        """
 }
