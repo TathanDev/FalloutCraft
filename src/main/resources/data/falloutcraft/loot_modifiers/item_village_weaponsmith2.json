@@ -1,0 +1,11 @@
+{
+  "type": "falloutcraft:add_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/village/village_weaponsmith"
+    }
+  ],
+  "item": "falloutcraft:an_old_song_music_dic",
+  "multiplier": 1
+}

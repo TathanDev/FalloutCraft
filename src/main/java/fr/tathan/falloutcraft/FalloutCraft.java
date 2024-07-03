@@ -46,6 +46,7 @@ public class FalloutCraft
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.CONFIG);
 
+        SoundsRegistry.SOUND_EVENTs.register(modEventBus);
         EffectsRegistry.MOB_EFFECTS.register(modEventBus);
         ItemsRegistry.ITEMS.register(modEventBus);
         TabsRegistry.CREATIVE_MODE_TABS.register(modEventBus);
@@ -102,13 +103,10 @@ public class FalloutCraft
             event.accept(ItemsRegistry.ASH);
             event.accept(ItemsRegistry.ASH_BLOCK);
             event.accept(ItemsRegistry.BURNT_OAK_LOG);
-
-        }
-
-        if(event.getTab() == TabsRegistry.FALLOUTCRAFT_DECORATIONS_TAB.get()) {
             event.accept(ItemsRegistry.PAPERS_ON_THE_GROUND_ITEM);
-            event.accept(ItemsRegistry.VAULT_BUTTONS);
+
         }
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
