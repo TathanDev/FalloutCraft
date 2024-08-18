@@ -17,6 +17,7 @@ public class CommonConfig {
     public static ForgeConfigSpec.ConfigValue<Boolean> usePimpBoy;
     public static ForgeConfigSpec.ConfigValue<Boolean> pimpBoyUtilisation;
     public static ForgeConfigSpec.ConfigValue<Boolean> itemRadiationDamage;
+    public static ForgeConfigSpec.ConfigValue<Boolean> stackFix;
 
 
 
@@ -25,6 +26,7 @@ public class CommonConfig {
         itemRadiationDamage = builder.comment("Set this to true if you want to make the item damage the player if the item has radiation !").define("itemRadiationDamage", true);
         usePimpBoy = builder.comment("Set this to true if you want to use the Pimp Boy mechanic !").define("usePimpBoy", true);
         pimpBoyUtilisation = builder.comment("If you want to force the player to have the Pimp Boy in there hand for opening the inventory, set this to true").define("pimpBoyUtilisation", true);
+        stackFix = builder.comment("Allow player to stack item with lower rad level on items with higher with higher Rad level").define("stackFix", true);
 
     }
 

@@ -80,7 +80,32 @@ public class Methods {
         return level.dimension() == loc;
     }
 
+    public static boolean canStacksCanStack(ItemStack stack1, ItemStack stack2) {
 
+        if (stack1.getItem().equals(stack2.getItem())) {
+            if (stack1.getCount() + stack2.getCount() <= stack1.getMaxStackSize()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public static boolean setRadiationFromStack(ItemStack stack1, ItemStack stack2) {
+        ItemRadiation radiation1 = stack1.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
+        ItemRadiation radiation2 = stack2.getCapability(ItemRadiationProvider.ITEM_RADIATION).orElse(null);
 
+        if (radiation2.getRadiation() == radiation1.getRadiation()) {
+            return false;
+        }
+
+        if (radiation1.getRadiation() > radiation2.getRadiation()) {
+
+            stack1.setCount(stack1.getCount() + stack2.getCount());
+            stack2.setCount(0);
+            return false;
+
+        }
+
+        return false;
+    }
 }

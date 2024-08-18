@@ -27,6 +27,7 @@ import net.minecraftforge.client.event.RenderGuiEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.ItemStackedOnOtherEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -166,6 +167,13 @@ public class Events {
 
     }
 
+    @SubscribeEvent
+    public static void onItemStack(ItemStackedOnOtherEvent event) {
+        if (!CommonConfig.stackFix.get()) return;
+        if (Methods.canStacksCanStack(event.getStackedOnItem(), event.getCarriedItem())) {
+            event.setCanceled(Methods.setRadiationFromStack(event.getStackedOnItem(), event.getCarriedItem()));
+        }
+    }
 
 /**
     @Mod.EventBusSubscriber(modid = FalloutCraft.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
