@@ -1,8 +1,9 @@
 plugins {
     id 'eclipse'
     id 'maven-publish'
-     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '5.1.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id "me.modmuss50.mod-publish-plugin" version "0.4.0"
 
 
 }
@@ -173,4 +174,33 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+publishMods {
+    file = jar.archiveFile
+    modLoaders.add("forge")
+    changelog = "- Add fix for stack"
+    type = STABLE
+
+    curseforge {
+        accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+        projectId = "719457"
+        minecraftVersions.add("1.20.1")
+        projectSlug = "falloutcraft"
+
+    }
+
+    modrinth {
+        projectId = "ugBW4EBl"
+        accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+        minecraftVersions.add("1.19.2")
+    }
+
+    discord {
+        webhookUrl = providers.environmentVariable("DISCORD_WEBHOOK")
+        username = "New Mod Version !"
+        avatarUrl = "https://media.discordapp.net/attachments/978717923948499055/1188894743304871947/image.png"
+        content = changelog.map { "# Falloutcraft " + falloutcraft_version + " is out ! \n" + it}
+    }
+
 }
